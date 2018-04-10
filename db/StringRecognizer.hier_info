@@ -1,12 +1,12 @@
 |mario
-r[0] <= eightbit:e1.r[0]
-r[1] <= eightbit:e1.r[1]
-r[2] <= eightbit:e1.r[2]
-r[3] <= eightbit:e1.r[3]
-r[4] <= eightbit:e1.r[4]
-r[5] <= eightbit:e1.r[5]
-r[6] <= eightbit:e1.r[6]
-r[7] <= eightbit:e1.r[7]
+r[0] << eightbit:e1.r[0]
+r[1] << eightbit:e1.r[1]
+r[2] << eightbit:e1.r[2]
+r[3] << eightbit:e1.r[3]
+r[4] << eightbit:e1.r[4]
+r[5] << eightbit:e1.r[5]
+r[6] << eightbit:e1.r[6]
+r[7] << eightbit:e1.r[7]
 i1 => GestureRecognizer:gr1.i1
 i2 => GestureRecognizer:gr1.i2
 i3 => GestureRecognizer:gr1.i3
