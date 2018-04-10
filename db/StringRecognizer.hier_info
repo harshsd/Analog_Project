@@ -1,0 +1,127 @@
+|StringRecognizer
+i1 => gesturerecog:g1.i1
+i1 => gesturerecog:g2.i2
+i2 => gesturerecog:g1.i2
+i2 => gesturerecog:g2.i1
+i3 => gesturerecog:g3.i1
+i3 => gesturerecog:g4.i2
+i4 => gesturerecog:g3.i2
+i4 => gesturerecog:g4.i1
+reset => gesturerecog:g1.reset
+reset => gesturerecog:g2.reset
+reset => gesturerecog:g3.reset
+reset => gesturerecog:g4.reset
+clk => gesturerecog:g1.clk
+clk => gesturerecog:g2.clk
+clk => gesturerecog:g3.clk
+clk => gesturerecog:g4.clk
+rl <= gesturerecog:g1.Q
+lr <= gesturerecog:g2.Q
+tb <= gesturerecog:g3.Q
+bt <= gesturerecog:g4.Q
+
+
+|StringRecognizer|gesturerecog:g1
+i1 => nq0.IN1
+i1 => nq1.IN1
+i2 => nq1.IN1
+i2 => nq0.IN1
+reset => D_FF:d1.reset
+reset => D_FF:d2.reset
+clk => D_FF:d1.CLK
+clk => D_FF:d2.CLK
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g1|D_FF:d1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g1|D_FF:d2
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g2
+i1 => nq0.IN1
+i1 => nq1.IN1
+i2 => nq1.IN1
+i2 => nq0.IN1
+reset => D_FF:d1.reset
+reset => D_FF:d2.reset
+clk => D_FF:d1.CLK
+clk => D_FF:d2.CLK
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g2|D_FF:d1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g2|D_FF:d2
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g3
+i1 => nq0.IN1
+i1 => nq1.IN1
+i2 => nq1.IN1
+i2 => nq0.IN1
+reset => D_FF:d1.reset
+reset => D_FF:d2.reset
+clk => D_FF:d1.CLK
+clk => D_FF:d2.CLK
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g3|D_FF:d1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g3|D_FF:d2
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g4
+i1 => nq0.IN1
+i1 => nq1.IN1
+i2 => nq1.IN1
+i2 => nq0.IN1
+reset => D_FF:d1.reset
+reset => D_FF:d2.reset
+clk => D_FF:d1.CLK
+clk => D_FF:d2.CLK
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g4|D_FF:d1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|StringRecognizer|gesturerecog:g4|D_FF:d2
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

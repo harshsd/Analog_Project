@@ -1,0 +1,193 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/harsh/Desktop/Analog-Project/simulation/modelsim
+Ed_ff
+Z1 w1523287917
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 DPx4 work 5 harsh 0 22 <]nI;ldX:JWO51`R:Wo823
+R0
+Z5 8/home/harsh/Desktop/Analog-Project/StringRecognizer.vhd
+Z6 F/home/harsh/Desktop/Analog-Project/StringRecognizer.vhd
+l0
+L23
+VWo<b<kRDf@N@jb8_K6eCF3
+!s100 XBE5BPkj?2Ukc<=WJSnzM0
+Z7 OV;C;10.5b;63
+31
+Z8 !s110 1523288015
+!i10b 1
+Z9 !s108 1523288015.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/harsh/Desktop/Analog-Project/StringRecognizer.vhd|
+Z11 !s107 /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Awhatdoyoucare
+R2
+R3
+R4
+DEx4 work 4 d_ff 0 22 Wo<b<kRDf@N@jb8_K6eCF3
+l27
+L26
+VSYS:k2JCA7O`0JUd=105<0
+!s100 >j@zHl9bXISA932O=lmb]1
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Egesturerecog
+R1
+R2
+R3
+R4
+R0
+R5
+R6
+l0
+L44
+VW>@;0XfSQD>Z^i54A2;Yl1
+!s100 m@TVfzoi_9Z]`LX5mOZUZ2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Agesture
+R2
+R3
+R4
+DEx4 work 12 gesturerecog 0 22 W>@;0XfSQD>Z^i54A2;Yl1
+l49
+L47
+V0kFN]LXMkA?`7?dMk81Sf2
+!s100 g?JDg0V9ILfIHAMS6MaBV1
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Pharsh
+R2
+R3
+R1
+R0
+R5
+R6
+l0
+L5
+V<]nI;ldX:JWO51`R:Wo823
+!s100 JSin9=:]IZlAlnCePSCEm3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Estringrecognizer
+R1
+R2
+R3
+R4
+R0
+R5
+R6
+l0
+L63
+VkFG`A9<aXNck1O;j33<M52
+!s100 :kShQe6K2^827oRn;B=2J2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Auni
+R2
+R3
+R4
+DEx4 work 16 stringrecognizer 0 22 kFG`A9<aXNck1O;j33<M52
+l67
+L66
+Vnj9Ii6YOGBk0N^[F:f@;M3
+!s100 VQYSK7;f9e>93:cLF?fnV3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Etestbench
+Z14 w1519343714
+R3
+R2
+R0
+Z15 8/home/harsh/Desktop/Analog-Project/String-Testbench.vhd
+Z16 F/home/harsh/Desktop/Analog-Project/String-Testbench.vhd
+l0
+L7
+VmFe]F][?Kg86;g8OFE6QJ2
+!s100 EbMjWlHJchzzl_d9Cb24F1
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|/home/harsh/Desktop/Analog-Project/String-Testbench.vhd|
+Z18 !s107 /home/harsh/Desktop/Analog-Project/String-Testbench.vhd|
+!i113 1
+R12
+R13
+Abehave
+R3
+R2
+DEx4 work 9 testbench 0 22 mFe]F][?Kg86;g8OFE6QJ2
+l27
+L9
+VXM4ZVzI;bk4^^TeO[YG[Z1
+!s100 <7dO5iCOLdMOAKhMG[FWi1
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13

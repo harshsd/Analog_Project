@@ -1,0 +1,9 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {/media/harsh/8CFC3022FC30094A/IIT/Digital Lab/Digital Lab 4/StringRecognizer.vhd}
+

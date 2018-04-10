@@ -1,0 +1,135 @@
+# do StringRecognizer_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying /home/harsh/intelFPGA_lite/17.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {/home/harsh/Desktop/Analog-Project/StringRecognizer.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:03:35 on Apr 09,2018
+# vcom -reportprogress 300 -93 -work work /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package harsh
+# -- Loading package harsh
+# -- Compiling entity D_FF
+# -- Compiling architecture WhatDoYouCare of D_FF
+# -- Compiling entity gesturerecog
+# -- Compiling architecture Gesture of gesturerecog
+# -- Compiling entity StringRecognizer
+# -- Compiling architecture uni of StringRecognizer
+# End time: 21:03:35 on Apr 09,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {/home/harsh/Desktop/Analog-Project/String-Testbench.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:03:35 on Apr 09,2018
+# vcom -reportprogress 300 -93 -work work /home/harsh/Desktop/Analog-Project/String-Testbench.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Testbench
+# -- Compiling architecture Behave of Testbench
+# End time: 21:03:35 on Apr 09,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  Testbench
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs=""+acc"" Testbench 
+# Start time: 21:03:35 on Apr 09,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.testbench(behave)
+# Loading work.harsh
+# Loading work.stringrecognizer(uni)
+# ** Fatal: (vsim-3817) Port "i" of entity "stringrecognizer" is not in the component being instantiated.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut File: /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd Line: 64
+# FATAL ERROR while loading design
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./StringRecognizer_run_msim_rtl_vhdl.do PAUSED at line 12
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs=\"+acc\" work.gesturerecog
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs=""+acc"" work.gesturerecog 
+# Start time: 21:03:35 on Apr 09,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.harsh
+# Loading work.gesturerecog(gesture)
+# Loading work.d_ff(whatdoyoucare)
+add wave -position insertpoint  \
+sim:/gesturerecog/i1 \
+sim:/gesturerecog/i2 \
+sim:/gesturerecog/reset \
+sim:/gesturerecog/clk \
+sim:/gesturerecog/Q \
+sim:/gesturerecog/q0 \
+sim:/gesturerecog/nq0 \
+sim:/gesturerecog/q1 \
+sim:/gesturerecog/nq1
+force -freeze sim:/gesturerecog/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/gesturerecog/i1 0 0
+force -freeze sim:/gesturerecog/i2 0 0
+force -freeze sim:/gesturerecog/reset 1 0
+run
+run
+run
+run
+force -freeze sim:/gesturerecog/i1 0 0
+force -freeze sim:/gesturerecog/i2 0 0
+force -freeze sim:/gesturerecog/reset 0 0
+run
+run
+run
+run
+force -freeze sim:/gesturerecog/i1 1 0
+force -freeze sim:/gesturerecog/i2 1 0
+force -freeze sim:/gesturerecog/reset 0 0
+run
+run
+force -freeze sim:/gesturerecog/i1 0 0
+force -freeze sim:/gesturerecog/i2 1 0
+force -freeze sim:/gesturerecog/reset 0 0
+run
+run
+force -freeze sim:/gesturerecog/i1 1 0
+force -freeze sim:/gesturerecog/i2 0 0
+force -freeze sim:/gesturerecog/reset 0 0
+run
+run
+run
+run
+force -freeze sim:/gesturerecog/i1 1 0
+force -freeze sim:/gesturerecog/i2 1 0
+force -freeze sim:/gesturerecog/reset 0 0
+run
+run
+force -freeze sim:/gesturerecog/i1 0 0
+force -freeze sim:/gesturerecog/i2 0 0
+force -freeze sim:/gesturerecog/reset 0 0
+run
+run
+run
+force -freeze sim:/gesturerecog/i1 0 0
+force -freeze sim:/gesturerecog/i2 1 0
+force -freeze sim:/gesturerecog/reset 0 0
+run
+run
+run
+force -freeze sim:/gesturerecog/i1 0 0
+force -freeze sim:/gesturerecog/i2 0 0
+force -freeze sim:/gesturerecog/reset 0 0
+run
+run
+force -freeze sim:/gesturerecog/i1 0 0
+force -freeze sim:/gesturerecog/i2 0 0
+force -freeze sim:/gesturerecog/reset 1 0
+run
+run
