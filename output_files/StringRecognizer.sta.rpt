@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for StringRecognizer
-Tue Apr 10 00:16:47 2018
+Tue Apr 10 15:46:33 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -16,19 +16,11 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   8. Recovery Summary
   9. Removal Summary
  10. Minimum Pulse Width Summary
- 11. Setup: 'clk'
- 12. Hold: 'clk'
- 13. Setup Transfers
- 14. Hold Transfers
- 15. Report TCCS
- 16. Report RSKM
- 17. Unconstrained Paths Summary
- 18. Clock Status Summary
- 19. Unconstrained Input Ports
- 20. Unconstrained Output Ports
- 21. Unconstrained Input Ports
- 22. Unconstrained Output Ports
- 23. TimeQuest Timing Analyzer Messages
+ 11. Clock Transfers
+ 12. Report TCCS
+ 13. Report RSKM
+ 14. Unconstrained Paths Summary
+ 15. TimeQuest Timing Analyzer Messages
 
 
 
@@ -81,41 +73,28 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                          ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
-; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
-; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+----------
+; Clocks ;
+----------
+No clocks to report.
 
 
-+-----------------------------------------------------------------------------------------------------------+
-; Fmax Summary                                                                                              ;
-+------------+-----------------+------------+---------------------------------------------------------------+
-; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
-+------------+-----------------+------------+---------------------------------------------------------------+
-; 496.77 MHz ; 304.04 MHz      ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
-+------------+-----------------+------------+---------------------------------------------------------------+
-This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+----------------
+; Fmax Summary ;
+----------------
+No paths to report.
 
 
-+--------------------------------+
-; Setup Summary                  ;
-+-------+--------+---------------+
-; Clock ; Slack  ; End Point TNS ;
-+-------+--------+---------------+
-; clk   ; -1.013 ; -8.084        ;
-+-------+--------+---------------+
+-----------------
+; Setup Summary ;
+-----------------
+No paths to report.
 
 
-+-------------------------------+
-; Hold Summary                  ;
-+-------+-------+---------------+
-; Clock ; Slack ; End Point TNS ;
-+-------+-------+---------------+
-; clk   ; 1.348 ; 0.000         ;
-+-------+-------+---------------+
+----------------
+; Hold Summary ;
+----------------
+No paths to report.
 
 
 --------------------
@@ -130,81 +109,16 @@ No paths to report.
 No paths to report.
 
 
-+--------------------------------+
-; Minimum Pulse Width Summary    ;
-+-------+--------+---------------+
-; Clock ; Slack  ; End Point TNS ;
-+-------+--------+---------------+
-; clk   ; -2.289 ; -2.289        ;
-+-------+--------+---------------+
+-------------------------------
+; Minimum Pulse Width Summary ;
+-------------------------------
+No paths to report.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Setup: 'clk'                                                                                                                         ;
-+--------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
-; Slack  ; From Node                 ; To Node                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+--------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
-; -1.013 ; gesturerecog:g4|D_FF:d1|Q ; gesturerecog:g4|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.742      ;
-; -1.012 ; gesturerecog:g1|D_FF:d1|Q ; gesturerecog:g1|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.741      ;
-; -1.012 ; gesturerecog:g2|D_FF:d1|Q ; gesturerecog:g2|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.741      ;
-; -1.011 ; gesturerecog:g3|D_FF:d1|Q ; gesturerecog:g3|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.740      ;
-; -1.010 ; gesturerecog:g2|D_FF:d1|Q ; gesturerecog:g2|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.739      ;
-; -1.010 ; gesturerecog:g3|D_FF:d1|Q ; gesturerecog:g3|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.739      ;
-; -1.008 ; gesturerecog:g1|D_FF:d1|Q ; gesturerecog:g1|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.737      ;
-; -1.008 ; gesturerecog:g4|D_FF:d1|Q ; gesturerecog:g4|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.737      ;
-; -0.829 ; gesturerecog:g1|D_FF:d2|Q ; gesturerecog:g1|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.558      ;
-; -0.827 ; gesturerecog:g1|D_FF:d2|Q ; gesturerecog:g1|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.556      ;
-; -0.802 ; gesturerecog:g3|D_FF:d2|Q ; gesturerecog:g3|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.531      ;
-; -0.801 ; gesturerecog:g2|D_FF:d2|Q ; gesturerecog:g2|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.530      ;
-; -0.801 ; gesturerecog:g4|D_FF:d2|Q ; gesturerecog:g4|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.530      ;
-; -0.799 ; gesturerecog:g2|D_FF:d2|Q ; gesturerecog:g2|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.528      ;
-; -0.799 ; gesturerecog:g4|D_FF:d2|Q ; gesturerecog:g4|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.528      ;
-; -0.798 ; gesturerecog:g3|D_FF:d2|Q ; gesturerecog:g3|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.527      ;
-+--------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------+
-; Hold: 'clk'                                                                                                                         ;
-+-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node                 ; To Node                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
-; 1.348 ; gesturerecog:g3|D_FF:d2|Q ; gesturerecog:g3|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.527      ;
-; 1.349 ; gesturerecog:g2|D_FF:d2|Q ; gesturerecog:g2|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.528      ;
-; 1.349 ; gesturerecog:g4|D_FF:d2|Q ; gesturerecog:g4|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.528      ;
-; 1.351 ; gesturerecog:g2|D_FF:d2|Q ; gesturerecog:g2|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.530      ;
-; 1.351 ; gesturerecog:g4|D_FF:d2|Q ; gesturerecog:g4|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.530      ;
-; 1.352 ; gesturerecog:g3|D_FF:d2|Q ; gesturerecog:g3|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.531      ;
-; 1.377 ; gesturerecog:g1|D_FF:d2|Q ; gesturerecog:g1|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.556      ;
-; 1.379 ; gesturerecog:g1|D_FF:d2|Q ; gesturerecog:g1|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.558      ;
-; 1.558 ; gesturerecog:g1|D_FF:d1|Q ; gesturerecog:g1|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.737      ;
-; 1.558 ; gesturerecog:g4|D_FF:d1|Q ; gesturerecog:g4|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.737      ;
-; 1.560 ; gesturerecog:g2|D_FF:d1|Q ; gesturerecog:g2|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.739      ;
-; 1.560 ; gesturerecog:g3|D_FF:d1|Q ; gesturerecog:g3|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.739      ;
-; 1.561 ; gesturerecog:g3|D_FF:d1|Q ; gesturerecog:g3|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.740      ;
-; 1.562 ; gesturerecog:g1|D_FF:d1|Q ; gesturerecog:g1|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.741      ;
-; 1.562 ; gesturerecog:g2|D_FF:d1|Q ; gesturerecog:g2|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.741      ;
-; 1.563 ; gesturerecog:g4|D_FF:d1|Q ; gesturerecog:g4|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.742      ;
-+-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
-
-
-+-------------------------------------------------------------------+
-; Setup Transfers                                                   ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 16       ; 0        ; 0        ; 0        ;
-+------------+----------+----------+----------+----------+----------+
-Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
-
-
-+-------------------------------------------------------------------+
-; Hold Transfers                                                    ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 16       ; 0        ; 0        ; 0        ;
-+------------+----------+----------+----------+----------+----------+
-Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+-------------------
+; Clock Transfers ;
+-------------------
+Nothing to report.
 
 
 ---------------
@@ -226,70 +140,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 5     ; 5    ;
-; Unconstrained Input Port Paths  ; 24    ; 24   ;
-; Unconstrained Output Ports      ; 4     ; 4    ;
-; Unconstrained Output Port Paths ; 8     ; 8    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 0     ; 0    ;
+; Unconstrained Output Port Paths ; 0     ; 0    ;
 +---------------------------------+-------+------+
-
-
-+-------------------------------------+
-; Clock Status Summary                ;
-+--------+-------+------+-------------+
-; Target ; Clock ; Type ; Status      ;
-+--------+-------+------+-------------+
-; clk    ; clk   ; Base ; Constrained ;
-+--------+-------+------+-------------+
-
-
-+---------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                         ;
-+------------+--------------------------------------------------------------------------------------+
-; Input Port ; Comment                                                                              ;
-+------------+--------------------------------------------------------------------------------------+
-; i1         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; i2         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; i3         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; i4         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+------------+--------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------+
-; Unconstrained Output Ports                                                                          ;
-+-------------+---------------------------------------------------------------------------------------+
-; Output Port ; Comment                                                                               ;
-+-------------+---------------------------------------------------------------------------------------+
-; bt          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; lr          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; rl          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; tb          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+-------------+---------------------------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                         ;
-+------------+--------------------------------------------------------------------------------------+
-; Input Port ; Comment                                                                              ;
-+------------+--------------------------------------------------------------------------------------+
-; i1         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; i2         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; i3         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; i4         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+------------+--------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------+
-; Unconstrained Output Ports                                                                          ;
-+-------------+---------------------------------------------------------------------------------------+
-; Output Port ; Comment                                                                               ;
-+-------------+---------------------------------------------------------------------------------------+
-; bt          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; lr          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; rl          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; tb          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+-------------+---------------------------------------------------------------------------------------+
 
 
 +------------------------------------+
@@ -298,7 +153,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Apr 10 00:16:47 2018
+    Info: Processing started: Tue Apr 10 15:46:32 2018
 Info: Command: quartus_sta StringRecognizer -c StringRecognizer
 Info: qsta_default_script.tcl version: #3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -309,32 +164,24 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'StringRecognizer.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332105): Deriving Clocks
-    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
+Warning (332068): No clocks defined in design.
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info (332159): No clocks to report
+Info (332140): No fmax paths to report
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.013
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):    -1.013              -8.084 clk 
-Info (332146): Worst-case hold slack is 1.348
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     1.348               0.000 clk 
+Info (332140): No Setup paths to report
+Info (332140): No Hold paths to report
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -2.289
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):    -2.289              -2.289 clk 
+Info (332140): No Minimum Pulse Width paths to report
 Info (332001): The selected device family is not supported by the report_metastability command.
-Info (332102): Design is not fully constrained for setup requirements
-Info (332102): Design is not fully constrained for hold requirements
+Info (332101): Design is fully constrained for setup requirements
+Info (332101): Design is fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 713 megabytes
-    Info: Processing ended: Tue Apr 10 00:16:47 2018
-    Info: Elapsed time: 00:00:00
+    Info: Peak virtual memory: 715 megabytes
+    Info: Processing ended: Tue Apr 10 15:46:33 2018
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

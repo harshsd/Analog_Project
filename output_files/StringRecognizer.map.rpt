@@ -1,5 +1,5 @@
 Analysis & Synthesis report for StringRecognizer
-Tue Apr 10 00:16:42 2018
+Tue Apr 10 15:46:23 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,13 +40,13 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Tue Apr 10 00:16:42 2018       ;
+; Analysis & Synthesis Status ; Successful - Tue Apr 10 15:46:23 2018       ;
 ; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name               ; StringRecognizer                            ;
 ; Top-level Entity Name       ; StringRecognizer                            ;
 ; Family                      ; MAX V                                       ;
-; Total logic elements        ; 12                                          ;
-; Total pins                  ; 10                                          ;
+; Total logic elements        ; 0                                           ;
+; Total pins                  ; 22                                          ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
 +-----------------------------+---------------------------------------------+
@@ -144,7 +144,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                            ; Library ;
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
-; StringRecognizer.vhd             ; yes             ; User VHDL File  ; /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd ;         ;
+; StringRecognizer.vhd             ; yes             ; User VHDL File  ; /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd ;         ;
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
 
 
@@ -153,54 +153,38 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 12    ;
-;     -- Combinational with no register       ; 4     ;
+; Total logic elements                        ; 0     ;
+;     -- Combinational with no register       ; 0     ;
 ;     -- Register only                        ; 0     ;
-;     -- Combinational with a register        ; 8     ;
+;     -- Combinational with a register        ; 0     ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 8     ;
+;     -- 4 input functions                    ; 0     ;
 ;     -- 3 input functions                    ; 0     ;
-;     -- 2 input functions                    ; 4     ;
+;     -- 2 input functions                    ; 0     ;
 ;     -- 1 input functions                    ; 0     ;
 ;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 12    ;
+;     -- normal mode                          ; 0     ;
 ;     -- arithmetic mode                      ; 0     ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
 ;     -- synchronous clear/load mode          ; 0     ;
-;     -- asynchronous clear/load mode         ; 8     ;
+;     -- asynchronous clear/load mode         ; 0     ;
 ;                                             ;       ;
-; Total registers                             ; 8     ;
-; I/O pins                                    ; 10    ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 8     ;
-; Total fan-out                               ; 60    ;
-; Average fan-out                             ; 2.73  ;
+; Total registers                             ; 0     ;
+; I/O pins                                    ; 22    ;
 +---------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                           ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------+------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                       ; Entity Name      ; Library Name ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------+------------------+--------------+
-; |StringRecognizer          ; 12 (0)      ; 8            ; 0          ; 10   ; 0            ; 4 (0)        ; 0 (0)             ; 8 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer                         ; StringRecognizer ; work         ;
-;    |gesturerecog:g1|       ; 3 (1)       ; 2            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g1         ; gesturerecog     ; work         ;
-;       |D_FF:d1|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g1|D_FF:d1 ; D_FF             ; work         ;
-;       |D_FF:d2|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g1|D_FF:d2 ; D_FF             ; work         ;
-;    |gesturerecog:g2|       ; 3 (1)       ; 2            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g2         ; gesturerecog     ; work         ;
-;       |D_FF:d1|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g2|D_FF:d1 ; D_FF             ; work         ;
-;       |D_FF:d2|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g2|D_FF:d2 ; D_FF             ; work         ;
-;    |gesturerecog:g3|       ; 3 (1)       ; 2            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g3         ; gesturerecog     ; work         ;
-;       |D_FF:d1|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g3|D_FF:d1 ; D_FF             ; work         ;
-;       |D_FF:d2|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g3|D_FF:d2 ; D_FF             ; work         ;
-;    |gesturerecog:g4|       ; 3 (1)       ; 2            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g4         ; gesturerecog     ; work         ;
-;       |D_FF:d1|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g4|D_FF:d1 ; D_FF             ; work         ;
-;       |D_FF:d2|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|gesturerecog:g4|D_FF:d2 ; D_FF             ; work         ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------+------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                     ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Entity Name      ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+------------------+--------------+
+; |StringRecognizer          ; 0 (0)       ; 0            ; 0          ; 22   ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer   ; StringRecognizer ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -209,10 +193,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 8     ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 8     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
@@ -225,29 +209,58 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Apr 10 00:16:24 2018
+    Info: Processing started: Tue Apr 10 15:46:07 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off StringRecognizer -c StringRecognizer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 7 design units, including 3 entities, in source file StringRecognizer.vhd
-    Info (12022): Found design unit 1: harsh File: /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd Line: 5
-    Info (12022): Found design unit 2: D_FF-WhatDoYouCare File: /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd Line: 23
-    Info (12022): Found design unit 3: gesturerecog-Gesture File: /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd Line: 44
-    Info (12022): Found design unit 4: StringRecognizer-uni File: /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd Line: 64
-    Info (12023): Found entity 1: D_FF File: /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd Line: 20
-    Info (12023): Found entity 2: gesturerecog File: /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd Line: 41
-    Info (12023): Found entity 3: StringRecognizer File: /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd Line: 61
+Info (12021): Found 13 design units, including 6 entities, in source file StringRecognizer.vhd
+    Info (12022): Found design unit 1: harsh File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 5
+    Info (12022): Found design unit 2: D_FF-WhatDoYouCare File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 32
+    Info (12022): Found design unit 3: gesturerecog-jesture File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 53
+    Info (12022): Found design unit 4: GestureRecognizer-pikachu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 76
+    Info (12022): Found design unit 5: eightbit-pichu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 94
+    Info (12022): Found design unit 6: mario-raichu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 119
+    Info (12022): Found design unit 7: StringRecognizer-raichu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 132
+    Info (12023): Found entity 1: D_FF File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 29
+    Info (12023): Found entity 2: gesturerecog File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 50
+    Info (12023): Found entity 3: GestureRecognizer File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 73
+    Info (12023): Found entity 4: eightbit File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 91
+    Info (12023): Found entity 5: mario File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 116
+    Info (12023): Found entity 6: StringRecognizer File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 129
 Info (12127): Elaborating entity "StringRecognizer" for the top level hierarchy
-Info (12128): Elaborating entity "gesturerecog" for hierarchy "gesturerecog:g1" File: /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd Line: 66
-Info (12128): Elaborating entity "D_FF" for hierarchy "gesturerecog:g1|D_FF:d1" File: /home/harsh/Desktop/Analog-Project/StringRecognizer.vhd Line: 47
+Warning (10541): VHDL Signal Declaration warning at StringRecognizer.vhd(130): used implicit default value for signal "r" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+Warning (10541): VHDL Signal Declaration warning at StringRecognizer.vhd(130): used implicit default value for signal "c" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "r[0]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "r[1]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "r[2]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "r[3]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "r[4]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "r[5]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "r[6]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "r[7]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "c[0]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "c[1]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "c[2]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "c[3]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "c[4]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "c[5]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "c[6]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (13410): Pin "c[7]" is stuck at GND File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "i1" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (15610): No output dependent on input pin "i2" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (15610): No output dependent on input pin "i3" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (15610): No output dependent on input pin "i4" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (15610): No output dependent on input pin "clk" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
+    Warning (15610): No output dependent on input pin "reset" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 130
 Info (21057): Implemented 22 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
-    Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 12 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info (21059): Implemented 16 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
     Info: Peak virtual memory: 935 megabytes
-    Info: Processing ended: Tue Apr 10 00:16:42 2018
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:43
+    Info: Processing ended: Tue Apr 10 15:46:23 2018
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:38
 
 

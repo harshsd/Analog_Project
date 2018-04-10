@@ -1,11 +1,11 @@
-Fitter Status : Successful - Tue Apr 10 00:16:44 2018
+Fitter Status : Successful - Tue Apr 10 15:46:28 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : StringRecognizer
 Top-level Entity Name : StringRecognizer
 Family : MAX V
 Device : 5M1270ZT144C4
 Timing Models : Final
-Total logic elements : 12 / 1,270 ( < 1 % )
-Total pins : 10 / 114 ( 9 % )
+Total logic elements : 0 / 1,270 ( 0 % )
+Total pins : 22 / 114 ( 19 % )
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )
