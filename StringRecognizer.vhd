@@ -13,7 +13,7 @@ package harsh is
 			port ( i1,i2,i3,i4,clk,reset : in std_logic; lr,rl,tb,bt : out std_logic);
 	end component;
 	component mario is
-			port ( r,c : out std_logic_vector(7 downto 0); clk,reset,i1,i2,i3,i4 : in std_logic);
+			port ( r : out std_logic_vector(7 downto 0); clk,reset,i1,i2,i3,i4 : in std_logic);
 	end component;
 	component eightbit is
 		port (r : out std_logic_vector(7 downto 0) ; u,d,clk,reset : in std_logic);
@@ -114,12 +114,20 @@ entity GestureRecognizer is
 			port ( i1,i2,i3,i4,clk,reset : in std_logic; lr,rl,tb,bt : out std_logic);
 end entity;	
 architecture pikachu of GestureRecognizer is
-signal aa : std_logic;
+signal aa,r1,r2,r3,r4,rl1,lr1,tb1,bt1 : std_logic;
 begin
-		gr1: gesturerecog port map ( i1=>i1 , i2=>i2 , clk=>clk , reset=>reset , Q=>lr);
-		gr2: gesturerecog port map ( i1=>i2 , i2=>i1 , clk=>clk , reset=>reset , Q=>rl);
-		gr3: gesturerecog port map ( i1=>i3 , i2=>i4 , clk=>clk , reset=>reset , Q=>tb);
-		gr4: gesturerecog port map ( i1=>i4 , i2=>i3 , clk=>clk , reset=>reset , Q=>bt);
+rl <= rl1;
+lr <= lr1;
+tb <= tb1;
+bt <= bt1;
+r1 <= reset or rl1;
+r2 <= reset or lr1;
+r3 <= reset or bt1;
+r4 <= reset or tb1;
+		gr1: gesturerecog port map ( i1=>i1 , i2=>i2 , clk=>clk , reset=>r1 , Q=>lr1);
+		gr2: gesturerecog port map ( i1=>i2 , i2=>i1 , clk=>clk , reset=>r2 , Q=>rl1);
+		gr3: gesturerecog port map ( i1=>i3 , i2=>i4 , clk=>clk , reset=>r3 , Q=>tb1);
+		gr4: gesturerecog port map ( i1=>i4 , i2=>i3 , clk=>clk , reset=>r4 , Q=>bt1);
 end pikachu;
 
 library work;
@@ -165,7 +173,7 @@ use std.standard.all;
 library ieee;
 use ieee.std_logic_1164.all;
 entity mario is
-			port ( r,c : out std_logic_vector(7 downto 0); i1,i2,i3,i4,clk,reset : in std_logic);
+			port ( r : out std_logic_vector(7 downto 0); i1,i2,i3,i4,clk,reset : in std_logic);
 end entity;
 architecture raichu of mario is
 signal rl,lr,tb,bt : std_logic;
@@ -173,8 +181,8 @@ signal cc : std_logic_vector(7 downto 0);
 begin
 gr1 : GestureRecognizer port map ( i1=>i1,i2=>i2,i3=>i3,i4=>i4,clk=>clk,reset=>reset,rl=>rl,lr=>lr,bt=>bt,tb=>tb);
 e1  : eightbit port map ( r=>r , u=>lr , d=>rl , clk=>clk , reset=>reset);
-e2  : eightbit port map ( r=>cc , u=>bt , d=>tb , clk=>clk , reset=>reset);
-c <= not(cc);
+--e2  : eightbit port map ( r=>cc , u=>bt , d=>tb , clk=>clk , reset=>reset);
+--c <= not(cc);
 end raichu;
 
 library work;
@@ -188,5 +196,5 @@ entity StringRecognizer is
 end entity;
 architecture raichu of StringRecognizer is
 begin
-m1 : mario port map ( r=>r ,c=>c, i1=>i1 , i2=>i2 , i3=>i3 , i4=>i4 , clk=>clk , reset=>reset );
+--m1 : mario port map ( r=>r ,c=>c, i1=>i1 , i2=>i2 , i3=>i3 , i4=>i4 , clk=>clk , reset=>reset );
 end raichu;				

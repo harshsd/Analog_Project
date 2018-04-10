@@ -1,9 +1,9 @@
-Analysis & Synthesis Status : Successful - Tue Apr 10 20:54:52 2018
+Analysis & Synthesis Status : Successful - Tue Apr 10 22:42:09 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : StringRecognizer
-Top-level Entity Name : StringRecognizer
+Top-level Entity Name : mario
 Family : MAX V
-Total logic elements : 40
-Total pins : 22
+Total logic elements : 22
+Total pins : 14
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

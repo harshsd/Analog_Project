@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "MAX V"
 set_global_assignment -name DEVICE 5M1270ZT144C4
-set_global_assignment -name TOP_LEVEL_ENTITY StringRecognizer
+set_global_assignment -name TOP_LEVEL_ENTITY mario
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:59:49  FEBRUARY 22, 2018"
 set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
@@ -58,8 +58,17 @@ set_global_assignment -name EDA_TEST_BENCH_NAME Testbench -section_id eda_simula
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME dut -section_id Testbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Testbench -section_id Testbench
 set_global_assignment -name EDA_TEST_BENCH_FILE "String-Testbench.vhd" -section_id Testbench
-set_location_assignment PIN_58 -to Q
 set_location_assignment PIN_48 -to reset
 set_location_assignment PIN_89 -to clk
-set_location_assignment PIN_1 -to i1
-set_location_assignment PIN_3 -to i2
+set_location_assignment PIN_45 -to i1
+set_location_assignment PIN_44 -to i2
+set_location_assignment PIN_43 -to i3
+set_location_assignment PIN_42 -to i4
+set_location_assignment PIN_58 -to r[0]
+set_location_assignment PIN_57 -to r[1]
+set_location_assignment PIN_53 -to r[3]
+set_location_assignment PIN_55 -to r[2]
+set_location_assignment PIN_52 -to r[4]
+set_location_assignment PIN_51 -to r[5]
+set_location_assignment PIN_50 -to r[6]
+set_location_assignment PIN_49 -to r[7]

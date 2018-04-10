@@ -1,5 +1,5 @@
 Analysis & Synthesis report for StringRecognizer
-Tue Apr 10 20:54:52 2018
+Tue Apr 10 22:42:09 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -14,7 +14,8 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Analysis & Synthesis Messages
+  9. Port Connectivity Checks: "GestureRecognizer:gr1"
+ 10. Analysis & Synthesis Messages
 
 
 
@@ -40,13 +41,13 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Tue Apr 10 20:54:52 2018       ;
+; Analysis & Synthesis Status ; Successful - Tue Apr 10 22:42:09 2018       ;
 ; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name               ; StringRecognizer                            ;
-; Top-level Entity Name       ; StringRecognizer                            ;
+; Top-level Entity Name       ; mario                                       ;
 ; Family                      ; MAX V                                       ;
-; Total logic elements        ; 40                                          ;
-; Total pins                  ; 22                                          ;
+; Total logic elements        ; 22                                          ;
+; Total pins                  ; 14                                          ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
 +-----------------------------+---------------------------------------------+
@@ -58,7 +59,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; 5M1270ZT144C4      ;                    ;
-; Top-level entity name                                                      ; StringRecognizer   ; StringRecognizer   ;
+; Top-level entity name                                                      ; mario              ; StringRecognizer   ;
 ; Family name                                                                ; MAX V              ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -148,73 +149,60 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Total logic elements                        ; 40    ;
-;     -- Combinational with no register       ; 22    ;
-;     -- Register only                        ; 2     ;
-;     -- Combinational with a register        ; 16    ;
-;                                             ;       ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 12    ;
-;     -- 3 input functions                    ; 18    ;
-;     -- 2 input functions                    ; 8     ;
-;     -- 1 input functions                    ; 0     ;
-;     -- 0 input functions                    ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 40    ;
-;     -- arithmetic mode                      ; 0     ;
-;     -- qfbk mode                            ; 0     ;
-;     -- register cascade mode                ; 0     ;
-;     -- synchronous clear/load mode          ; 2     ;
-;     -- asynchronous clear/load mode         ; 18    ;
-;                                             ;       ;
-; Total registers                             ; 18    ;
-; I/O pins                                    ; 22    ;
-; Maximum fan-out node                        ; reset ;
-; Maximum fan-out                             ; 18    ;
-; Total fan-out                               ; 174   ;
-; Average fan-out                             ; 2.81  ;
-+---------------------------------------------+-------+
++---------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                         ;
++---------------------------------------------+-----------------------+
+; Resource                                    ; Usage                 ;
++---------------------------------------------+-----------------------+
+; Total logic elements                        ; 22                    ;
+;     -- Combinational with no register       ; 13                    ;
+;     -- Register only                        ; 1                     ;
+;     -- Combinational with a register        ; 8                     ;
+;                                             ;                       ;
+; Logic element usage by number of LUT inputs ;                       ;
+;     -- 4 input functions                    ; 6                     ;
+;     -- 3 input functions                    ; 11                    ;
+;     -- 2 input functions                    ; 4                     ;
+;     -- 1 input functions                    ; 0                     ;
+;     -- 0 input functions                    ; 0                     ;
+;                                             ;                       ;
+; Logic elements by mode                      ;                       ;
+;     -- normal mode                          ; 22                    ;
+;     -- arithmetic mode                      ; 0                     ;
+;     -- qfbk mode                            ; 0                     ;
+;     -- register cascade mode                ; 0                     ;
+;     -- synchronous clear/load mode          ; 1                     ;
+;     -- asynchronous clear/load mode         ; 9                     ;
+;                                             ;                       ;
+; Total registers                             ; 9                     ;
+; I/O pins                                    ; 14                    ;
+; Maximum fan-out node                        ; eightbit:e1|D_FF:d2|Q ;
+; Maximum fan-out                             ; 12                    ;
+; Total fan-out                               ; 93                    ;
+; Average fan-out                             ; 2.58                  ;
++---------------------------------------------+-----------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                               ;
-+-------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node    ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                       ; Entity Name       ; Library Name ;
-+-------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------+-------------------+--------------+
-; |StringRecognizer             ; 40 (0)      ; 18           ; 0          ; 22   ; 0            ; 22 (0)       ; 2 (0)             ; 16 (0)           ; 0 (0)           ; 0 (0)      ; |StringRecognizer                                                         ; StringRecognizer  ; work         ;
-;    |mario:m1|                 ; 40 (0)      ; 18           ; 0          ; 0    ; 0            ; 22 (0)       ; 2 (0)             ; 16 (0)           ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1                                                ; mario             ; work         ;
-;       |GestureRecognizer:gr1| ; 10 (0)      ; 8            ; 0          ; 0    ; 0            ; 2 (0)        ; 0 (0)             ; 8 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1                          ; GestureRecognizer ; work         ;
-;          |gesturerecog:gr1|   ; 3 (1)       ; 2            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr1         ; gesturerecog      ; work         ;
-;             |D_FF:d1|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1 ; D_FF              ; work         ;
-;             |D_FF:d2|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2 ; D_FF              ; work         ;
-;          |gesturerecog:gr2|   ; 2 (0)       ; 2            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr2         ; gesturerecog      ; work         ;
-;             |D_FF:d1|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1 ; D_FF              ; work         ;
-;             |D_FF:d2|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2 ; D_FF              ; work         ;
-;          |gesturerecog:gr3|   ; 2 (0)       ; 2            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr3         ; gesturerecog      ; work         ;
-;             |D_FF:d1|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1 ; D_FF              ; work         ;
-;             |D_FF:d2|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2 ; D_FF              ; work         ;
-;          |gesturerecog:gr4|   ; 3 (1)       ; 2            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr4         ; gesturerecog      ; work         ;
-;             |D_FF:d1|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1 ; D_FF              ; work         ;
-;             |D_FF:d2|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2 ; D_FF              ; work         ;
-;       |eightbit:e1|           ; 15 (10)     ; 5            ; 0          ; 0    ; 0            ; 10 (10)      ; 1 (0)             ; 4 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e1                                    ; eightbit          ; work         ;
-;          |D_FF:d00|           ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e1|D_FF:d00                           ; D_FF              ; work         ;
-;          |D_FF:d0|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e1|D_FF:d0                            ; D_FF              ; work         ;
-;          |D_FF:d1|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e1|D_FF:d1                            ; D_FF              ; work         ;
-;          |D_FF:d2|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e1|D_FF:d2                            ; D_FF              ; work         ;
-;          |D_FF:d3|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e1|D_FF:d3                            ; D_FF              ; work         ;
-;       |eightbit:e2|           ; 15 (10)     ; 5            ; 0          ; 0    ; 0            ; 10 (10)      ; 1 (0)             ; 4 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e2                                    ; eightbit          ; work         ;
-;          |D_FF:d00|           ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e2|D_FF:d00                           ; D_FF              ; work         ;
-;          |D_FF:d0|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e2|D_FF:d0                            ; D_FF              ; work         ;
-;          |D_FF:d1|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e2|D_FF:d1                            ; D_FF              ; work         ;
-;          |D_FF:d2|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e2|D_FF:d2                            ; D_FF              ; work         ;
-;          |D_FF:d3|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |StringRecognizer|mario:m1|eightbit:e2|D_FF:d3                            ; D_FF              ; work         ;
-+-------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------+-------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                        ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                   ; Entity Name       ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------------+-------------------+--------------+
+; |mario                     ; 22 (0)      ; 9            ; 0          ; 14   ; 0            ; 13 (0)       ; 1 (0)             ; 8 (0)            ; 0 (0)           ; 0 (0)      ; |mario                                                ; mario             ; work         ;
+;    |GestureRecognizer:gr1| ; 7 (2)       ; 4            ; 0          ; 0    ; 0            ; 3 (2)        ; 0 (0)             ; 4 (0)            ; 0 (0)           ; 0 (0)      ; |mario|GestureRecognizer:gr1                          ; GestureRecognizer ; work         ;
+;       |gesturerecog:gr1|   ; 3 (1)       ; 2            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |mario|GestureRecognizer:gr1|gesturerecog:gr1         ; gesturerecog      ; work         ;
+;          |D_FF:d1|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |mario|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1 ; D_FF              ; work         ;
+;          |D_FF:d2|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |mario|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2 ; D_FF              ; work         ;
+;       |gesturerecog:gr2|   ; 2 (0)       ; 2            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |mario|GestureRecognizer:gr1|gesturerecog:gr2         ; gesturerecog      ; work         ;
+;          |D_FF:d1|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |mario|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1 ; D_FF              ; work         ;
+;          |D_FF:d2|         ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |mario|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2 ; D_FF              ; work         ;
+;    |eightbit:e1|           ; 15 (10)     ; 5            ; 0          ; 0    ; 0            ; 10 (10)      ; 1 (0)             ; 4 (0)            ; 0 (0)           ; 0 (0)      ; |mario|eightbit:e1                                    ; eightbit          ; work         ;
+;       |D_FF:d00|           ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |mario|eightbit:e1|D_FF:d00                           ; D_FF              ; work         ;
+;       |D_FF:d0|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |mario|eightbit:e1|D_FF:d0                            ; D_FF              ; work         ;
+;       |D_FF:d1|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |mario|eightbit:e1|D_FF:d1                            ; D_FF              ; work         ;
+;       |D_FF:d2|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |mario|eightbit:e1|D_FF:d2                            ; D_FF              ; work         ;
+;       |D_FF:d3|            ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |mario|eightbit:e1|D_FF:d3                            ; D_FF              ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -223,14 +211,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 18    ;
-; Number of registers using Synchronous Clear  ; 2     ;
+; Total registers                              ; 9     ;
+; Number of registers using Synchronous Clear  ; 1     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 18    ;
+; Number of registers using Asynchronous Clear ; 9     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "GestureRecognizer:gr1"                                                              ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; tb   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; bt   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -239,7 +237,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Apr 10 20:54:37 2018
+    Info: Processing started: Tue Apr 10 22:41:54 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off StringRecognizer -c StringRecognizer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -249,30 +247,34 @@ Info (12021): Found 15 design units, including 7 entities, in source file String
     Info (12022): Found design unit 3: D_FF-WhatDoYouCare File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 72
     Info (12022): Found design unit 4: gesturerecog-jesture File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 93
     Info (12022): Found design unit 5: GestureRecognizer-pikachu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 116
-    Info (12022): Found design unit 6: eightbit-pichu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 134
-    Info (12022): Found design unit 7: mario-raichu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 170
-    Info (12022): Found design unit 8: StringRecognizer-raichu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 189
+    Info (12022): Found design unit 6: eightbit-pichu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 142
+    Info (12022): Found design unit 7: mario-raichu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 178
+    Info (12022): Found design unit 8: StringRecognizer-raichu File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 197
     Info (12023): Found entity 1: JK_FF File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 35
     Info (12023): Found entity 2: D_FF File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 69
     Info (12023): Found entity 3: gesturerecog File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 90
     Info (12023): Found entity 4: GestureRecognizer File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 113
-    Info (12023): Found entity 5: eightbit File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 131
-    Info (12023): Found entity 6: mario File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 167
-    Info (12023): Found entity 7: StringRecognizer File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 186
-Info (12127): Elaborating entity "StringRecognizer" for the top level hierarchy
-Info (12128): Elaborating entity "mario" for hierarchy "mario:m1" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 191
-Info (12128): Elaborating entity "GestureRecognizer" for hierarchy "mario:m1|GestureRecognizer:gr1" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 174
-Info (12128): Elaborating entity "gesturerecog" for hierarchy "mario:m1|GestureRecognizer:gr1|gesturerecog:gr1" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 119
-Info (12128): Elaborating entity "D_FF" for hierarchy "mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 96
-Info (12128): Elaborating entity "eightbit" for hierarchy "mario:m1|eightbit:e1" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 175
-Info (21057): Implemented 62 device resources after synthesis - the final resource count might be different
+    Info (12023): Found entity 5: eightbit File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 139
+    Info (12023): Found entity 6: mario File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 175
+    Info (12023): Found entity 7: StringRecognizer File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 194
+Info (12127): Elaborating entity "mario" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at StringRecognizer.vhd(179): object "tb" assigned a value but never read File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 179
+Warning (10036): Verilog HDL or VHDL warning at StringRecognizer.vhd(179): object "bt" assigned a value but never read File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 179
+Info (12128): Elaborating entity "GestureRecognizer" for hierarchy "GestureRecognizer:gr1" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 182
+Info (12128): Elaborating entity "gesturerecog" for hierarchy "GestureRecognizer:gr1|gesturerecog:gr1" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 127
+Info (12128): Elaborating entity "D_FF" for hierarchy "GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 96
+Info (12128): Elaborating entity "eightbit" for hierarchy "eightbit:e1" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 183
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "i3" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 176
+    Warning (15610): No output dependent on input pin "i4" File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 176
+Info (21057): Implemented 36 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
-    Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 40 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 940 megabytes
-    Info: Processing ended: Tue Apr 10 20:54:52 2018
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 22 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 934 megabytes
+    Info: Processing ended: Tue Apr 10 22:42:09 2018
     Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:39
+    Info: Total CPU time (on all processors): 00:00:37
 
 

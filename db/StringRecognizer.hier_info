@@ -1,29 +1,4 @@
-|StringRecognizer
-r[0] <= mario:m1.r[0]
-r[1] <= mario:m1.r[1]
-r[2] <= mario:m1.r[2]
-r[3] <= mario:m1.r[3]
-r[4] <= mario:m1.r[4]
-r[5] <= mario:m1.r[5]
-r[6] <= mario:m1.r[6]
-r[7] <= mario:m1.r[7]
-c[0] <= mario:m1.c[0]
-c[1] <= mario:m1.c[1]
-c[2] <= mario:m1.c[2]
-c[3] <= mario:m1.c[3]
-c[4] <= mario:m1.c[4]
-c[5] <= mario:m1.c[5]
-c[6] <= mario:m1.c[6]
-c[7] <= mario:m1.c[7]
-i1 => mario:m1.i1
-i2 => mario:m1.i2
-i3 => mario:m1.i3
-i4 => mario:m1.i4
-clk => mario:m1.clk
-reset => mario:m1.reset
-
-
-|StringRecognizer|mario:m1
+|mario
 r[0] <= eightbit:e1.r[0]
 r[1] <= eightbit:e1.r[1]
 r[2] <= eightbit:e1.r[2]
@@ -32,27 +7,17 @@ r[4] <= eightbit:e1.r[4]
 r[5] <= eightbit:e1.r[5]
 r[6] <= eightbit:e1.r[6]
 r[7] <= eightbit:e1.r[7]
-c[0] <= eightbit:e2.r[0]
-c[1] <= eightbit:e2.r[1]
-c[2] <= eightbit:e2.r[2]
-c[3] <= eightbit:e2.r[3]
-c[4] <= eightbit:e2.r[4]
-c[5] <= eightbit:e2.r[5]
-c[6] <= eightbit:e2.r[6]
-c[7] <= eightbit:e2.r[7]
 i1 => GestureRecognizer:gr1.i1
 i2 => GestureRecognizer:gr1.i2
 i3 => GestureRecognizer:gr1.i3
 i4 => GestureRecognizer:gr1.i4
 clk => GestureRecognizer:gr1.clk
 clk => eightbit:e1.clk
-clk => eightbit:e2.clk
 reset => GestureRecognizer:gr1.reset
 reset => eightbit:e1.reset
-reset => eightbit:e2.reset
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1
+|mario|GestureRecognizer:gr1
 i1 => gesturerecog:gr1.i1
 i1 => gesturerecog:gr2.i2
 i2 => gesturerecog:gr1.i2
@@ -65,17 +30,17 @@ clk => gesturerecog:gr1.clk
 clk => gesturerecog:gr2.clk
 clk => gesturerecog:gr3.clk
 clk => gesturerecog:gr4.clk
-reset => gesturerecog:gr1.reset
-reset => gesturerecog:gr2.reset
-reset => gesturerecog:gr3.reset
-reset => gesturerecog:gr4.reset
+reset => r1.IN1
+reset => r2.IN1
+reset => r3.IN1
+reset => r4.IN1
 lr <= gesturerecog:gr1.Q
 rl <= gesturerecog:gr2.Q
 tb <= gesturerecog:gr3.Q
 bt <= gesturerecog:gr4.Q
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr1
+|mario|GestureRecognizer:gr1|gesturerecog:gr1
 i1 => nq0.IN1
 i1 => nq1.IN1
 i2 => nq0.IN1
@@ -89,21 +54,21 @@ reset => D_FF:d2.reset
 Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1
+|mario|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2
+|mario|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr2
+|mario|GestureRecognizer:gr1|gesturerecog:gr2
 i1 => nq0.IN1
 i1 => nq1.IN1
 i2 => nq0.IN1
@@ -117,21 +82,21 @@ reset => D_FF:d2.reset
 Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1
+|mario|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2
+|mario|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr3
+|mario|GestureRecognizer:gr1|gesturerecog:gr3
 i1 => nq0.IN1
 i1 => nq1.IN1
 i2 => nq0.IN1
@@ -145,21 +110,21 @@ reset => D_FF:d2.reset
 Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1
+|mario|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2
+|mario|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr4
+|mario|GestureRecognizer:gr1|gesturerecog:gr4
 i1 => nq0.IN1
 i1 => nq1.IN1
 i2 => nq0.IN1
@@ -173,21 +138,21 @@ reset => D_FF:d2.reset
 Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1
+|mario|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2
+|mario|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|eightbit:e1
+|mario|eightbit:e1
 r[0] <= r.DB_MAX_OUTPUT_PORT_TYPE
 r[1] <= r.DB_MAX_OUTPUT_PORT_TYPE
 r[2] <= r.DB_MAX_OUTPUT_PORT_TYPE
@@ -219,102 +184,35 @@ reset => D_FF:d2.reset
 reset => D_FF:d3.reset
 
 
-|StringRecognizer|mario:m1|eightbit:e1|D_FF:d0
+|mario|eightbit:e1|D_FF:d0
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|eightbit:e1|D_FF:d00
+|mario|eightbit:e1|D_FF:d00
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|eightbit:e1|D_FF:d1
+|mario|eightbit:e1|D_FF:d1
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|eightbit:e1|D_FF:d2
+|mario|eightbit:e1|D_FF:d2
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|StringRecognizer|mario:m1|eightbit:e1|D_FF:d3
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-reset => Q~reg0.ACLR
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|StringRecognizer|mario:m1|eightbit:e2
-r[0] <= r.DB_MAX_OUTPUT_PORT_TYPE
-r[1] <= r.DB_MAX_OUTPUT_PORT_TYPE
-r[2] <= r.DB_MAX_OUTPUT_PORT_TYPE
-r[3] <= r.DB_MAX_OUTPUT_PORT_TYPE
-r[4] <= r.DB_MAX_OUTPUT_PORT_TYPE
-r[5] <= r.DB_MAX_OUTPUT_PORT_TYPE
-r[6] <= r.DB_MAX_OUTPUT_PORT_TYPE
-r[7] <= r.DB_MAX_OUTPUT_PORT_TYPE
-u => nq1.IN1
-u => nq1.IN1
-u => nq1.IN1
-u => nq1.IN1
-u => nq2.IN1
-u => nq2.IN1
-u => D_FF:d0.D
-u => nq1.IN1
-u => nq1.IN1
-u => nq1.IN1
-u => nq1.IN1
-u => nq2.IN1
-u => nq2.IN1
-d => D_FF:d00.D
-clk => D_FF:d0.CLK
-clk => D_FF:d00.CLK
-reset => D_FF:d0.reset
-reset => D_FF:d00.reset
-reset => D_FF:d1.reset
-reset => D_FF:d2.reset
-reset => D_FF:d3.reset
-
-
-|StringRecognizer|mario:m1|eightbit:e2|D_FF:d0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-reset => Q~reg0.ACLR
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|StringRecognizer|mario:m1|eightbit:e2|D_FF:d00
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-reset => Q~reg0.ACLR
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|StringRecognizer|mario:m1|eightbit:e2|D_FF:d1
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-reset => Q~reg0.ACLR
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|StringRecognizer|mario:m1|eightbit:e2|D_FF:d2
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-reset => Q~reg0.ACLR
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|StringRecognizer|mario:m1|eightbit:e2|D_FF:d3
+|mario|eightbit:e1|D_FF:d3
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR
