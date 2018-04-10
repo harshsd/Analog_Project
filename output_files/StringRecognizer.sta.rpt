@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for StringRecognizer
-Tue Apr 10 15:46:33 2018
+Tue Apr 10 20:54:57 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -16,11 +16,23 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   8. Recovery Summary
   9. Removal Summary
  10. Minimum Pulse Width Summary
- 11. Clock Transfers
- 12. Report TCCS
- 13. Report RSKM
- 14. Unconstrained Paths Summary
- 15. TimeQuest Timing Analyzer Messages
+ 11. Setup: 'mario:m1|eightbit:e2|D_FF:d00|Q'
+ 12. Setup: 'mario:m1|eightbit:e1|D_FF:d00|Q'
+ 13. Setup: 'clk'
+ 14. Hold: 'mario:m1|eightbit:e2|D_FF:d00|Q'
+ 15. Hold: 'mario:m1|eightbit:e1|D_FF:d00|Q'
+ 16. Hold: 'clk'
+ 17. Setup Transfers
+ 18. Hold Transfers
+ 19. Report TCCS
+ 20. Report RSKM
+ 21. Unconstrained Paths Summary
+ 22. Clock Status Summary
+ 23. Unconstrained Input Ports
+ 24. Unconstrained Output Ports
+ 25. Unconstrained Input Ports
+ 26. Unconstrained Output Ports
+ 27. TimeQuest Timing Analyzer Messages
 
 
 
@@ -73,28 +85,49 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-----------
-; Clocks ;
-----------
-No clocks to report.
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                           ;
++---------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------------+
+; Clock Name                      ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                             ;
++---------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------------+
+; clk                             ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                             ;
+; mario:m1|eightbit:e1|D_FF:d00|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { mario:m1|eightbit:e1|D_FF:d00|Q } ;
+; mario:m1|eightbit:e2|D_FF:d00|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { mario:m1|eightbit:e2|D_FF:d00|Q } ;
++---------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------------+
 
 
-----------------
-; Fmax Summary ;
-----------------
-No paths to report.
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fmax Summary                                                                                                                   ;
++------------+-----------------+---------------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                      ; Note                                                          ;
++------------+-----------------+---------------------------------+---------------------------------------------------------------+
+; 367.11 MHz ; 367.11 MHz      ; mario:m1|eightbit:e1|D_FF:d00|Q ;                                                               ;
+; 367.11 MHz ; 367.11 MHz      ; mario:m1|eightbit:e2|D_FF:d00|Q ;                                                               ;
+; 484.97 MHz ; 304.04 MHz      ; clk                             ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+---------------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
------------------
-; Setup Summary ;
------------------
-No paths to report.
++----------------------------------------------------------+
+; Setup Summary                                            ;
++---------------------------------+--------+---------------+
+; Clock                           ; Slack  ; End Point TNS ;
++---------------------------------+--------+---------------+
+; mario:m1|eightbit:e2|D_FF:d00|Q ; -1.724 ; -5.029        ;
+; mario:m1|eightbit:e1|D_FF:d00|Q ; -1.724 ; -4.532        ;
+; clk                             ; -1.062 ; -12.470       ;
++---------------------------------+--------+---------------+
 
 
-----------------
-; Hold Summary ;
-----------------
-No paths to report.
++----------------------------------------------------------+
+; Hold Summary                                             ;
++---------------------------------+--------+---------------+
+; Clock                           ; Slack  ; End Point TNS ;
++---------------------------------+--------+---------------+
+; mario:m1|eightbit:e2|D_FF:d00|Q ; -1.140 ; -1.863        ;
+; mario:m1|eightbit:e1|D_FF:d00|Q ; -0.605 ; -1.203        ;
+; clk                             ; 1.363  ; 0.000         ;
++---------------------------------+--------+---------------+
 
 
 --------------------
@@ -109,16 +142,187 @@ No paths to report.
 No paths to report.
 
 
--------------------------------
-; Minimum Pulse Width Summary ;
--------------------------------
-No paths to report.
++----------------------------------------------------------+
+; Minimum Pulse Width Summary                              ;
++---------------------------------+--------+---------------+
+; Clock                           ; Slack  ; End Point TNS ;
++---------------------------------+--------+---------------+
+; clk                             ; -2.289 ; -2.289        ;
+; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.284  ; 0.000         ;
+; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.284  ; 0.000         ;
++---------------------------------+--------+---------------+
 
 
--------------------
-; Clock Transfers ;
--------------------
-Nothing to report.
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'mario:m1|eightbit:e2|D_FF:d00|Q'                                                                                                                                                                         ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                                 ; To Node                        ; Launch Clock                    ; Latch Clock                     ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+; -1.724 ; mario:m1|eightbit:e2|D_FF:d1|Q                            ; mario:m1|eightbit:e2|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.453      ;
+; -1.654 ; mario:m1|eightbit:e2|D_FF:d1|Q                            ; mario:m1|eightbit:e2|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.383      ;
+; -1.651 ; mario:m1|eightbit:e2|D_FF:d1|Q                            ; mario:m1|eightbit:e2|D_FF:d3|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.380      ;
+; -1.550 ; mario:m1|eightbit:e2|D_FF:d3|Q                            ; mario:m1|eightbit:e2|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.279      ;
+; -1.302 ; mario:m1|eightbit:e2|D_FF:d2|Q                            ; mario:m1|eightbit:e2|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.031      ;
+; -1.269 ; mario:m1|eightbit:e2|D_FF:d2|Q                            ; mario:m1|eightbit:e2|D_FF:d3|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.998      ;
+; -1.058 ; mario:m1|eightbit:e2|D_FF:d3|Q                            ; mario:m1|eightbit:e2|D_FF:d3|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.787      ;
+; -0.888 ; mario:m1|eightbit:e2|D_FF:d2|Q                            ; mario:m1|eightbit:e2|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.617      ;
+; 1.017  ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d3|Q ; clk                             ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 2.744      ; 2.456      ;
+; 1.273  ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d3|Q ; clk                             ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 2.744      ; 2.200      ;
+; 1.488  ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d2|Q ; clk                             ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 2.744      ; 1.985      ;
+; 1.690  ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d2|Q ; clk                             ; mario:m1|eightbit:e2|D_FF:d00|Q ; 1.000        ; 2.744      ; 1.783      ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'mario:m1|eightbit:e1|D_FF:d00|Q'                                                                                                                                                                         ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                                 ; To Node                        ; Launch Clock                    ; Latch Clock                     ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+; -1.724 ; mario:m1|eightbit:e1|D_FF:d1|Q                            ; mario:m1|eightbit:e1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.453      ;
+; -1.545 ; mario:m1|eightbit:e1|D_FF:d2|Q                            ; mario:m1|eightbit:e1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.274      ;
+; -1.506 ; mario:m1|eightbit:e1|D_FF:d1|Q                            ; mario:m1|eightbit:e1|D_FF:d3|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.235      ;
+; -1.302 ; mario:m1|eightbit:e1|D_FF:d2|Q                            ; mario:m1|eightbit:e1|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.031      ;
+; -1.283 ; mario:m1|eightbit:e1|D_FF:d3|Q                            ; mario:m1|eightbit:e1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.012      ;
+; -1.279 ; mario:m1|eightbit:e1|D_FF:d3|Q                            ; mario:m1|eightbit:e1|D_FF:d3|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.008      ;
+; -1.126 ; mario:m1|eightbit:e1|D_FF:d1|Q                            ; mario:m1|eightbit:e1|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.855      ;
+; -1.049 ; mario:m1|eightbit:e1|D_FF:d2|Q                            ; mario:m1|eightbit:e1|D_FF:d3|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.778      ;
+; 0.830  ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d3|Q ; clk                             ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 2.382      ; 2.281      ;
+; 1.087  ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d2|Q ; clk                             ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 2.382      ; 2.024      ;
+; 1.148  ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d2|Q ; clk                             ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 2.382      ; 1.963      ;
+; 1.155  ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d3|Q ; clk                             ; mario:m1|eightbit:e1|D_FF:d00|Q ; 1.000        ; 2.382      ; 1.956      ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                                                                                         ;
++--------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                 ; To Node                                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.062 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d0|Q                            ; clk          ; clk         ; 1.000        ; 0.000      ; 1.791      ;
+; -1.060 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.789      ;
+; -1.051 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d0|Q                            ; clk          ; clk         ; 1.000        ; 0.000      ; 1.780      ;
+; -1.046 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.775      ;
+; -1.046 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.775      ;
+; -1.043 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.772      ;
+; -1.031 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d00|Q                           ; clk          ; clk         ; 1.000        ; 0.000      ; 1.760      ;
+; -1.031 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.760      ;
+; -1.029 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.758      ;
+; -1.025 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d00|Q                           ; clk          ; clk         ; 1.000        ; 0.000      ; 1.754      ;
+; -1.024 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.753      ;
+; -1.022 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.751      ;
+; -0.874 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d0|Q                            ; clk          ; clk         ; 1.000        ; 0.000      ; 1.603      ;
+; -0.869 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.598      ;
+; -0.869 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.598      ;
+; -0.821 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d00|Q                           ; clk          ; clk         ; 1.000        ; 0.000      ; 1.550      ;
+; -0.821 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.550      ;
+; -0.819 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.548      ;
+; -0.817 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d00|Q                           ; clk          ; clk         ; 1.000        ; 0.000      ; 1.546      ;
+; -0.817 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.546      ;
+; -0.816 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d0|Q                            ; clk          ; clk         ; 1.000        ; 0.000      ; 1.545      ;
+; -0.815 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.544      ;
+; -0.814 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.543      ;
+; -0.813 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.542      ;
++--------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'mario:m1|eightbit:e2|D_FF:d00|Q'                                                                                                                                                                          ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                                 ; To Node                        ; Launch Clock                    ; Latch Clock                     ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+; -1.140 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d2|Q ; clk                             ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 2.744      ; 1.783      ;
+; -0.938 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d2|Q ; clk                             ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 2.744      ; 1.985      ;
+; -0.723 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d3|Q ; clk                             ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 2.744      ; 2.200      ;
+; -0.467 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d3|Q ; clk                             ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 2.744      ; 2.456      ;
+; 1.438  ; mario:m1|eightbit:e2|D_FF:d2|Q                            ; mario:m1|eightbit:e2|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.617      ;
+; 1.608  ; mario:m1|eightbit:e2|D_FF:d3|Q                            ; mario:m1|eightbit:e2|D_FF:d3|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.787      ;
+; 1.613  ; mario:m1|eightbit:e2|D_FF:d3|Q                            ; mario:m1|eightbit:e2|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.792      ;
+; 1.818  ; mario:m1|eightbit:e2|D_FF:d2|Q                            ; mario:m1|eightbit:e2|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.997      ;
+; 1.819  ; mario:m1|eightbit:e2|D_FF:d2|Q                            ; mario:m1|eightbit:e2|D_FF:d3|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.998      ;
+; 2.201  ; mario:m1|eightbit:e2|D_FF:d1|Q                            ; mario:m1|eightbit:e2|D_FF:d3|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.380      ;
+; 2.204  ; mario:m1|eightbit:e2|D_FF:d1|Q                            ; mario:m1|eightbit:e2|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.383      ;
+; 2.274  ; mario:m1|eightbit:e2|D_FF:d1|Q                            ; mario:m1|eightbit:e2|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.453      ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'mario:m1|eightbit:e1|D_FF:d00|Q'                                                                                                                                                                          ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                                 ; To Node                        ; Launch Clock                    ; Latch Clock                     ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+; -0.605 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d3|Q ; clk                             ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 2.382      ; 1.956      ;
+; -0.598 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d2|Q ; clk                             ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 2.382      ; 1.963      ;
+; -0.537 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d2|Q ; clk                             ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 2.382      ; 2.024      ;
+; -0.280 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d3|Q ; clk                             ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 2.382      ; 2.281      ;
+; 1.599  ; mario:m1|eightbit:e1|D_FF:d2|Q                            ; mario:m1|eightbit:e1|D_FF:d3|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.778      ;
+; 1.604  ; mario:m1|eightbit:e1|D_FF:d2|Q                            ; mario:m1|eightbit:e1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.783      ;
+; 1.676  ; mario:m1|eightbit:e1|D_FF:d1|Q                            ; mario:m1|eightbit:e1|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.855      ;
+; 1.781  ; mario:m1|eightbit:e1|D_FF:d3|Q                            ; mario:m1|eightbit:e1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.960      ;
+; 1.829  ; mario:m1|eightbit:e1|D_FF:d3|Q                            ; mario:m1|eightbit:e1|D_FF:d3|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.008      ;
+; 1.852  ; mario:m1|eightbit:e1|D_FF:d2|Q                            ; mario:m1|eightbit:e1|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.031      ;
+; 2.056  ; mario:m1|eightbit:e1|D_FF:d1|Q                            ; mario:m1|eightbit:e1|D_FF:d3|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.235      ;
+; 2.274  ; mario:m1|eightbit:e1|D_FF:d1|Q                            ; mario:m1|eightbit:e1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.453      ;
++--------+-----------------------------------------------------------+--------------------------------+---------------------------------+---------------------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                                                                         ;
++-------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                 ; To Node                                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.363 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.542      ;
+; 1.364 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.543      ;
+; 1.365 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.544      ;
+; 1.366 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d0|Q                            ; clk          ; clk         ; 0.000        ; 0.000      ; 1.545      ;
+; 1.367 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d00|Q                           ; clk          ; clk         ; 0.000        ; 0.000      ; 1.546      ;
+; 1.367 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.546      ;
+; 1.369 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.548      ;
+; 1.371 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; mario:m1|eightbit:e1|D_FF:d00|Q                           ; clk          ; clk         ; 0.000        ; 0.000      ; 1.550      ;
+; 1.371 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.550      ;
+; 1.419 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.598      ;
+; 1.419 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.598      ;
+; 1.424 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; mario:m1|eightbit:e2|D_FF:d0|Q                            ; clk          ; clk         ; 0.000        ; 0.000      ; 1.603      ;
+; 1.572 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.751      ;
+; 1.574 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.753      ;
+; 1.575 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d00|Q                           ; clk          ; clk         ; 0.000        ; 0.000      ; 1.754      ;
+; 1.579 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.758      ;
+; 1.581 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d00|Q                           ; clk          ; clk         ; 0.000        ; 0.000      ; 1.760      ;
+; 1.581 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.760      ;
+; 1.593 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.772      ;
+; 1.596 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.775      ;
+; 1.596 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.775      ;
+; 1.601 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; mario:m1|eightbit:e2|D_FF:d0|Q                            ; clk          ; clk         ; 0.000        ; 0.000      ; 1.780      ;
+; 1.610 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.789      ;
+; 1.612 ; mario:m1|GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; mario:m1|eightbit:e1|D_FF:d0|Q                            ; clk          ; clk         ; 0.000        ; 0.000      ; 1.791      ;
++-------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                               ;
++---------------------------------+---------------------------------+----------+----------+----------+----------+
+; From Clock                      ; To Clock                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------------+---------------------------------+----------+----------+----------+----------+
+; clk                             ; clk                             ; 24       ; 0        ; 0        ; 0        ;
+; clk                             ; mario:m1|eightbit:e1|D_FF:d00|Q ; 4        ; 0        ; 0        ; 0        ;
+; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 10       ; 0        ; 0        ; 0        ;
+; clk                             ; mario:m1|eightbit:e2|D_FF:d00|Q ; 4        ; 0        ; 0        ; 0        ;
+; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 10       ; 0        ; 0        ; 0        ;
++---------------------------------+---------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                ;
++---------------------------------+---------------------------------+----------+----------+----------+----------+
+; From Clock                      ; To Clock                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------------+---------------------------------+----------+----------+----------+----------+
+; clk                             ; clk                             ; 24       ; 0        ; 0        ; 0        ;
+; clk                             ; mario:m1|eightbit:e1|D_FF:d00|Q ; 4        ; 0        ; 0        ; 0        ;
+; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; 10       ; 0        ; 0        ; 0        ;
+; clk                             ; mario:m1|eightbit:e2|D_FF:d00|Q ; 4        ; 0        ; 0        ; 0        ;
+; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; 10       ; 0        ; 0        ; 0        ;
++---------------------------------+---------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
 ---------------
@@ -140,11 +344,96 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 0     ; 0    ;
-; Unconstrained Input Port Paths  ; 0     ; 0    ;
-; Unconstrained Output Ports      ; 0     ; 0    ;
-; Unconstrained Output Port Paths ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 5     ; 5    ;
+; Unconstrained Input Port Paths  ; 34    ; 34   ;
+; Unconstrained Output Ports      ; 16    ; 16   ;
+; Unconstrained Output Port Paths ; 48    ; 48   ;
 +---------------------------------+-------+------+
+
+
++----------------------------------------------------------------------------------------+
+; Clock Status Summary                                                                   ;
++---------------------------------+---------------------------------+------+-------------+
+; Target                          ; Clock                           ; Type ; Status      ;
++---------------------------------+---------------------------------+------+-------------+
+; clk                             ; clk                             ; Base ; Constrained ;
+; mario:m1|eightbit:e1|D_FF:d00|Q ; mario:m1|eightbit:e1|D_FF:d00|Q ; Base ; Constrained ;
+; mario:m1|eightbit:e2|D_FF:d00|Q ; mario:m1|eightbit:e2|D_FF:d00|Q ; Base ; Constrained ;
++---------------------------------+---------------------------------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; i1         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i2         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i3         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i4         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; c[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[4]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[4]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; i1         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i2         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i3         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i4         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; c[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[4]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[4]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; r[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
 
 
 +------------------------------------+
@@ -153,7 +442,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Apr 10 15:46:32 2018
+    Info: Processing started: Tue Apr 10 20:54:56 2018
 Info: Command: quartus_sta StringRecognizer -c StringRecognizer
 Info: qsta_default_script.tcl version: #3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -164,23 +453,39 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'StringRecognizer.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name mario:m1|eightbit:e1|D_FF:d00|Q mario:m1|eightbit:e1|D_FF:d00|Q
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name mario:m1|eightbit:e2|D_FF:d00|Q mario:m1|eightbit:e2|D_FF:d00|Q
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
-Info (332159): No clocks to report
-Info (332140): No fmax paths to report
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.724
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.724              -5.029 mario:m1|eightbit:e2|D_FF:d00|Q 
+    Info (332119):    -1.724              -4.532 mario:m1|eightbit:e1|D_FF:d00|Q 
+    Info (332119):    -1.062             -12.470 clk 
+Info (332146): Worst-case hold slack is -1.140
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.140              -1.863 mario:m1|eightbit:e2|D_FF:d00|Q 
+    Info (332119):    -0.605              -1.203 mario:m1|eightbit:e1|D_FF:d00|Q 
+    Info (332119):     1.363               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+    Info (332119):     0.284               0.000 mario:m1|eightbit:e1|D_FF:d00|Q 
+    Info (332119):     0.284               0.000 mario:m1|eightbit:e2|D_FF:d00|Q 
 Info (332001): The selected device family is not supported by the report_metastability command.
-Info (332101): Design is fully constrained for setup requirements
-Info (332101): Design is fully constrained for hold requirements
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 715 megabytes
-    Info: Processing ended: Tue Apr 10 15:46:33 2018
+    Info: Peak virtual memory: 714 megabytes
+    Info: Processing ended: Tue Apr 10 20:54:57 2018
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

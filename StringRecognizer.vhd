@@ -16,9 +16,49 @@ package harsh is
 			port ( r,c : out std_logic_vector(7 downto 0); clk,reset,i1,i2,i3,i4 : in std_logic);
 	end component;
 	component eightbit is
-		port (r : out std_logic_vector(7 downto 0) ; up,down,clk,reset : in std_logic);
+		port (r : out std_logic_vector(7 downto 0) ; u,d,clk,reset : in std_logic);
+	end component;
+	component JK_FF is
+		PORT( J,K,CLOCK,reset: in std_logic;
+		Q, QB: out std_logic);
 	end component;
 end harsh;
+
+library work;
+use work.harsh.all;
+library ieee;
+use ieee. std_logic_1164.all;
+use ieee. std_logic_arith.all;
+use ieee. std_logic_unsigned.all;
+library std;
+use std.standard.all;
+entity JK_FF is
+PORT( J,K,CLOCK,reset: in std_logic;
+Q, QB: out std_logic);
+end JK_FF;
+Architecture behavioral of JK_FF is
+begin
+PROCESS(CLOCK,reset)
+variable TMP: std_logic;
+begin
+if( reset = '1') then
+TMP := '0';
+elsif(CLOCK='1' and CLOCK'EVENT) then
+if(J='0' and K='0')then
+TMP:=TMP;
+elsif(J='1' and K='1')then
+TMP:= not TMP;
+elsif(J='0' and K='1')then
+TMP:='0';
+else
+TMP:='1';
+end if;
+end if;
+Q<=TMP;
+Q <=not TMP;
+end PROCESS;
+end behavioral;
+
 
 library work;
 use work.harsh.all;
@@ -92,10 +132,30 @@ entity eightbit is
 	port (r : out std_logic_vector(7 downto 0) ; u,d,clk,reset : in std_logic);
 end entity;
 architecture pichu of eightbit is
-signal x,y,z,w,q1,q0,q2,nq1,nq2,nq0,qq1,qq2,qq0,uu,dd : std_logic;
+signal dd1,u1,q1,q0,q2,nq1,nq2,nq0,qq1,qq2,qq0,uu,clki : std_logic;
 signal clkcount : std_logic;
 begin
---FInd good method
+d0 : D_FF port map (D=>u , CLK => clk , reset=>reset, Q => u1);
+d00 : D_FF port map (D=>d , CLK => clk , reset=>reset , Q=>dd1);
+clki <= u1 xor dd1;
+uu <= not(u);
+qq0 <= not(q0);
+qq1 <= not(q1);
+qq2 <= not(q2);
+d1 : D_FF port map ( D=>nq0 , reset=>reset , CLK => clki , Q => q0 );
+d2 : D_FF port map ( D=>nq1 , reset=>reset , CLK => clki , Q => q1 );
+d3 : D_FF port map ( D=>nq2 , reset=>reset , CLK => clki , Q => q2 );
+nq0 <= (qq2 and qq1 and qq0 ) or (qq2 and q1 and qq0) or (q2 and qq1 and qq0) or (q2 and q1 and qq0);
+nq1 <= (qq2 and qq1 and qq0 and uu) or (qq2 and qq1 and q0 and u) or (qq2 and q1 and qq0 and u) or (qq2 and q1 and q0 and uu) or (q2 and qq1 and qq0 and uu) or (q2 and qq1 and q0 and u) or (q2 and q1 and qq0 and u) or (q2 and q1 and q0 and uu);
+nq2 <= ( qq2 and qq1 and qq0 and uu) or (qq2 and q1 and q0 and u) or (q2 and qq1 and qq0 and u) or (q2 and qq1 and q0) or (q2 and q1 and qq0) or (q2 and q1 and q0 and uu);
+r(0) <= qq2 and qq1 and qq0;
+r(1) <= qq2 and qq1 and q0;
+r(2) <= qq2 and q1 and qq0;
+r(3) <= qq2 and q1 and q0;
+r(4) <= q2 and qq1 and qq0;
+r(5) <= q2 and qq1 and q0;
+r(6) <= q2 and q1 and qq0;
+r(7) <= q2 and q1 and q0;
 end pichu;
 
 library work;
@@ -108,7 +168,13 @@ entity mario is
 			port ( r,c : out std_logic_vector(7 downto 0); i1,i2,i3,i4,clk,reset : in std_logic);
 end entity;
 architecture raichu of mario is
+signal rl,lr,tb,bt : std_logic;
+signal cc : std_logic_vector(7 downto 0);
 begin
+gr1 : GestureRecognizer port map ( i1=>i1,i2=>i2,i3=>i3,i4=>i4,clk=>clk,reset=>reset,rl=>rl,lr=>lr,bt=>bt,tb=>tb);
+e1  : eightbit port map ( r=>r , u=>lr , d=>rl , clk=>clk , reset=>reset);
+e2  : eightbit port map ( r=>cc , u=>bt , d=>tb , clk=>clk , reset=>reset);
+c <= not(cc);
 end raichu;
 
 library work;
@@ -122,4 +188,5 @@ entity StringRecognizer is
 end entity;
 architecture raichu of StringRecognizer is
 begin
+m1 : mario port map ( r=>r ,c=>c, i1=>i1 , i2=>i2 , i3=>i3 , i4=>i4 , clk=>clk , reset=>reset );
 end raichu;				

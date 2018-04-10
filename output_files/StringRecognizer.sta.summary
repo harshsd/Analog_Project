@@ -2,4 +2,40 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Setup 'mario:m1|eightbit:e2|D_FF:d00|Q'
+Slack : -1.724
+TNS   : -5.029
+
+Type  : Setup 'mario:m1|eightbit:e1|D_FF:d00|Q'
+Slack : -1.724
+TNS   : -4.532
+
+Type  : Setup 'clk'
+Slack : -1.062
+TNS   : -12.470
+
+Type  : Hold 'mario:m1|eightbit:e2|D_FF:d00|Q'
+Slack : -1.140
+TNS   : -1.863
+
+Type  : Hold 'mario:m1|eightbit:e1|D_FF:d00|Q'
+Slack : -0.605
+TNS   : -1.203
+
+Type  : Hold 'clk'
+Slack : 1.363
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'mario:m1|eightbit:e1|D_FF:d00|Q'
+Slack : 0.284
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'mario:m1|eightbit:e2|D_FF:d00|Q'
+Slack : 0.284
+TNS   : 0.000
+
 ------------------------------------------------------------

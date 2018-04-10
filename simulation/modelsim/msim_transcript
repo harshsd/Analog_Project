@@ -11,13 +11,17 @@
 # 
 # vcom -93 -work work {/home/harsh/Desktop/Analog_Project/StringRecognizer.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:46:48 on Apr 10,2018
+# Start time: 20:47:37 on Apr 10,2018
 # vcom -reportprogress 300 -93 -work work /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package harsh
 # -- Loading package harsh
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity JK_FF
+# -- Compiling architecture behavioral of JK_FF
 # -- Compiling entity D_FF
 # -- Compiling architecture WhatDoYouCare of D_FF
 # -- Compiling entity gesturerecog
@@ -30,16 +34,16 @@
 # -- Compiling architecture raichu of mario
 # -- Compiling entity StringRecognizer
 # -- Compiling architecture raichu of StringRecognizer
-# End time: 15:46:48 on Apr 10,2018, Elapsed time: 0:00:00
+# End time: 20:47:37 on Apr 10,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {/home/harsh/Desktop/Analog_Project/String-Testbench.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:46:48 on Apr 10,2018
+# Start time: 20:47:37 on Apr 10,2018
 # vcom -reportprogress 300 -93 -work work /home/harsh/Desktop/Analog_Project/String-Testbench.vhd 
 # ** Error: (vcom-7) Failed to open design unit file "/home/harsh/Desktop/Analog_Project/String-Testbench.vhd" in read mode.
 # No such file or directory. (errno = ENOENT)
-# End time: 15:46:48 on Apr 10,2018, Elapsed time: 0:00:00
+# End time: 20:47:37 on Apr 10,2018, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 # ** Error: /home/harsh/intelFPGA_lite/17.1/modelsim_ase/linuxaloem/vcom failed.
 # Error in macro ./StringRecognizer_run_msim_rtl_vhdl.do line 10
@@ -50,7 +54,7 @@
 # stdin: <EOF>
 vsim -i -l msim_transcript work.eightbit
 # vsim -i -l msim_transcript work.eightbit 
-# Start time: 15:47:06 on Apr 10,2018
+# Start time: 20:47:45 on Apr 10,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -58,44 +62,76 @@ vsim -i -l msim_transcript work.eightbit
 # Loading work.eightbit(pichu)
 # Loading work.d_ff(whatdoyoucare)
 add wave -position insertpoint  \
+sim:/eightbit/r \
 sim:/eightbit/u \
 sim:/eightbit/d \
 sim:/eightbit/clk \
 sim:/eightbit/reset \
-sim:/eightbit/q1 \
-sim:/eightbit/q0 \
-sim:/eightbit/q2 \
-sim:/eightbit/clkcount
+sim:/eightbit/clki
+force -freeze sim:/eightbit/reset 1 0
 force -freeze sim:/eightbit/clk 1 0, 0 {50 ps} -r 100
 force -freeze sim:/eightbit/u 0 0
 force -freeze sim:/eightbit/d 0 0
-force -freeze sim:/eightbit/reset 1 0
 run
-run
-run
-run
-force -freeze sim:/eightbit/u 0 0
-force -freeze sim:/eightbit/d 0 0
 force -freeze sim:/eightbit/reset 0 0
+noforce sim:/eightbit/u
+force -freeze sim:/eightbit/u 1 0, 0 {500 ps} -r 1000
 run
 run
 run
+run
+run
+run
+run
+run
+run
+run
+noforce sim:/eightbit/u
 force -freeze sim:/eightbit/u 1 0
-force -freeze sim:/eightbit/d 0 0
-force -freeze sim:/eightbit/reset 0 0
-run
-run
-run
+force -freeze sim:/eightbit/d 1 0
 run
 run
 run
 run
 run
 force -freeze sim:/eightbit/u 0 0
-force -freeze sim:/eightbit/d 1 0
-force -freeze sim:/eightbit/reset 0 0
+run
+run
+run
+force -freeze sim:/eightbit/d 1 0, 0 {500 ps} -r 1000
 run
 run
 run
 run
 run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 20:50:36 on Apr 10,2018, Elapsed time: 0:02:51
+# Errors: 0, Warnings: 0
