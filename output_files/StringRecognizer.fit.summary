@@ -1,11 +1,11 @@
-Fitter Status : Successful - Tue Apr 10 22:51:41 2018
+Fitter Status : Successful - Wed Apr 11 20:45:49 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : StringRecognizer
 Top-level Entity Name : mario
 Family : MAX V
 Device : 5M1270ZT144C4
 Timing Models : Final
-Total logic elements : 21 / 1,270 ( 2 % )
-Total pins : 14 / 114 ( 12 % )
+Total logic elements : 88 / 1,270 ( 7 % )
+Total pins : 22 / 114 ( 19 % )
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

@@ -2,35 +2,83 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Setup 'eightbit:e2|D_FF:d00|Q'
+Slack : -3.027
+TNS   : -7.743
+
 Type  : Setup 'eightbit:e1|D_FF:d00|Q'
-Slack : -1.761
-TNS   : -4.409
+Slack : -2.960
+TNS   : -7.973
+
+Type  : Setup 'reset'
+Slack : -1.322
+TNS   : -32.442
 
 Type  : Setup 'clk'
-Slack : -1.043
-TNS   : -6.203
+Slack : -0.805
+TNS   : -0.805
 
-Type  : Hold 'eightbit:e1|D_FF:d00|Q'
-Slack : 0.549
+Type  : Hold 'reset'
+Slack : 1.332
 TNS   : 0.000
 
 Type  : Hold 'clk'
-Slack : 1.379
+Slack : 1.355
 TNS   : 0.000
 
+Type  : Hold 'eightbit:e2|D_FF:d00|Q'
+Slack : 1.598
+TNS   : 0.000
+
+Type  : Hold 'eightbit:e1|D_FF:d00|Q'
+Slack : 1.618
+TNS   : 0.000
+
+Type  : Recovery 'reset'
+Slack : -3.281
+TNS   : -66.694
+
 Type  : Recovery 'clk'
-Slack : -4.710
-TNS   : -16.900
+Slack : -2.908
+TNS   : -2.908
+
+Type  : Recovery 'eightbit:e2|D_FF:d00|Q'
+Slack : -1.124
+TNS   : -3.372
+
+Type  : Recovery 'eightbit:e1|D_FF:d00|Q'
+Slack : -0.651
+TNS   : -1.953
+
+Type  : Removal 'reset'
+Slack : -0.704
+TNS   : -0.827
+
+Type  : Removal 'eightbit:e1|D_FF:d00|Q'
+Slack : 0.701
+TNS   : 0.000
+
+Type  : Removal 'eightbit:e2|D_FF:d00|Q'
+Slack : 1.174
+TNS   : 0.000
 
 Type  : Removal 'clk'
-Slack : 4.053
+Slack : 2.958
 TNS   : 0.000
 
 Type  : Minimum Pulse Width 'clk'
 Slack : -2.289
 TNS   : -2.289
 
+Type  : Minimum Pulse Width 'reset'
+Slack : -2.289
+TNS   : -2.289
+
 Type  : Minimum Pulse Width 'eightbit:e1|D_FF:d00|Q'
+Slack : 0.284
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'eightbit:e2|D_FF:d00|Q'
 Slack : 0.284
 TNS   : 0.000
 

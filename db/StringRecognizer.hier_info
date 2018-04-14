@@ -7,14 +7,396 @@ r[4] << eightbit:e1.r[4]
 r[5] << eightbit:e1.r[5]
 r[6] << eightbit:e1.r[6]
 r[7] << eightbit:e1.r[7]
+c[0] << eightbit:e2.r[0]
+c[1] << eightbit:e2.r[1]
+c[2] << eightbit:e2.r[2]
+c[3] << eightbit:e2.r[3]
+c[4] << eightbit:e2.r[4]
+c[5] << eightbit:e2.r[5]
+c[6] << eightbit:e2.r[6]
+c[7] << eightbit:e2.r[7]
 i1 => GestureRecognizer:gr1.i1
 i2 => GestureRecognizer:gr1.i2
 i3 => GestureRecognizer:gr1.i3
 i4 => GestureRecognizer:gr1.i4
-clk => GestureRecognizer:gr1.clk
-clk => eightbit:e1.clk
+clk => two_19:tt.clkin
+reset => two_19:tt.reset
 reset => GestureRecognizer:gr1.reset
 reset => eightbit:e1.reset
+reset => eightbit:e2.reset
+
+
+|mario|two_19:tt
+reset => d_two:random:0:twox.reset
+reset => d_two:random:1:twox.reset
+reset => d_two:random:2:twox.reset
+reset => d_two:random:3:twox.reset
+reset => d_two:random:4:twox.reset
+reset => d_two:random:5:twox.reset
+reset => d_two:random:6:twox.reset
+reset => d_two:random:7:twox.reset
+reset => d_two:random:8:twox.reset
+reset => d_two:random:9:twox.reset
+reset => d_two:random:10:twox.reset
+reset => d_two:random:11:twox.reset
+reset => d_two:random:12:twox.reset
+reset => d_two:random:13:twox.reset
+reset => d_two:random:14:twox.reset
+reset => d_two:random:15:twox.reset
+reset => d_two:random:16:twox.reset
+reset => d_two:random:17:twox.reset
+reset => d_two:random:18:twox.reset
+reset => d_two:random:19:twox.reset
+reset => d_two:random:20:twox.reset
+reset => d_two:random:21:twox.reset
+reset => d_two:random:22:twox.reset
+clkin => d_two:random:0:twox.clkin
+clkout <= d_two:random:22:twox.clkout
+
+
+|mario|two_19:tt|d_two:\random:0:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:0:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:1:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:1:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:2:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:2:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:3:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:3:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:4:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:4:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:5:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:5:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:6:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:6:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:7:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:7:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:8:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:8:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:9:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:9:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:10:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:10:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:11:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:11:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:12:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:12:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:13:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:13:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:14:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:14:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:15:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:15:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:16:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:16:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:17:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:17:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:18:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:18:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:19:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:19:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:20:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:20:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:21:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:21:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:22:twox
+reset => D_FF:D_FF1.reset
+reset => nq.IN1
+reset => clkout.IN1
+clkin => D_FF:D_FF1.CLK
+clkout <= clkout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|two_19:tt|d_two:\random:22:twox|D_FF:D_FF1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |mario|GestureRecognizer:gr1
@@ -213,6 +595,73 @@ Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |mario|eightbit:e1|D_FF:d3
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|eightbit:e2
+r[0] <= r.DB_MAX_OUTPUT_PORT_TYPE
+r[1] <= r.DB_MAX_OUTPUT_PORT_TYPE
+r[2] <= r.DB_MAX_OUTPUT_PORT_TYPE
+r[3] <= r.DB_MAX_OUTPUT_PORT_TYPE
+r[4] <= r.DB_MAX_OUTPUT_PORT_TYPE
+r[5] <= r.DB_MAX_OUTPUT_PORT_TYPE
+r[6] <= r.DB_MAX_OUTPUT_PORT_TYPE
+r[7] <= r.DB_MAX_OUTPUT_PORT_TYPE
+u => nq1.IN1
+u => nq1.IN1
+u => nq1.IN1
+u => nq1.IN1
+u => nq2.IN1
+u => nq2.IN1
+u => D_FF:d0.D
+u => nq1.IN1
+u => nq1.IN1
+u => nq1.IN1
+u => nq1.IN1
+u => nq2.IN1
+u => nq2.IN1
+d => D_FF:d00.D
+clk => D_FF:d0.CLK
+clk => D_FF:d00.CLK
+reset => D_FF:d0.reset
+reset => D_FF:d00.reset
+reset => D_FF:d1.reset
+reset => D_FF:d2.reset
+reset => D_FF:d3.reset
+
+
+|mario|eightbit:e2|D_FF:d0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|eightbit:e2|D_FF:d00
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|eightbit:e2|D_FF:d1
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|eightbit:e2|D_FF:d2
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+reset => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mario|eightbit:e2|D_FF:d3
 D => Q~reg0.DATAIN
 CLK => Q~reg0.CLK
 reset => Q~reg0.ACLR

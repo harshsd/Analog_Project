@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for StringRecognizer
-Tue Apr 10 22:51:44 2018
+Wed Apr 11 20:45:51 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -16,25 +16,35 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   8. Recovery Summary
   9. Removal Summary
  10. Minimum Pulse Width Summary
- 11. Setup: 'eightbit:e1|D_FF:d00|Q'
- 12. Setup: 'clk'
- 13. Hold: 'eightbit:e1|D_FF:d00|Q'
- 14. Hold: 'clk'
- 15. Recovery: 'clk'
- 16. Removal: 'clk'
- 17. Setup Transfers
- 18. Hold Transfers
- 19. Recovery Transfers
- 20. Removal Transfers
- 21. Report TCCS
- 22. Report RSKM
- 23. Unconstrained Paths Summary
- 24. Clock Status Summary
- 25. Unconstrained Input Ports
- 26. Unconstrained Output Ports
- 27. Unconstrained Input Ports
- 28. Unconstrained Output Ports
- 29. TimeQuest Timing Analyzer Messages
+ 11. Setup: 'eightbit:e2|D_FF:d00|Q'
+ 12. Setup: 'eightbit:e1|D_FF:d00|Q'
+ 13. Setup: 'reset'
+ 14. Setup: 'clk'
+ 15. Hold: 'reset'
+ 16. Hold: 'clk'
+ 17. Hold: 'eightbit:e2|D_FF:d00|Q'
+ 18. Hold: 'eightbit:e1|D_FF:d00|Q'
+ 19. Recovery: 'reset'
+ 20. Recovery: 'clk'
+ 21. Recovery: 'eightbit:e2|D_FF:d00|Q'
+ 22. Recovery: 'eightbit:e1|D_FF:d00|Q'
+ 23. Removal: 'reset'
+ 24. Removal: 'eightbit:e1|D_FF:d00|Q'
+ 25. Removal: 'eightbit:e2|D_FF:d00|Q'
+ 26. Removal: 'clk'
+ 27. Setup Transfers
+ 28. Hold Transfers
+ 29. Recovery Transfers
+ 30. Removal Transfers
+ 31. Report TCCS
+ 32. Report RSKM
+ 33. Unconstrained Paths Summary
+ 34. Clock Status Summary
+ 35. Unconstrained Input Ports
+ 36. Unconstrained Output Ports
+ 37. Unconstrained Input Ports
+ 38. Unconstrained Output Ports
+ 39. TimeQuest Timing Analyzer Messages
 
 
 
@@ -94,6 +104,8 @@ refer to the applicable agreement for further details.
 +------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
 ; clk                    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                    ;
 ; eightbit:e1|D_FF:d00|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { eightbit:e1|D_FF:d00|Q } ;
+; eightbit:e2|D_FF:d00|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { eightbit:e2|D_FF:d00|Q } ;
+; reset                  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { reset }                  ;
 +------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
 
 
@@ -102,8 +114,10 @@ refer to the applicable agreement for further details.
 +------------+-----------------+------------------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name             ; Note                                                          ;
 +------------+-----------------+------------------------+---------------------------------------------------------------+
-; 362.19 MHz ; 362.19 MHz      ; eightbit:e1|D_FF:d00|Q ;                                                               ;
-; 489.48 MHz ; 304.04 MHz      ; clk                    ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 322.27 MHz ; 322.27 MHz      ; eightbit:e1|D_FF:d00|Q ;                                                               ;
+; 363.64 MHz ; 363.64 MHz      ; eightbit:e2|D_FF:d00|Q ;                                                               ;
+; 430.66 MHz ; 304.04 MHz      ; reset                  ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 554.02 MHz ; 304.04 MHz      ; clk                    ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+------------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -113,8 +127,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------+--------+---------------+
 ; Clock                  ; Slack  ; End Point TNS ;
 +------------------------+--------+---------------+
-; eightbit:e1|D_FF:d00|Q ; -1.761 ; -4.409        ;
-; clk                    ; -1.043 ; -6.203        ;
+; eightbit:e2|D_FF:d00|Q ; -3.027 ; -7.743        ;
+; eightbit:e1|D_FF:d00|Q ; -2.960 ; -7.973        ;
+; reset                  ; -1.322 ; -32.442       ;
+; clk                    ; -0.805 ; -0.805        ;
 +------------------------+--------+---------------+
 
 
@@ -123,27 +139,35 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------+-------+---------------+
 ; Clock                  ; Slack ; End Point TNS ;
 +------------------------+-------+---------------+
-; eightbit:e1|D_FF:d00|Q ; 0.549 ; 0.000         ;
-; clk                    ; 1.379 ; 0.000         ;
+; reset                  ; 1.332 ; 0.000         ;
+; clk                    ; 1.355 ; 0.000         ;
+; eightbit:e2|D_FF:d00|Q ; 1.598 ; 0.000         ;
+; eightbit:e1|D_FF:d00|Q ; 1.618 ; 0.000         ;
 +------------------------+-------+---------------+
 
 
-+--------------------------------+
-; Recovery Summary               ;
-+-------+--------+---------------+
-; Clock ; Slack  ; End Point TNS ;
-+-------+--------+---------------+
-; clk   ; -4.710 ; -16.900       ;
-+-------+--------+---------------+
++-------------------------------------------------+
+; Recovery Summary                                ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; reset                  ; -3.281 ; -66.694       ;
+; clk                    ; -2.908 ; -2.908        ;
+; eightbit:e2|D_FF:d00|Q ; -1.124 ; -3.372        ;
+; eightbit:e1|D_FF:d00|Q ; -0.651 ; -1.953        ;
++------------------------+--------+---------------+
 
 
-+-------------------------------+
-; Removal Summary               ;
-+-------+-------+---------------+
-; Clock ; Slack ; End Point TNS ;
-+-------+-------+---------------+
-; clk   ; 4.053 ; 0.000         ;
-+-------+-------+---------------+
++-------------------------------------------------+
+; Removal Summary                                 ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; reset                  ; -0.704 ; -0.827        ;
+; eightbit:e1|D_FF:d00|Q ; 0.701  ; 0.000         ;
+; eightbit:e2|D_FF:d00|Q ; 1.174  ; 0.000         ;
+; clk                    ; 2.958  ; 0.000         ;
++------------------------+--------+---------------+
 
 
 +-------------------------------------------------+
@@ -152,8 +176,30 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                  ; Slack  ; End Point TNS ;
 +------------------------+--------+---------------+
 ; clk                    ; -2.289 ; -2.289        ;
+; reset                  ; -2.289 ; -2.289        ;
 ; eightbit:e1|D_FF:d00|Q ; 0.284  ; 0.000         ;
+; eightbit:e2|D_FF:d00|Q ; 0.284  ; 0.000         ;
 +------------------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'eightbit:e2|D_FF:d00|Q'                                                                                                                                              ;
++--------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack  ; From Node                                        ; To Node               ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
+; -3.027 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; eightbit:e2|D_FF:d3|Q ; reset                  ; eightbit:e2|D_FF:d00|Q ; 1.000        ; -1.215     ; 2.541      ;
+; -2.966 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; eightbit:e2|D_FF:d2|Q ; reset                  ; eightbit:e2|D_FF:d00|Q ; 1.000        ; -1.215     ; 2.480      ;
+; -2.755 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; eightbit:e2|D_FF:d3|Q ; reset                  ; eightbit:e2|D_FF:d00|Q ; 1.000        ; -1.215     ; 2.269      ;
+; -2.345 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; eightbit:e2|D_FF:d2|Q ; reset                  ; eightbit:e2|D_FF:d00|Q ; 1.000        ; -1.215     ; 1.859      ;
+; -1.750 ; eightbit:e2|D_FF:d1|Q                            ; eightbit:e2|D_FF:d1|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.479      ;
+; -1.542 ; eightbit:e2|D_FF:d2|Q                            ; eightbit:e2|D_FF:d1|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.271      ;
+; -1.492 ; eightbit:e2|D_FF:d2|Q                            ; eightbit:e2|D_FF:d2|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.221      ;
+; -1.305 ; eightbit:e2|D_FF:d1|Q                            ; eightbit:e2|D_FF:d2|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.034      ;
+; -1.304 ; eightbit:e2|D_FF:d1|Q                            ; eightbit:e2|D_FF:d3|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.033      ;
+; -1.234 ; eightbit:e2|D_FF:d3|Q                            ; eightbit:e2|D_FF:d1|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.963      ;
+; -1.200 ; eightbit:e2|D_FF:d3|Q                            ; eightbit:e2|D_FF:d3|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.929      ;
+; -1.048 ; eightbit:e2|D_FF:d2|Q                            ; eightbit:e2|D_FF:d3|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.777      ;
++--------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -161,39 +207,165 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
 ; Slack  ; From Node                                        ; To Node               ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
 +--------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
-; -1.761 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.490      ;
-; -1.519 ; eightbit:e1|D_FF:d3|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.248      ;
-; -1.328 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.057      ;
-; -1.320 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.049      ;
-; -1.277 ; eightbit:e1|D_FF:d3|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.006      ;
-; -1.272 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.001      ;
-; -1.226 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.955      ;
-; -0.850 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.579      ;
-; -0.463 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d3|Q ; clk                    ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 1.242      ; 2.434      ;
-; -0.352 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d2|Q ; clk                    ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 1.242      ; 2.323      ;
-; -0.221 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d3|Q ; clk                    ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 1.242      ; 2.192      ;
-; 0.001  ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d2|Q ; clk                    ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 1.242      ; 1.970      ;
+; -2.960 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d3|Q ; reset                  ; eightbit:e1|D_FF:d00|Q ; 1.000        ; -1.405     ; 2.284      ;
+; -2.910 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d2|Q ; reset                  ; eightbit:e1|D_FF:d00|Q ; 1.000        ; -1.405     ; 2.234      ;
+; -2.721 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d2|Q ; reset                  ; eightbit:e1|D_FF:d00|Q ; 1.000        ; -1.405     ; 2.045      ;
+; -2.653 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d3|Q ; reset                  ; eightbit:e1|D_FF:d00|Q ; 1.000        ; -1.405     ; 1.977      ;
+; -2.103 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.832      ;
+; -1.569 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.298      ;
+; -1.567 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.296      ;
+; -1.327 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.056      ;
+; -1.283 ; eightbit:e1|D_FF:d3|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.012      ;
+; -1.279 ; eightbit:e1|D_FF:d3|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 2.008      ;
+; -1.189 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.918      ;
+; -1.068 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 0.000      ; 1.797      ;
 +--------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Setup: 'clk'                                                                                                                                                                       ;
+; Setup: 'reset'                                                                                                                                                                     ;
 +--------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node                                        ; To Node                                          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
-; -1.043 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.772      ;
-; -1.041 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q                           ; clk          ; clk         ; 1.000        ; 0.000      ; 1.770      ;
-; -1.036 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.765      ;
-; -1.031 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.760      ;
-; -1.029 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d0|Q                            ; clk          ; clk         ; 1.000        ; 0.000      ; 1.758      ;
-; -1.023 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.752      ;
-; -0.871 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.600      ;
-; -0.866 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d0|Q                            ; clk          ; clk         ; 1.000        ; 0.000      ; 1.595      ;
-; -0.862 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.591      ;
-; -0.831 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.560      ;
-; -0.830 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q                           ; clk          ; clk         ; 1.000        ; 0.000      ; 1.559      ;
-; -0.829 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.558      ;
+; -1.322 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; eightbit:e2|D_FF:d0|Q                            ; reset        ; reset       ; 1.000        ; 0.000      ; 2.051      ;
+; -1.312 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; eightbit:e2|D_FF:d00|Q                           ; reset        ; reset       ; 1.000        ; 0.000      ; 2.041      ;
+; -1.194 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.923      ;
+; -1.129 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; eightbit:e2|D_FF:d0|Q                            ; reset        ; reset       ; 1.000        ; 0.000      ; 1.858      ;
+; -1.104 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; eightbit:e2|D_FF:d00|Q                           ; reset        ; reset       ; 1.000        ; 0.000      ; 1.833      ;
+; -1.074 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.803      ;
+; -1.065 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d0|Q                            ; reset        ; reset       ; 1.000        ; 0.000      ; 1.794      ;
+; -1.062 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.791      ;
+; -1.049 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q                           ; reset        ; reset       ; 1.000        ; 0.000      ; 1.778      ;
+; -1.048 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.777      ;
+; -1.035 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.764      ;
+; -1.034 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.763      ;
+; -1.031 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.760      ;
+; -1.029 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.758      ;
+; -1.017 ; two_19:tt|d_two:\random:13:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:13:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.746      ;
+; -1.014 ; two_19:tt|d_two:\random:8:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:8:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 0.000      ; 1.743      ;
+; -1.010 ; two_19:tt|d_two:\random:16:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:16:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.739      ;
+; -1.010 ; two_19:tt|d_two:\random:12:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:12:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.739      ;
+; -1.010 ; two_19:tt|d_two:\random:9:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:9:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 0.000      ; 1.739      ;
+; -1.008 ; two_19:tt|d_two:\random:6:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:6:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 0.000      ; 1.737      ;
+; -1.007 ; two_19:tt|d_two:\random:21:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:21:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.736      ;
+; -0.993 ; two_19:tt|d_two:\random:11:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:11:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.722      ;
+; -0.837 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.566      ;
+; -0.837 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d0|Q                            ; reset        ; reset       ; 1.000        ; 0.000      ; 1.566      ;
+; -0.835 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.564      ;
+; -0.829 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.558      ;
+; -0.829 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q                           ; reset        ; reset       ; 1.000        ; 0.000      ; 1.558      ;
+; -0.827 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.556      ;
+; -0.826 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.555      ;
+; -0.820 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.549      ;
+; -0.817 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.546      ;
+; -0.815 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.544      ;
+; -0.806 ; two_19:tt|d_two:\random:20:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:20:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.535      ;
+; -0.805 ; two_19:tt|d_two:\random:18:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:18:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.534      ;
+; -0.799 ; two_19:tt|d_two:\random:22:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:22:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.528      ;
+; -0.799 ; two_19:tt|d_two:\random:14:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:14:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.528      ;
+; -0.799 ; two_19:tt|d_two:\random:4:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:4:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 0.000      ; 1.528      ;
+; -0.799 ; two_19:tt|d_two:\random:3:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:3:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 0.000      ; 1.528      ;
+; -0.798 ; two_19:tt|d_two:\random:10:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:10:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.527      ;
+; -0.798 ; two_19:tt|d_two:\random:2:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:2:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 0.000      ; 1.527      ;
+; -0.797 ; two_19:tt|d_two:\random:19:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:19:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.526      ;
+; -0.790 ; two_19:tt|d_two:\random:7:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:7:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 0.000      ; 1.519      ;
+; -0.782 ; two_19:tt|d_two:\random:17:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:17:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.511      ;
+; -0.782 ; two_19:tt|d_two:\random:15:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:15:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 0.000      ; 1.511      ;
+; -0.782 ; two_19:tt|d_two:\random:5:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:5:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 0.000      ; 1.511      ;
+; -0.782 ; two_19:tt|d_two:\random:1:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:1:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 0.000      ; 1.511      ;
 +--------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                                                             ;
++--------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                   ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.805 ; two_19:tt|d_two:\random:0:twox|D_FF:D_FF1|Q ; two_19:tt|d_two:\random:0:twox|D_FF:D_FF1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.534      ;
++--------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'reset'                                                                                                                                                                     ;
++-------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                        ; To Node                                          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.332 ; two_19:tt|d_two:\random:17:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:17:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.511      ;
+; 1.332 ; two_19:tt|d_two:\random:15:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:15:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.511      ;
+; 1.332 ; two_19:tt|d_two:\random:5:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:5:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 0.000      ; 1.511      ;
+; 1.332 ; two_19:tt|d_two:\random:1:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:1:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 0.000      ; 1.511      ;
+; 1.340 ; two_19:tt|d_two:\random:7:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:7:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 0.000      ; 1.519      ;
+; 1.347 ; two_19:tt|d_two:\random:19:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:19:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.526      ;
+; 1.348 ; two_19:tt|d_two:\random:10:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:10:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.527      ;
+; 1.348 ; two_19:tt|d_two:\random:2:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:2:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 0.000      ; 1.527      ;
+; 1.349 ; two_19:tt|d_two:\random:22:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:22:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.528      ;
+; 1.349 ; two_19:tt|d_two:\random:14:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:14:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.528      ;
+; 1.349 ; two_19:tt|d_two:\random:4:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:4:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 0.000      ; 1.528      ;
+; 1.349 ; two_19:tt|d_two:\random:3:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:3:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 0.000      ; 1.528      ;
+; 1.355 ; two_19:tt|d_two:\random:18:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:18:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.534      ;
+; 1.356 ; two_19:tt|d_two:\random:20:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:20:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.535      ;
+; 1.365 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.544      ;
+; 1.367 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.546      ;
+; 1.370 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.549      ;
+; 1.376 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.555      ;
+; 1.377 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.556      ;
+; 1.379 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.558      ;
+; 1.379 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q                           ; reset        ; reset       ; 0.000        ; 0.000      ; 1.558      ;
+; 1.385 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.564      ;
+; 1.387 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.566      ;
+; 1.387 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d0|Q                            ; reset        ; reset       ; 0.000        ; 0.000      ; 1.566      ;
+; 1.543 ; two_19:tt|d_two:\random:11:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:11:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.722      ;
+; 1.557 ; two_19:tt|d_two:\random:21:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:21:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.736      ;
+; 1.558 ; two_19:tt|d_two:\random:6:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:6:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 0.000      ; 1.737      ;
+; 1.560 ; two_19:tt|d_two:\random:16:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:16:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.739      ;
+; 1.560 ; two_19:tt|d_two:\random:12:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:12:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.739      ;
+; 1.560 ; two_19:tt|d_two:\random:9:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:9:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 0.000      ; 1.739      ;
+; 1.564 ; two_19:tt|d_two:\random:8:twox|D_FF:D_FF1|Q      ; two_19:tt|d_two:\random:8:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 0.000      ; 1.743      ;
+; 1.567 ; two_19:tt|d_two:\random:13:twox|D_FF:D_FF1|Q     ; two_19:tt|d_two:\random:13:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 0.000      ; 1.746      ;
+; 1.579 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.758      ;
+; 1.581 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.760      ;
+; 1.584 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.763      ;
+; 1.585 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.764      ;
+; 1.598 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.777      ;
+; 1.599 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q                           ; reset        ; reset       ; 0.000        ; 0.000      ; 1.778      ;
+; 1.612 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.791      ;
+; 1.615 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d0|Q                            ; reset        ; reset       ; 0.000        ; 0.000      ; 1.794      ;
+; 1.624 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.803      ;
+; 1.654 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; eightbit:e2|D_FF:d00|Q                           ; reset        ; reset       ; 0.000        ; 0.000      ; 1.833      ;
+; 1.679 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; eightbit:e2|D_FF:d0|Q                            ; reset        ; reset       ; 0.000        ; 0.000      ; 1.858      ;
+; 1.744 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.923      ;
+; 1.862 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; eightbit:e2|D_FF:d00|Q                           ; reset        ; reset       ; 0.000        ; 0.000      ; 2.041      ;
+; 1.872 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; eightbit:e2|D_FF:d0|Q                            ; reset        ; reset       ; 0.000        ; 0.000      ; 2.051      ;
++-------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                                             ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                   ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.355 ; two_19:tt|d_two:\random:0:twox|D_FF:D_FF1|Q ; two_19:tt|d_two:\random:0:twox|D_FF:D_FF1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.534      ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'eightbit:e2|D_FF:d00|Q'                                                                                                                                              ;
++-------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack ; From Node                                        ; To Node               ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
+; 1.598 ; eightbit:e2|D_FF:d2|Q                            ; eightbit:e2|D_FF:d3|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.777      ;
+; 1.601 ; eightbit:e2|D_FF:d2|Q                            ; eightbit:e2|D_FF:d1|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.780      ;
+; 1.750 ; eightbit:e2|D_FF:d3|Q                            ; eightbit:e2|D_FF:d3|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.929      ;
+; 1.754 ; eightbit:e2|D_FF:d3|Q                            ; eightbit:e2|D_FF:d1|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.933      ;
+; 1.854 ; eightbit:e2|D_FF:d1|Q                            ; eightbit:e2|D_FF:d3|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.033      ;
+; 1.855 ; eightbit:e2|D_FF:d1|Q                            ; eightbit:e2|D_FF:d2|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.034      ;
+; 2.042 ; eightbit:e2|D_FF:d2|Q                            ; eightbit:e2|D_FF:d2|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.221      ;
+; 2.300 ; eightbit:e2|D_FF:d1|Q                            ; eightbit:e2|D_FF:d1|Q ; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.479      ;
+; 2.895 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; eightbit:e2|D_FF:d2|Q ; reset                  ; eightbit:e2|D_FF:d00|Q ; 0.000        ; -1.215     ; 1.859      ;
+; 3.305 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; eightbit:e2|D_FF:d3|Q ; reset                  ; eightbit:e2|D_FF:d00|Q ; 0.000        ; -1.215     ; 2.269      ;
+; 3.516 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; eightbit:e2|D_FF:d2|Q ; reset                  ; eightbit:e2|D_FF:d00|Q ; 0.000        ; -1.215     ; 2.480      ;
+; 3.577 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; eightbit:e2|D_FF:d3|Q ; reset                  ; eightbit:e2|D_FF:d00|Q ; 0.000        ; -1.215     ; 2.541      ;
++-------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -201,71 +373,279 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
 ; Slack ; From Node                                        ; To Node               ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
 +-------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
-; 0.549 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d2|Q ; clk                    ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 1.242      ; 1.970      ;
-; 0.771 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d3|Q ; clk                    ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 1.242      ; 2.192      ;
-; 0.902 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d2|Q ; clk                    ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 1.242      ; 2.323      ;
-; 1.013 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d3|Q ; clk                    ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 1.242      ; 2.434      ;
-; 1.400 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.579      ;
-; 1.580 ; eightbit:e1|D_FF:d3|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.759      ;
-; 1.776 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.955      ;
-; 1.791 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.970      ;
-; 1.827 ; eightbit:e1|D_FF:d3|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.006      ;
-; 1.870 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.049      ;
-; 1.878 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.057      ;
-; 2.311 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.490      ;
+; 1.618 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.797      ;
+; 1.624 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.803      ;
+; 1.739 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.918      ;
+; 1.781 ; eightbit:e1|D_FF:d3|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 1.960      ;
+; 1.829 ; eightbit:e1|D_FF:d3|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.008      ;
+; 1.877 ; eightbit:e1|D_FF:d2|Q                            ; eightbit:e1|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.056      ;
+; 2.119 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d3|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.298      ;
+; 2.653 ; eightbit:e1|D_FF:d1|Q                            ; eightbit:e1|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 0.000      ; 2.832      ;
+; 3.203 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d3|Q ; reset                  ; eightbit:e1|D_FF:d00|Q ; 0.000        ; -1.405     ; 1.977      ;
+; 3.271 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d2|Q ; reset                  ; eightbit:e1|D_FF:d00|Q ; 0.000        ; -1.405     ; 2.045      ;
+; 3.460 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d2|Q ; reset                  ; eightbit:e1|D_FF:d00|Q ; 0.000        ; -1.405     ; 2.234      ;
+; 3.510 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d3|Q ; reset                  ; eightbit:e1|D_FF:d00|Q ; 0.000        ; -1.405     ; 2.284      ;
 +-------+--------------------------------------------------+-----------------------+------------------------+------------------------+--------------+------------+------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Hold: 'clk'                                                                                                                                                                       ;
-+-------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node                                        ; To Node                                          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
-; 1.379 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.558      ;
-; 1.380 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; eightbit:e1|D_FF:d00|Q                           ; clk          ; clk         ; 0.000        ; 0.000      ; 1.559      ;
-; 1.381 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.560      ;
-; 1.412 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.591      ;
-; 1.416 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; eightbit:e1|D_FF:d0|Q                            ; clk          ; clk         ; 0.000        ; 0.000      ; 1.595      ;
-; 1.421 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.600      ;
-; 1.573 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.752      ;
-; 1.579 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; eightbit:e1|D_FF:d0|Q                            ; clk          ; clk         ; 0.000        ; 0.000      ; 1.758      ;
-; 1.581 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.760      ;
-; 1.586 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.765      ;
-; 1.591 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; eightbit:e1|D_FF:d00|Q                           ; clk          ; clk         ; 0.000        ; 0.000      ; 1.770      ;
-; 1.593 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.772      ;
-+-------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
-
-
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Recovery: 'clk'                                                                                                                                                                    ;
+; Recovery: 'reset'                                                                                                                                                                  ;
 +--------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node                                        ; To Node                                          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
-; -4.710 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 5.439      ;
-; -4.710 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 5.439      ;
-; -4.418 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 5.147      ;
-; -4.418 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 5.147      ;
-; -3.740 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 4.469      ;
-; -3.740 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 4.469      ;
-; -3.503 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 4.232      ;
-; -3.503 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 4.232      ;
+; -3.281 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 4.010      ;
+; -3.281 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 4.010      ;
+; -3.249 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.978      ;
+; -3.249 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.978      ;
+; -2.967 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.696      ;
+; -2.967 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.696      ;
+; -2.953 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.682      ;
+; -2.953 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.682      ;
+; -2.939 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.668      ;
+; -2.939 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.668      ;
+; -2.931 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.660      ;
+; -2.931 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.660      ;
+; -2.655 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.384      ;
+; -2.655 ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.384      ;
+; -2.641 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.370      ;
+; -2.641 ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 3.370      ;
+; -2.366 ; reset                                            ; two_19:tt|d_two:\random:8:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.500        ; 4.168      ; 6.763      ;
+; -2.343 ; reset                                            ; two_19:tt|d_two:\random:9:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.500        ; 4.191      ; 6.763      ;
+; -2.330 ; reset                                            ; two_19:tt|d_two:\random:13:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.204      ; 6.763      ;
+; -2.309 ; reset                                            ; two_19:tt|d_two:\random:12:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.225      ; 6.763      ;
+; -2.164 ; reset                                            ; two_19:tt|d_two:\random:6:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.500        ; 4.370      ; 6.763      ;
+; -2.151 ; reset                                            ; two_19:tt|d_two:\random:7:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.500        ; 4.383      ; 6.763      ;
+; -2.147 ; reset                                            ; two_19:tt|d_two:\random:11:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.387      ; 6.763      ;
+; -2.042 ; reset                                            ; two_19:tt|d_two:\random:10:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.492      ; 6.763      ;
+; -2.008 ; reset                                            ; two_19:tt|d_two:\random:14:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.526      ; 6.763      ;
+; -1.876 ; reset                                            ; two_19:tt|d_two:\random:5:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.500        ; 4.658      ; 6.763      ;
+; -1.866 ; reset                                            ; two_19:tt|d_two:\random:8:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 4.168      ; 6.763      ;
+; -1.851 ; reset                                            ; two_19:tt|d_two:\random:20:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.683      ; 6.763      ;
+; -1.843 ; reset                                            ; two_19:tt|d_two:\random:9:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 4.191      ; 6.763      ;
+; -1.832 ; reset                                            ; two_19:tt|d_two:\random:21:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.702      ; 6.763      ;
+; -1.830 ; reset                                            ; two_19:tt|d_two:\random:13:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.204      ; 6.763      ;
+; -1.809 ; reset                                            ; two_19:tt|d_two:\random:12:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.225      ; 6.763      ;
+; -1.804 ; reset                                            ; two_19:tt|d_two:\random:3:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.500        ; 4.730      ; 6.763      ;
+; -1.804 ; reset                                            ; two_19:tt|d_two:\random:2:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.500        ; 4.730      ; 6.763      ;
+; -1.796 ; reset                                            ; two_19:tt|d_two:\random:19:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.738      ; 6.763      ;
+; -1.796 ; reset                                            ; two_19:tt|d_two:\random:18:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.738      ; 6.763      ;
+; -1.726 ; reset                                            ; two_19:tt|d_two:\random:17:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.808      ; 6.763      ;
+; -1.700 ; reset                                            ; two_19:tt|d_two:\random:1:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.500        ; 4.834      ; 6.763      ;
+; -1.670 ; reset                                            ; two_19:tt|d_two:\random:15:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 4.864      ; 6.763      ;
+; -1.664 ; reset                                            ; two_19:tt|d_two:\random:6:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 4.370      ; 6.763      ;
+; -1.651 ; reset                                            ; two_19:tt|d_two:\random:7:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 4.383      ; 6.763      ;
+; -1.647 ; reset                                            ; two_19:tt|d_two:\random:11:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.387      ; 6.763      ;
+; -1.542 ; reset                                            ; two_19:tt|d_two:\random:10:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.492      ; 6.763      ;
+; -1.508 ; reset                                            ; two_19:tt|d_two:\random:14:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.526      ; 6.763      ;
+; -1.489 ; reset                                            ; two_19:tt|d_two:\random:4:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.500        ; 5.045      ; 6.763      ;
+; -1.376 ; reset                                            ; two_19:tt|d_two:\random:5:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 4.658      ; 6.763      ;
+; -1.352 ; reset                                            ; two_19:tt|d_two:\random:16:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 5.182      ; 6.763      ;
+; -1.351 ; reset                                            ; two_19:tt|d_two:\random:20:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.683      ; 6.763      ;
+; -1.338 ; reset                                            ; two_19:tt|d_two:\random:22:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.500        ; 5.859      ; 7.426      ;
+; -1.332 ; reset                                            ; two_19:tt|d_two:\random:21:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.702      ; 6.763      ;
+; -1.304 ; reset                                            ; two_19:tt|d_two:\random:3:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 4.730      ; 6.763      ;
+; -1.304 ; reset                                            ; two_19:tt|d_two:\random:2:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 4.730      ; 6.763      ;
+; -1.296 ; reset                                            ; two_19:tt|d_two:\random:19:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.738      ; 6.763      ;
+; -1.296 ; reset                                            ; two_19:tt|d_two:\random:18:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.738      ; 6.763      ;
+; -1.226 ; reset                                            ; two_19:tt|d_two:\random:17:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.808      ; 6.763      ;
+; -1.200 ; reset                                            ; two_19:tt|d_two:\random:1:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 4.834      ; 6.763      ;
+; -1.170 ; reset                                            ; two_19:tt|d_two:\random:15:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 4.864      ; 6.763      ;
+; -0.989 ; reset                                            ; two_19:tt|d_two:\random:4:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 1.000        ; 5.045      ; 6.763      ;
+; -0.852 ; reset                                            ; two_19:tt|d_two:\random:16:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 5.182      ; 6.763      ;
+; -0.838 ; reset                                            ; two_19:tt|d_two:\random:22:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 1.000        ; 5.859      ; 7.426      ;
+; -0.696 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 0.500        ; 7.288      ; 8.213      ;
+; -0.696 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 0.500        ; 7.288      ; 8.213      ;
+; -0.692 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 0.500        ; 7.288      ; 8.209      ;
+; -0.692 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 0.500        ; 7.288      ; 8.209      ;
+; -0.556 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 0.500        ; 7.288      ; 8.073      ;
+; -0.556 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 0.500        ; 7.288      ; 8.073      ;
+; -0.465 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 0.500        ; 7.288      ; 7.982      ;
+; -0.465 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 0.500        ; 7.288      ; 7.982      ;
+; -0.196 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 7.288      ; 8.213      ;
+; -0.196 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 7.288      ; 8.213      ;
+; -0.192 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 7.288      ; 8.209      ;
+; -0.192 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 7.288      ; 8.209      ;
+; -0.056 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 7.288      ; 8.073      ;
+; -0.056 ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 7.288      ; 8.073      ;
+; 0.035  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 1.000        ; 7.288      ; 7.982      ;
+; 0.035  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 1.000        ; 7.288      ; 7.982      ;
+; 0.091  ; reset                                            ; eightbit:e2|D_FF:d0|Q                            ; reset        ; reset       ; 0.500        ; 7.288      ; 7.426      ;
+; 0.091  ; reset                                            ; eightbit:e1|D_FF:d00|Q                           ; reset        ; reset       ; 0.500        ; 7.288      ; 7.426      ;
+; 0.091  ; reset                                            ; eightbit:e2|D_FF:d00|Q                           ; reset        ; reset       ; 0.500        ; 7.288      ; 7.426      ;
+; 0.591  ; reset                                            ; eightbit:e2|D_FF:d0|Q                            ; reset        ; reset       ; 1.000        ; 7.288      ; 7.426      ;
+; 0.591  ; reset                                            ; eightbit:e1|D_FF:d00|Q                           ; reset        ; reset       ; 1.000        ; 7.288      ; 7.426      ;
+; 0.591  ; reset                                            ; eightbit:e2|D_FF:d00|Q                           ; reset        ; reset       ; 1.000        ; 7.288      ; 7.426      ;
+; 0.754  ; reset                                            ; eightbit:e1|D_FF:d0|Q                            ; reset        ; reset       ; 0.500        ; 7.288      ; 6.763      ;
+; 1.254  ; reset                                            ; eightbit:e1|D_FF:d0|Q                            ; reset        ; reset       ; 1.000        ; 7.288      ; 6.763      ;
 +--------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removal: 'clk'                                                                                                                                                                    ;
-+-------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node                                        ; To Node                                          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
-; 4.053 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 4.232      ;
-; 4.053 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 4.232      ;
-; 4.290 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 4.469      ;
-; 4.290 ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 4.469      ;
-; 4.968 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 5.147      ;
-; 4.968 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 5.147      ;
-; 5.260 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 5.439      ;
-; 5.260 ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 5.439      ;
-+-------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'clk'                                                                                                                        ;
++--------+-----------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.908 ; reset     ; two_19:tt|d_two:\random:0:twox|D_FF:D_FF1|Q ; reset        ; clk         ; 0.500        ; 3.626      ; 6.763      ;
+; -2.408 ; reset     ; two_19:tt|d_two:\random:0:twox|D_FF:D_FF1|Q ; reset        ; clk         ; 1.000        ; 3.626      ; 6.763      ;
++--------+-----------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'eightbit:e2|D_FF:d00|Q'                                                                                          ;
++--------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node               ; Launch Clock ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+; -1.124 ; reset     ; eightbit:e2|D_FF:d1|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; 0.500        ; 6.073      ; 7.426      ;
+; -1.124 ; reset     ; eightbit:e2|D_FF:d2|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; 0.500        ; 6.073      ; 7.426      ;
+; -1.124 ; reset     ; eightbit:e2|D_FF:d3|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; 0.500        ; 6.073      ; 7.426      ;
+; -0.624 ; reset     ; eightbit:e2|D_FF:d1|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 6.073      ; 7.426      ;
+; -0.624 ; reset     ; eightbit:e2|D_FF:d2|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 6.073      ; 7.426      ;
+; -0.624 ; reset     ; eightbit:e2|D_FF:d3|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; 1.000        ; 6.073      ; 7.426      ;
++--------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'eightbit:e1|D_FF:d00|Q'                                                                                          ;
++--------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node               ; Launch Clock ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+; -0.651 ; reset     ; eightbit:e1|D_FF:d1|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; 0.500        ; 5.883      ; 6.763      ;
+; -0.651 ; reset     ; eightbit:e1|D_FF:d2|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; 0.500        ; 5.883      ; 6.763      ;
+; -0.651 ; reset     ; eightbit:e1|D_FF:d3|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; 0.500        ; 5.883      ; 6.763      ;
+; -0.151 ; reset     ; eightbit:e1|D_FF:d1|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 5.883      ; 6.763      ;
+; -0.151 ; reset     ; eightbit:e1|D_FF:d2|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 5.883      ; 6.763      ;
+; -0.151 ; reset     ; eightbit:e1|D_FF:d3|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; 1.000        ; 5.883      ; 6.763      ;
++--------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'reset'                                                                                                                                                                   ;
++--------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                        ; To Node                                          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.704 ; reset                                            ; eightbit:e1|D_FF:d0|Q                            ; reset        ; reset       ; 0.000        ; 7.288      ; 6.763      ;
+; -0.204 ; reset                                            ; eightbit:e1|D_FF:d0|Q                            ; reset        ; reset       ; -0.500       ; 7.288      ; 6.763      ;
+; -0.041 ; reset                                            ; eightbit:e2|D_FF:d0|Q                            ; reset        ; reset       ; 0.000        ; 7.288      ; 7.426      ;
+; -0.041 ; reset                                            ; eightbit:e1|D_FF:d00|Q                           ; reset        ; reset       ; 0.000        ; 7.288      ; 7.426      ;
+; -0.041 ; reset                                            ; eightbit:e2|D_FF:d00|Q                           ; reset        ; reset       ; 0.000        ; 7.288      ; 7.426      ;
+; 0.459  ; reset                                            ; eightbit:e2|D_FF:d0|Q                            ; reset        ; reset       ; -0.500       ; 7.288      ; 7.426      ;
+; 0.459  ; reset                                            ; eightbit:e1|D_FF:d00|Q                           ; reset        ; reset       ; -0.500       ; 7.288      ; 7.426      ;
+; 0.459  ; reset                                            ; eightbit:e2|D_FF:d00|Q                           ; reset        ; reset       ; -0.500       ; 7.288      ; 7.426      ;
+; 0.515  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 7.288      ; 7.982      ;
+; 0.515  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 7.288      ; 7.982      ;
+; 0.606  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 7.288      ; 8.073      ;
+; 0.606  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 7.288      ; 8.073      ;
+; 0.742  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 7.288      ; 8.209      ;
+; 0.742  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 7.288      ; 8.209      ;
+; 0.746  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 7.288      ; 8.213      ;
+; 0.746  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 7.288      ; 8.213      ;
+; 1.015  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; -0.500       ; 7.288      ; 7.982      ;
+; 1.015  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; -0.500       ; 7.288      ; 7.982      ;
+; 1.106  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; -0.500       ; 7.288      ; 8.073      ;
+; 1.106  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; -0.500       ; 7.288      ; 8.073      ;
+; 1.242  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; -0.500       ; 7.288      ; 8.209      ;
+; 1.242  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; -0.500       ; 7.288      ; 8.209      ;
+; 1.246  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; -0.500       ; 7.288      ; 8.213      ;
+; 1.246  ; reset                                            ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; -0.500       ; 7.288      ; 8.213      ;
+; 1.388  ; reset                                            ; two_19:tt|d_two:\random:22:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 5.859      ; 7.426      ;
+; 1.402  ; reset                                            ; two_19:tt|d_two:\random:16:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 5.182      ; 6.763      ;
+; 1.539  ; reset                                            ; two_19:tt|d_two:\random:4:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 5.045      ; 6.763      ;
+; 1.720  ; reset                                            ; two_19:tt|d_two:\random:15:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.864      ; 6.763      ;
+; 1.750  ; reset                                            ; two_19:tt|d_two:\random:1:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 4.834      ; 6.763      ;
+; 1.776  ; reset                                            ; two_19:tt|d_two:\random:17:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.808      ; 6.763      ;
+; 1.846  ; reset                                            ; two_19:tt|d_two:\random:19:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.738      ; 6.763      ;
+; 1.846  ; reset                                            ; two_19:tt|d_two:\random:18:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.738      ; 6.763      ;
+; 1.854  ; reset                                            ; two_19:tt|d_two:\random:3:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 4.730      ; 6.763      ;
+; 1.854  ; reset                                            ; two_19:tt|d_two:\random:2:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 4.730      ; 6.763      ;
+; 1.882  ; reset                                            ; two_19:tt|d_two:\random:21:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.702      ; 6.763      ;
+; 1.888  ; reset                                            ; two_19:tt|d_two:\random:22:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 5.859      ; 7.426      ;
+; 1.901  ; reset                                            ; two_19:tt|d_two:\random:20:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.683      ; 6.763      ;
+; 1.902  ; reset                                            ; two_19:tt|d_two:\random:16:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 5.182      ; 6.763      ;
+; 1.926  ; reset                                            ; two_19:tt|d_two:\random:5:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 4.658      ; 6.763      ;
+; 2.039  ; reset                                            ; two_19:tt|d_two:\random:4:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; -0.500       ; 5.045      ; 6.763      ;
+; 2.058  ; reset                                            ; two_19:tt|d_two:\random:14:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.526      ; 6.763      ;
+; 2.092  ; reset                                            ; two_19:tt|d_two:\random:10:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.492      ; 6.763      ;
+; 2.197  ; reset                                            ; two_19:tt|d_two:\random:11:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.387      ; 6.763      ;
+; 2.201  ; reset                                            ; two_19:tt|d_two:\random:7:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 4.383      ; 6.763      ;
+; 2.214  ; reset                                            ; two_19:tt|d_two:\random:6:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 4.370      ; 6.763      ;
+; 2.220  ; reset                                            ; two_19:tt|d_two:\random:15:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.864      ; 6.763      ;
+; 2.250  ; reset                                            ; two_19:tt|d_two:\random:1:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; -0.500       ; 4.834      ; 6.763      ;
+; 2.276  ; reset                                            ; two_19:tt|d_two:\random:17:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.808      ; 6.763      ;
+; 2.346  ; reset                                            ; two_19:tt|d_two:\random:19:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.738      ; 6.763      ;
+; 2.346  ; reset                                            ; two_19:tt|d_two:\random:18:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.738      ; 6.763      ;
+; 2.354  ; reset                                            ; two_19:tt|d_two:\random:3:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; -0.500       ; 4.730      ; 6.763      ;
+; 2.354  ; reset                                            ; two_19:tt|d_two:\random:2:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; -0.500       ; 4.730      ; 6.763      ;
+; 2.359  ; reset                                            ; two_19:tt|d_two:\random:12:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.225      ; 6.763      ;
+; 2.380  ; reset                                            ; two_19:tt|d_two:\random:13:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; 0.000        ; 4.204      ; 6.763      ;
+; 2.382  ; reset                                            ; two_19:tt|d_two:\random:21:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.702      ; 6.763      ;
+; 2.393  ; reset                                            ; two_19:tt|d_two:\random:9:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 4.191      ; 6.763      ;
+; 2.401  ; reset                                            ; two_19:tt|d_two:\random:20:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.683      ; 6.763      ;
+; 2.416  ; reset                                            ; two_19:tt|d_two:\random:8:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; 0.000        ; 4.168      ; 6.763      ;
+; 2.426  ; reset                                            ; two_19:tt|d_two:\random:5:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; -0.500       ; 4.658      ; 6.763      ;
+; 2.558  ; reset                                            ; two_19:tt|d_two:\random:14:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.526      ; 6.763      ;
+; 2.592  ; reset                                            ; two_19:tt|d_two:\random:10:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.492      ; 6.763      ;
+; 2.697  ; reset                                            ; two_19:tt|d_two:\random:11:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.387      ; 6.763      ;
+; 2.701  ; reset                                            ; two_19:tt|d_two:\random:7:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; -0.500       ; 4.383      ; 6.763      ;
+; 2.714  ; reset                                            ; two_19:tt|d_two:\random:6:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; -0.500       ; 4.370      ; 6.763      ;
+; 2.859  ; reset                                            ; two_19:tt|d_two:\random:12:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.225      ; 6.763      ;
+; 2.880  ; reset                                            ; two_19:tt|d_two:\random:13:twox|D_FF:D_FF1|Q     ; reset        ; reset       ; -0.500       ; 4.204      ; 6.763      ;
+; 2.893  ; reset                                            ; two_19:tt|d_two:\random:9:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; -0.500       ; 4.191      ; 6.763      ;
+; 2.916  ; reset                                            ; two_19:tt|d_two:\random:8:twox|D_FF:D_FF1|Q      ; reset        ; reset       ; -0.500       ; 4.168      ; 6.763      ;
+; 3.191  ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.370      ;
+; 3.191  ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.370      ;
+; 3.205  ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.384      ;
+; 3.205  ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.384      ;
+; 3.481  ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.660      ;
+; 3.481  ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.660      ;
+; 3.489  ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.668      ;
+; 3.489  ; GestureRecognizer:gr1|gesturerecog:gr4|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr3|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.668      ;
+; 3.503  ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.682      ;
+; 3.503  ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.682      ;
+; 3.517  ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.696      ;
+; 3.517  ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.696      ;
+; 3.799  ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.978      ;
+; 3.799  ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 3.978      ;
+; 3.831  ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 4.010      ;
+; 3.831  ; GestureRecognizer:gr1|gesturerecog:gr1|D_FF:d2|Q ; GestureRecognizer:gr1|gesturerecog:gr2|D_FF:d2|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 4.010      ;
++--------+--------------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'eightbit:e1|D_FF:d00|Q'                                                                                          ;
++-------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node               ; Launch Clock ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+; 0.701 ; reset     ; eightbit:e1|D_FF:d1|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 5.883      ; 6.763      ;
+; 0.701 ; reset     ; eightbit:e1|D_FF:d2|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 5.883      ; 6.763      ;
+; 0.701 ; reset     ; eightbit:e1|D_FF:d3|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; 0.000        ; 5.883      ; 6.763      ;
+; 1.201 ; reset     ; eightbit:e1|D_FF:d1|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; -0.500       ; 5.883      ; 6.763      ;
+; 1.201 ; reset     ; eightbit:e1|D_FF:d2|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; -0.500       ; 5.883      ; 6.763      ;
+; 1.201 ; reset     ; eightbit:e1|D_FF:d3|Q ; reset        ; eightbit:e1|D_FF:d00|Q ; -0.500       ; 5.883      ; 6.763      ;
++-------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'eightbit:e2|D_FF:d00|Q'                                                                                          ;
++-------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node               ; Launch Clock ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+; 1.174 ; reset     ; eightbit:e2|D_FF:d1|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 6.073      ; 7.426      ;
+; 1.174 ; reset     ; eightbit:e2|D_FF:d2|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 6.073      ; 7.426      ;
+; 1.174 ; reset     ; eightbit:e2|D_FF:d3|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; 0.000        ; 6.073      ; 7.426      ;
+; 1.674 ; reset     ; eightbit:e2|D_FF:d1|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; -0.500       ; 6.073      ; 7.426      ;
+; 1.674 ; reset     ; eightbit:e2|D_FF:d2|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; -0.500       ; 6.073      ; 7.426      ;
+; 1.674 ; reset     ; eightbit:e2|D_FF:d3|Q ; reset        ; eightbit:e2|D_FF:d00|Q ; -0.500       ; 6.073      ; 7.426      ;
++-------+-----------+-----------------------+--------------+------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'clk'                                                                                                                        ;
++-------+-----------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 2.958 ; reset     ; two_19:tt|d_two:\random:0:twox|D_FF:D_FF1|Q ; reset        ; clk         ; 0.000        ; 3.626      ; 6.763      ;
+; 3.458 ; reset     ; two_19:tt|d_two:\random:0:twox|D_FF:D_FF1|Q ; reset        ; clk         ; -0.500       ; 3.626      ; 6.763      ;
++-------+-----------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
 +---------------------------------------------------------------------------------------------+
@@ -273,9 +653,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------+------------------------+----------+----------+----------+----------+
 ; From Clock             ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------------------+------------------------+----------+----------+----------+----------+
-; clk                    ; clk                    ; 12       ; 0        ; 0        ; 0        ;
-; clk                    ; eightbit:e1|D_FF:d00|Q ; 4        ; 0        ; 0        ; 0        ;
+; clk                    ; clk                    ; 1        ; 0        ; 0        ; 0        ;
 ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 10       ; 0        ; 0        ; 0        ;
+; reset                  ; eightbit:e1|D_FF:d00|Q ; 4        ; 0        ; 0        ; 0        ;
+; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 10       ; 0        ; 0        ; 0        ;
+; reset                  ; eightbit:e2|D_FF:d00|Q ; 4        ; 0        ; 0        ; 0        ;
+; reset                  ; reset                  ; 46       ; 0        ; 0        ; 0        ;
 +------------------------+------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -285,30 +668,39 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------------------+------------------------+----------+----------+----------+----------+
 ; From Clock             ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------------------+------------------------+----------+----------+----------+----------+
-; clk                    ; clk                    ; 12       ; 0        ; 0        ; 0        ;
-; clk                    ; eightbit:e1|D_FF:d00|Q ; 4        ; 0        ; 0        ; 0        ;
+; clk                    ; clk                    ; 1        ; 0        ; 0        ; 0        ;
 ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; 10       ; 0        ; 0        ; 0        ;
+; reset                  ; eightbit:e1|D_FF:d00|Q ; 4        ; 0        ; 0        ; 0        ;
+; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; 10       ; 0        ; 0        ; 0        ;
+; reset                  ; eightbit:e2|D_FF:d00|Q ; 4        ; 0        ; 0        ; 0        ;
+; reset                  ; reset                  ; 46       ; 0        ; 0        ; 0        ;
 +------------------------+------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
-+-------------------------------------------------------------------+
-; Recovery Transfers                                                ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 8        ; 0        ; 0        ; 0        ;
-+------------+----------+----------+----------+----------+----------+
++---------------------------------------------------------------------------------+
+; Recovery Transfers                                                              ;
++------------+------------------------+----------+----------+----------+----------+
+; From Clock ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+------------------------+----------+----------+----------+----------+
+; reset      ; clk                    ; 1        ; 1        ; 0        ; 0        ;
+; reset      ; eightbit:e1|D_FF:d00|Q ; 3        ; 3        ; 0        ; 0        ;
+; reset      ; eightbit:e2|D_FF:d00|Q ; 3        ; 3        ; 0        ; 0        ;
+; reset      ; reset                  ; 50       ; 34       ; 0        ; 0        ;
++------------+------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
-+-------------------------------------------------------------------+
-; Removal Transfers                                                 ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 8        ; 0        ; 0        ; 0        ;
-+------------+----------+----------+----------+----------+----------+
++---------------------------------------------------------------------------------+
+; Removal Transfers                                                               ;
++------------+------------------------+----------+----------+----------+----------+
+; From Clock ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+------------------------+----------+----------+----------+----------+
+; reset      ; clk                    ; 1        ; 1        ; 0        ; 0        ;
+; reset      ; eightbit:e1|D_FF:d00|Q ; 3        ; 3        ; 0        ; 0        ;
+; reset      ; eightbit:e2|D_FF:d00|Q ; 3        ; 3        ; 0        ; 0        ;
+; reset      ; reset                  ; 50       ; 34       ; 0        ; 0        ;
++------------+------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -331,10 +723,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 3     ; 3    ;
-; Unconstrained Input Port Paths  ; 17    ; 17   ;
-; Unconstrained Output Ports      ; 8     ; 8    ;
-; Unconstrained Output Port Paths ; 24    ; 24   ;
+; Unconstrained Input Ports       ; 4     ; 4    ;
+; Unconstrained Input Port Paths  ; 16    ; 16   ;
+; Unconstrained Output Ports      ; 16    ; 16   ;
+; Unconstrained Output Port Paths ; 48    ; 48   ;
 +---------------------------------+-------+------+
 
 
@@ -345,6 +737,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------------------+------------------------+------+-------------+
 ; clk                    ; clk                    ; Base ; Constrained ;
 ; eightbit:e1|D_FF:d00|Q ; eightbit:e1|D_FF:d00|Q ; Base ; Constrained ;
+; eightbit:e2|D_FF:d00|Q ; eightbit:e2|D_FF:d00|Q ; Base ; Constrained ;
+; reset                  ; reset                  ; Base ; Constrained ;
 +------------------------+------------------------+------+-------------+
 
 
@@ -355,7 +749,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; i1         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; i2         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i3         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i4         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -364,6 +759,14 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------+---------------------------------------------------------------------------------------+
 ; Output Port ; Comment                                                                               ;
 +-------------+---------------------------------------------------------------------------------------+
+; c[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[4]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; r[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; r[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; r[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -382,7 +785,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; i1         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; i2         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i3         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i4         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -391,6 +795,14 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------+---------------------------------------------------------------------------------------+
 ; Output Port ; Comment                                                                               ;
 +-------------+---------------------------------------------------------------------------------------+
+; c[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[4]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; c[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; r[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; r[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; r[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -408,7 +820,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Apr 10 22:51:43 2018
+    Info: Processing started: Wed Apr 11 20:45:51 2018
 Info: Command: quartus_sta StringRecognizer -c StringRecognizer
 Info: qsta_default_script.tcl version: #3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -421,40 +833,54 @@ Critical Warning (332012): Synopsys Design Constraints File file not found: 'Str
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name eightbit:e1|D_FF:d00|Q eightbit:e1|D_FF:d00|Q
+    Info (332105): create_clock -period 1.000 -name reset reset
+    Info (332105): create_clock -period 1.000 -name eightbit:e2|D_FF:d00|Q eightbit:e2|D_FF:d00|Q
     Info (332105): create_clock -period 1.000 -name clk clk
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.761
+Info (332146): Worst-case setup slack is -3.027
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.761              -4.409 eightbit:e1|D_FF:d00|Q 
-    Info (332119):    -1.043              -6.203 clk 
-Info (332146): Worst-case hold slack is 0.549
+    Info (332119):    -3.027              -7.743 eightbit:e2|D_FF:d00|Q 
+    Info (332119):    -2.960              -7.973 eightbit:e1|D_FF:d00|Q 
+    Info (332119):    -1.322             -32.442 reset 
+    Info (332119):    -0.805              -0.805 clk 
+Info (332146): Worst-case hold slack is 1.332
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.549               0.000 eightbit:e1|D_FF:d00|Q 
-    Info (332119):     1.379               0.000 clk 
-Info (332146): Worst-case recovery slack is -4.710
+    Info (332119):     1.332               0.000 reset 
+    Info (332119):     1.355               0.000 clk 
+    Info (332119):     1.598               0.000 eightbit:e2|D_FF:d00|Q 
+    Info (332119):     1.618               0.000 eightbit:e1|D_FF:d00|Q 
+Info (332146): Worst-case recovery slack is -3.281
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.710             -16.900 clk 
-Info (332146): Worst-case removal slack is 4.053
+    Info (332119):    -3.281             -66.694 reset 
+    Info (332119):    -2.908              -2.908 clk 
+    Info (332119):    -1.124              -3.372 eightbit:e2|D_FF:d00|Q 
+    Info (332119):    -0.651              -1.953 eightbit:e1|D_FF:d00|Q 
+Info (332146): Worst-case removal slack is -0.704
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     4.053               0.000 clk 
+    Info (332119):    -0.704              -0.827 reset 
+    Info (332119):     0.701               0.000 eightbit:e1|D_FF:d00|Q 
+    Info (332119):     1.174               0.000 eightbit:e2|D_FF:d00|Q 
+    Info (332119):     2.958               0.000 clk 
 Info (332146): Worst-case minimum pulse width slack is -2.289
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -2.289              -2.289 clk 
+    Info (332119):    -2.289              -2.289 reset 
     Info (332119):     0.284               0.000 eightbit:e1|D_FF:d00|Q 
+    Info (332119):     0.284               0.000 eightbit:e2|D_FF:d00|Q 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 714 megabytes
-    Info: Processing ended: Tue Apr 10 22:51:44 2018
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 716 megabytes
+    Info: Processing ended: Wed Apr 11 20:45:51 2018
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:01
 
 

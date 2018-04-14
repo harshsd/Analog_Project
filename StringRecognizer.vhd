@@ -13,7 +13,7 @@ package harsh is
 			port ( i1,i2,i3,i4,clk,reset : in std_logic; lr,rl,tb,bt : out std_logic);
 	end component;
 	component mario is
-			port ( r : out std_logic_vector(7 downto 0); clk,reset,i1,i2,i3,i4 : in std_logic);
+			port ( r,c : out std_logic_vector(7 downto 0); clk,reset,i1,i2,i3,i4 : in std_logic);
 	end component;
 	component eightbit is
 		port (r : out std_logic_vector(7 downto 0) ; u,d,clk,reset : in std_logic);
@@ -22,7 +22,71 @@ package harsh is
 		PORT( J,K,CLOCK,reset: in std_logic;
 		Q, QB: out std_logic);
 	end component;
+	component d_two is
+	port (reset,clkin: in std_logic ; clkout:out std_logic);
+	end component;
+	component d_four is
+	port (reset,clkin: in std_logic ; clkout:out std_logic);
+	end component;
+	component CleanSwitch is
+	port (reset,clkin: in std_logic ; clkout:out std_logic);
+	end component;
+	component two_19 is 
+	port (reset , clkin : in std_logic ; clkout : out std_logic);
+	end component;
 end harsh;
+
+library work;
+use work.harsh.all;
+library std;
+use std.standard.all;
+library ieee;
+use ieee.std_logic_1164.all;
+entity d_two is
+	port (reset,clkin: in std_logic ; clkout:out std_logic);
+end entity;
+architecture twod of d_two is
+signal q,nq : std_logic;
+begin
+	nq <= not(q) and not(reset);
+	D_FF1 : D_FF port map ( D => nq , CLK => clkin, reset => reset , Q => q);
+	clkout <= q and not(reset);
+end twod	;
+
+library work;
+use work.harsh.all;
+library std;
+use std.standard.all;
+library ieee;
+use ieee.std_logic_1164.all;
+entity d_four is
+	port (reset,clkin: in std_logic ; clkout:out std_logic);
+end entity;
+architecture fourd of d_four is
+signal clkit : std_logic;
+begin
+	d1 : d_two port map ( reset => reset , clkin => clkin , clkout => clkit);
+	d2 : d_two port map ( reset => reset , clkin => clkit , clkout => clkout);
+end fourd;
+
+library work;
+use work.harsh.all;
+library std;
+use std.standard.all;
+library ieee;
+use ieee.std_logic_1164.all;
+entity two_19 is 
+	port (reset , clkin : in std_logic ; clkout : out std_logic);
+end entity;
+architecture t19 of two_19 is
+signal a: std_logic_vector(23 downto 0);
+begin
+a(0) <= clkin;
+random : for I in 0 to 22 generate
+	twox: d_two port map(reset => reset, clkin => a(I), clkout => a(I+1));
+	end generate;
+clkout <= a(23);	
+end t19;
 
 library work;
 use work.harsh.all;
@@ -58,6 +122,7 @@ Q<=TMP;
 Q <=not TMP;
 end PROCESS;
 end behavioral;
+
 
 
 library work;
@@ -173,16 +238,17 @@ use std.standard.all;
 library ieee;
 use ieee.std_logic_1164.all;
 entity mario is
-			port ( r : out std_logic_vector(7 downto 0); i1,i2,i3,i4,clk,reset : in std_logic);
+			port ( r,c : out std_logic_vector(7 downto 0); i1,i2,i3,i4,clk,reset : in std_logic);
 end entity;
 architecture raichu of mario is
-signal rl,lr,tb,bt : std_logic;
+signal rl,lr,tb,bt,clki: std_logic;
 signal cc : std_logic_vector(7 downto 0);
 begin
-gr1 : GestureRecognizer port map ( i1=>i1,i2=>i2,i3=>i3,i4=>i4,clk=>clk,reset=>reset,rl=>rl,lr=>lr,bt=>bt,tb=>tb);
-e1  : eightbit port map ( r=>r , u=>lr , d=>rl , clk=>clk , reset=>reset);
---e2  : eightbit port map ( r=>cc , u=>bt , d=>tb , clk=>clk , reset=>reset);
---c <= not(cc);
+tt : two_19 port map(reset=>reset, clkin=>clk, clkout=>clki);
+gr1 : GestureRecognizer port map ( i1=>i1,i2=>i2,i3=>i3,i4=>i4,clk=>clki,reset=>reset,rl=>rl,lr=>lr,bt=>bt,tb=>tb);
+e1  : eightbit port map ( r=>r , u=>lr , d=>rl , clk=>clki , reset=>reset);
+e2  : eightbit port map ( r=>cc , u=>bt , d=>tb , clk=>clki , reset=>reset);
+c <= not(cc);
 end raichu;
 
 library work;
