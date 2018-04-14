@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition"
 
--- DATE "04/11/2018 20:45:53"
+-- DATE "04/15/2018 04:37:02"
 
 -- 
 -- Device: Altera 5M1270ZT144C4 Package TQFP144
@@ -33,8 +33,8 @@ USE MAXV.MAXV_COMPONENTS.ALL;
 
 ENTITY 	mario IS
     PORT (
-	r : BUFFER std_logic_vector(7 DOWNTO 0);
-	c : BUFFER std_logic_vector(7 DOWNTO 0);
+	r : OUT std_logic_vector(7 DOWNTO 0);
+	c : OUT std_logic_vector(7 DOWNTO 0);
 	i1 : IN std_logic;
 	i2 : IN std_logic;
 	i3 : IN std_logic;

@@ -1,5 +1,5 @@
 Fitter report for StringRecognizer
-Wed Apr 11 20:45:49 2018
+Sun Apr 15 04:36:57 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -57,7 +57,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------+
 ; Fitter Summary                                                      ;
 +-----------------------+---------------------------------------------+
-; Fitter Status         ; Successful - Wed Apr 11 20:45:49 2018       ;
+; Fitter Status         ; Successful - Sun Apr 15 04:36:57 2018       ;
 ; Quartus Prime Version ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name         ; StringRecognizer                            ;
 ; Top-level Entity Name ; mario                                       ;
@@ -133,7 +133,7 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.8%      ;
+;     Processor 2            ;   0.9%      ;
 +----------------------------+-------------+
 
 
@@ -737,22 +737,22 @@ Info (332111): Found 4 clocks
     Info (332111):    1.000 eightbit:e2|D_FF:d00|Q
     Info (332111):    1.000        reset
 Info (186079): Completed User Assigned Global Signals Promotion Operation
-Info (186215): Automatically promoted signal "two_19:tt|d_two:\random:22:twox|clkout" to use Global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 46
-Info (186215): Automatically promoted signal "eightbit:e1|clki" to use Global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 208
-Info (186215): Automatically promoted signal "eightbit:e2|clki" to use Global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 208
-Info (186216): Automatically promoted some destinations of signal "reset" to use Global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 241
-    Info (186217): Destination "GestureRecognizer:gr1|r1" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 182
-    Info (186217): Destination "GestureRecognizer:gr1|r4" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 182
-    Info (186217): Destination "two_19:tt|d_two:\random:22:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 46
-    Info (186217): Destination "GestureRecognizer:gr1|r2" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 182
-    Info (186217): Destination "GestureRecognizer:gr1|r3" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 182
-    Info (186217): Destination "two_19:tt|d_two:\random:21:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 46
-    Info (186217): Destination "two_19:tt|d_two:\random:20:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 46
-    Info (186217): Destination "two_19:tt|d_two:\random:19:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 46
-    Info (186217): Destination "two_19:tt|d_two:\random:18:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 46
-    Info (186217): Destination "two_19:tt|d_two:\random:17:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 46
+Info (186215): Automatically promoted signal "two_19:tt|d_two:\random:22:twox|clkout" to use Global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 49
+Info (186215): Automatically promoted signal "eightbit:e1|clki" to use Global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 211
+Info (186215): Automatically promoted signal "eightbit:e2|clki" to use Global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 211
+Info (186216): Automatically promoted some destinations of signal "reset" to use Global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 273
+    Info (186217): Destination "GestureRecognizer:gr1|r1" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 185
+    Info (186217): Destination "GestureRecognizer:gr1|r4" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 185
+    Info (186217): Destination "two_19:tt|d_two:\random:22:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 49
+    Info (186217): Destination "GestureRecognizer:gr1|r2" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 185
+    Info (186217): Destination "GestureRecognizer:gr1|r3" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 185
+    Info (186217): Destination "two_19:tt|d_two:\random:21:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 49
+    Info (186217): Destination "two_19:tt|d_two:\random:20:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 49
+    Info (186217): Destination "two_19:tt|d_two:\random:19:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 49
+    Info (186217): Destination "two_19:tt|d_two:\random:18:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 49
+    Info (186217): Destination "two_19:tt|d_two:\random:17:twox|clkout" may be non-global or may not use global clock File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 49
     Info (186218): Limited to 10 non-global destinations
-Info (186228): Pin "reset" drives global clock, but is not placed in a dedicated clock pin position File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 241
+Info (186228): Pin "reset" drives global clock, but is not placed in a dedicated clock pin position File: /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd Line: 273
 Info (186079): Completed Auto Global Promotion Operation
 Info (176234): Starting register packing
 Info (186468): Started processing fast register assignments
@@ -776,8 +776,8 @@ Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file /home/harsh/Desktop/Analog_Project/output_files/StringRecognizer.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 1084 megabytes
-    Info: Processing ended: Wed Apr 11 20:45:49 2018
+    Info: Peak virtual memory: 1076 megabytes
+    Info: Processing ended: Sun Apr 15 04:36:57 2018
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

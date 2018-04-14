@@ -8,37 +8,160 @@ z2
 !i10f 100
 cModel Technology
 Z0 d/home/harsh/Desktop/Analog_Project/simulation/modelsim
-Ed_ff
-Z1 w1523380313
+Eawaaz
+Z1 w1523747198
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z4 DPx4 work 5 harsh 0 22 4Nf8e:g3hEgLcOAiW[_KO0
+Z4 DPx4 work 5 harsh 0 22 4ON4fXkN@Mj`9ELB?Xk;D2
 R0
 Z5 8/home/harsh/Desktop/Analog_Project/StringRecognizer.vhd
 Z6 F/home/harsh/Desktop/Analog_Project/StringRecognizer.vhd
 l0
-L69
-VWQc3gD1^?ke6VNzc05Q5R1
-!s100 LAEzLS9nhaXP8j6?i;fFD0
+L306
+V<nn9mP@kYfYW96BYo=GY<0
+!s100 MLFS@KcD9z;CaI1A]9gOk2
 Z7 OV;C;10.5b;63
 31
-Z8 !s110 1523380560
+Z8 !s110 1523747563
 !i10b 1
-Z9 !s108 1523380560.000000
+Z9 !s108 1523747563.000000
 Z10 !s90 -reportprogress|300|-93|-work|work|/home/harsh/Desktop/Analog_Project/StringRecognizer.vhd|
 Z11 !s107 /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd|
 !i113 1
 Z12 o-93 -work work
 Z13 tExplicit 1 CvgOpt 0
+Abulbasaur
+R2
+R3
+R4
+DEx4 work 5 awaaz 0 22 <nn9mP@kYfYW96BYo=GY<0
+l311
+L309
+VmEYI1MZ6Sg`c;S67lW:2N3
+!s100 SKR657]78BSH:L9HDQS`23
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ed_ff
+R1
+R2
+R3
+R4
+R0
+R5
+R6
+l0
+L137
+VD4fRnei]hb^>6S=FSfe9]0
+!s100 F@gEzSA_:?DF1[mUOPmj=3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
 Awhatdoyoucare
 R2
 R3
 R4
-DEx4 work 4 d_ff 0 22 WQc3gD1^?ke6VNzc05Q5R1
-l73
-L72
-VJ985UjO4UQN6@A?z1QncY3
-!s100 <aEFd22Jg6bAk[m`zmQOD2
+DEx4 work 4 d_ff 0 22 D4fRnei]hb^>6S=FSfe9]0
+l141
+L140
+Vdc>B9mHK<n_WLF0_4K3P=3
+!s100 eS<7Xa_?KF9mJSBXc6_@03
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ed_four
+R1
+R2
+R3
+R4
+R0
+R5
+R6
+l0
+L65
+V^:[bLWI_gdzZDJ5ohOoWF1
+!s100 VfOA__kFe>2[j_Fe;=Knz2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Afourd
+R2
+R3
+R4
+DEx4 work 6 d_four 0 22 ^:[bLWI_gdzZDJ5ohOoWF1
+l70
+L68
+V[dd57AeELo6K:`ZFYRSZ43
+!s100 HBW:6EkY6iJnF1hYj]ebR0
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ed_two
+R1
+R2
+R3
+R4
+R0
+R5
+R6
+l0
+L48
+VMD8SSLBa8i4z<SCF;jlLK0
+!s100 QRiRTMCnk7zTS;Q4BjR0X2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Atwod
+R2
+R3
+R4
+DEx4 work 5 d_two 0 22 MD8SSLBa8i4z<SCF;jlLK0
+l53
+L51
+Vdl?fNh82ING`2S@A@z_C_1
+!s100 eUkXPePjdg?k^[zeGC[[@0
 R7
 31
 R8
@@ -58,9 +181,9 @@ R0
 R5
 R6
 l0
-L139
-V=gJ9GHmAWh;dI_=KcgMaY0
-!s100 LT0zN@AkgjS7h1FQ[Z`]T2
+L207
+VAA?]bS6zg=>bai:NWE6ZU1
+!s100 XgDHU]@zN0:fd5@;G^o3g0
 R7
 31
 R8
@@ -75,11 +198,52 @@ Apichu
 R2
 R3
 R4
-DEx4 work 8 eightbit 0 22 =gJ9GHmAWh;dI_=KcgMaY0
-l145
-L142
-Vf]MPTb@Rbz@>l6MTf`e@B1
-!s100 12]SbXBod0_>H=:AL0nWf3
+DEx4 work 8 eightbit 0 22 AA?]bS6zg=>bai:NWE6ZU1
+l213
+L210
+V>U]Vgm8mUIa3IS:VB8e^a1
+!s100 YJmefhjD0kGIbP:XR47jV1
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Eeightbitcounter
+R1
+R2
+R3
+R4
+R0
+R5
+R6
+l0
+L243
+V0bWhF0Jg0@a>G2nT]XI9Z2
+!s100 9G=N@fJ5BZYD2KG4aC_Ce2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Avenosaur
+R2
+R3
+R4
+DEx4 work 15 eightbitcounter 0 22 0bWhF0Jg0@a>G2nT]XI9Z2
+l249
+L246
+Vg`fKJmD6Rj_glm1U@f`nD0
+!s100 4<7M3^>bD?^]YER1EERcc1
 R7
 31
 R8
@@ -99,9 +263,9 @@ R0
 R5
 R6
 l0
-L90
-V_;Lh_[zNaMM2>FiYYfo1]2
-!s100 lOVab7aoBD;l1><n^mfJ50
+L158
+V>z^5o9E0mDXjF3UKho8>33
+!s100 kH0AP2OQE@];Qh1E3K_5j2
 R7
 31
 R8
@@ -116,11 +280,11 @@ Ajesture
 R2
 R3
 R4
-DEx4 work 12 gesturerecog 0 22 _;Lh_[zNaMM2>FiYYfo1]2
-l95
-L93
-VGgD<6`SK_092RQQ^7QE;c1
-!s100 _O;NOk47YYWF?EdkVdKXK3
+DEx4 work 12 gesturerecog 0 22 >z^5o9E0mDXjF3UKho8>33
+l163
+L161
+VmIQBF<>>Si8[N`nAFWOgG3
+!s100 :64;`;<=hB`m>c6:08PYV1
 R7
 31
 R8
@@ -140,9 +304,9 @@ R0
 R5
 R6
 l0
-L113
-VieoX==ASc`obcF4m_EEGb1
-!s100 gm=6am;eRPzjPO@ZnC]T^2
+L181
+V:HZScXZmDkHlP5jLGjTh73
+!s100 PK4;6PSc@G;eFB6]02jEF2
 R7
 31
 R8
@@ -157,11 +321,11 @@ Apikachu
 R2
 R3
 R4
-DEx4 work 17 gesturerecognizer 0 22 ieoX==ASc`obcF4m_EEGb1
-l118
-L116
-V3PjKM`0>>7`XIPkXSd?@^3
-!s100 k0SjjWP0j0JTE2Z3c=;DO0
+DEx4 work 17 gesturerecognizer 0 22 :HZScXZmDkHlP5jLGjTh73
+l186
+L184
+VOFSMMbaJd^1HMhc6O<oQ>1
+!s100 NGM;2]1a=SH?o6J=UD6UI1
 R7
 31
 R8
@@ -181,8 +345,8 @@ R5
 R6
 l0
 L5
-V4Nf8e:g3hEgLcOAiW[_KO0
-!s100 P=dSkP2Og<lQSWLQ?LHV<2
+V4ON4fXkN@Mj`9ELB?Xk;D2
+!s100 [CKG]bVS`;oJm]@m?d3061
 R7
 31
 R8
@@ -204,9 +368,9 @@ R0
 R5
 R6
 l0
-L35
-VD`iF7>=gQ@[<ia]@:chXh2
-!s100 ENLV2QK@KT@`27TGI3KM70
+L102
+VdmO;m]<OgC>;h=Jg>JAPb3
+!s100 CacP?SjFWToW5HNPoVS3U0
 R7
 31
 R8
@@ -223,11 +387,11 @@ R15
 R2
 R3
 R4
-DEx4 work 5 jk_ff 0 22 D`iF7>=gQ@[<ia]@:chXh2
-l40
-L39
-V7a;<B_DZ:Co8BXHE0_KHT0
-!s100 TGH]5X>CY`74WBJUmOT^j2
+DEx4 work 5 jk_ff 0 22 dmO;m]<OgC>;h=Jg>JAPb3
+l107
+L106
+V?U]NS8VAHC9bZkIZU23?B3
+!s100 En40NTN5k=Vl9PB51?man3
 R7
 31
 R8
@@ -247,9 +411,9 @@ R0
 R5
 R6
 l0
-L175
-V`6D^J0>eYC>S?EI<LM::e0
-!s100 VJZNE^m8iXff`gBRV480b3
+L272
+VizCeNPjWI@e]3^d5@g=3b1
+!s100 oXFeY8IbNTlJZdZ9XEKHU0
 R7
 31
 R8
@@ -264,11 +428,11 @@ Araichu
 R2
 R3
 R4
-DEx4 work 5 mario 0 22 `6D^J0>eYC>S?EI<LM::e0
-l181
-L178
-ViRjh[YHa]R]gFoa<1l:gG0
-!s100 M_f=5Se_FKeJMPWF=a]Q=2
+DEx4 work 5 mario 0 22 izCeNPjWI@e]3^d5@g=3b1
+l278
+L275
+VlVXNhYd6GfQ7am2M]QbDN2
+!s100 R866f?DeedPW?9fjz?IoP3
 R7
 31
 R8
@@ -288,9 +452,9 @@ R0
 R5
 R6
 l0
-L194
-V5Uf_2aS`7:QAgH7CHUX843
-!s100 ClK3zmD?7T1f7_OFOCV;=2
+L292
+VIF@8_X@k>[bKShGJ5@GS00
+!s100 HN4:<<^0b:C@RkJcLY=C>2
 R7
 31
 R8
@@ -305,11 +469,52 @@ Araichu
 R2
 R3
 R4
-DEx4 work 16 stringrecognizer 0 22 5Uf_2aS`7:QAgH7CHUX843
-l198
-L197
-V]4jY5M_735^FeC^9eQl=E2
-!s100 b?b@SfU0e[1TeCS]ZD;ma3
+DEx4 work 16 stringrecognizer 0 22 IF@8_X@k>[bKShGJ5@GS00
+l296
+L295
+VlI6lI4kT_iNA<_@dcoWeH1
+!s100 J^mHK>Dd?M?a:<4eo:mo^3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Etwo_19
+R1
+R2
+R3
+R4
+R0
+R5
+R6
+l0
+L81
+VkfEg8ig=H<]9KCGSK2mV]1
+!s100 ZJQG7_>mELO6=IXQ0A3d93
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+At19
+R2
+R3
+R4
+DEx4 work 6 two_19 0 22 kfEg8ig=H<]9KCGSK2mV]1
+l86
+L84
+VNYdDMDnMOCUE26L]dz9Db0
+!s100 UNU_1ciO4_X1dOFj0[0^z0
 R7
 31
 R8

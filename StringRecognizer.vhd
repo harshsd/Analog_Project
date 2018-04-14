@@ -34,6 +34,9 @@ package harsh is
 	component two_19 is 
 	port (reset , clkin : in std_logic ; clkout : out std_logic);
 	end component;
+	component eightbitcounter is 
+	port ( u,d,clk,reset : in std_logic ; a0,a1,a2 : out std_logic );
+	end component;
 end harsh;
 
 library work;
@@ -237,6 +240,35 @@ library std;
 use std.standard.all;
 library ieee;
 use ieee.std_logic_1164.all;
+entity eightbitcounter is 
+	port ( u,d,clk,reset : in std_logic ; a0,a1,a2 : out std_logic );
+end entity;
+architecture venosaur of eightbitcounter is
+signal dd1,u1,q1,q0,q2,nq1,nq2,nq0,qq1,qq2,qq0,uu,clki : std_logic;
+signal clkcount : std_logic;
+begin
+d0 : D_FF port map (D=>u , CLK => clk , reset=>reset, Q => u1);
+d00 : D_FF port map (D=>d , CLK => clk , reset=>reset , Q=>dd1);
+clki <= u1 xor dd1;
+uu <= not(u);
+qq0 <= not(q0);
+qq1 <= not(q1);
+qq2 <= not(q2);
+d1 : D_FF port map ( D=>nq0 , reset=>reset , CLK => clki , Q => q0 );
+d2 : D_FF port map ( D=>nq1 , reset=>reset , CLK => clki , Q => q1 );
+d3 : D_FF port map ( D=>nq2 , reset=>reset , CLK => clki , Q => q2 );
+nq0 <= (qq2 and qq1 and qq0 ) or (qq2 and q1 and qq0) or (q2 and qq1 and qq0) or (q2 and q1 and qq0);
+nq1 <= (qq2 and qq1 and qq0 and uu) or (qq2 and qq1 and q0 and u) or (qq2 and q1 and qq0 and u) or (qq2 and q1 and q0 and uu) or (q2 and qq1 and qq0 and uu) or (q2 and qq1 and q0 and u) or (q2 and q1 and qq0 and u) or (q2 and q1 and q0 and uu);
+nq2 <= ( qq2 and qq1 and qq0 and uu) or (qq2 and q1 and q0 and u) or (q2 and qq1 and qq0 and u) or (q2 and qq1 and q0) or (q2 and q1 and qq0) or (q2 and q1 and q0 and uu);
+a0<=q0;a1<=q1;a2<=q2;
+end venosaur;
+
+library work;
+use work.harsh.all;
+library std;
+use std.standard.all;
+library ieee;
+use ieee.std_logic_1164.all;
 entity mario is
 			port ( r,c : out std_logic_vector(7 downto 0); i1,i2,i3,i4,clk,reset : in std_logic);
 end entity;
@@ -263,4 +295,25 @@ end entity;
 architecture raichu of StringRecognizer is
 begin
 --m1 : mario port map ( r=>r ,c=>c, i1=>i1 , i2=>i2 , i3=>i3 , i4=>i4 , clk=>clk , reset=>reset );
-end raichu;				
+end raichu;			
+
+library work;
+use work.harsh.all;
+library std;
+use std.standard.all;
+library ieee;
+use ieee.std_logic_1164.all;
+entity awaaz is
+		port ( i1,i2,i3,i4,clk,reset : in std_logic ; s1,s2,s3,s4 : out std_logic );
+end entity;
+architecture bulbasaur of awaaz is
+signal rl,lr,tb,bt,clki,a0,a1,a2 : std_logic;
+begin		
+gr2 : GestureRecognizer port map ( i1=>i1,i2=>i2,i3=>i3,i4=>i4,clk=>clki,reset=>reset,rl=>rl,lr=>lr,bt=>bt,tb=>tb);
+tt1 : two_19 port map(reset=>reset, clkin=>clk, clkout=>clki);
+cc1 : eightbitcounter port map (u=>lr,d=>rl,clk=>clki,reset=>reset,a0=>a0,a1=>a1,a2=>a2);
+s1 <= not(a0) and not(a1);
+s2 <= not (a1) and a0;
+s3 <= not(a0) and a1;
+s4 <= a0 and a1;
+end bulbasaur;

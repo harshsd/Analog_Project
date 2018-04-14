@@ -11,13 +11,19 @@
 # 
 # vcom -93 -work work {/home/harsh/Desktop/Analog_Project/StringRecognizer.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:46:00 on Apr 10,2018
+# Start time: 04:42:43 on Apr 15,2018
 # vcom -reportprogress 300 -93 -work work /home/harsh/Desktop/Analog_Project/StringRecognizer.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package harsh
 # -- Loading package harsh
+# -- Compiling entity d_two
+# -- Compiling architecture twod of d_two
+# -- Compiling entity d_four
+# -- Compiling architecture fourd of d_four
+# -- Compiling entity two_19
+# -- Compiling architecture t19 of two_19
 # -- Loading package std_logic_arith
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity JK_FF
@@ -30,20 +36,24 @@
 # -- Compiling architecture pikachu of GestureRecognizer
 # -- Compiling entity eightbit
 # -- Compiling architecture pichu of eightbit
+# -- Compiling entity eightbitcounter
+# -- Compiling architecture venosaur of eightbitcounter
 # -- Compiling entity mario
 # -- Compiling architecture raichu of mario
 # -- Compiling entity StringRecognizer
 # -- Compiling architecture raichu of StringRecognizer
-# End time: 22:46:00 on Apr 10,2018, Elapsed time: 0:00:00
+# -- Compiling entity awaaz
+# -- Compiling architecture bulbasaur of awaaz
+# End time: 04:42:43 on Apr 15,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {/home/harsh/Desktop/Analog_Project/String-Testbench.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:46:00 on Apr 10,2018
+# Start time: 04:42:43 on Apr 15,2018
 # vcom -reportprogress 300 -93 -work work /home/harsh/Desktop/Analog_Project/String-Testbench.vhd 
 # ** Error: (vcom-7) Failed to open design unit file "/home/harsh/Desktop/Analog_Project/String-Testbench.vhd" in read mode.
 # No such file or directory. (errno = ENOENT)
-# End time: 22:46:00 on Apr 10,2018, Elapsed time: 0:00:00
+# End time: 04:42:43 on Apr 15,2018, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 # ** Error: /home/harsh/intelFPGA_lite/17.1/modelsim_ase/linuxaloem/vcom failed.
 # Error in macro ./StringRecognizer_run_msim_rtl_vhdl.do line 10
@@ -52,62 +62,54 @@
 # "vcom -93 -work work {/home/harsh/Desktop/Analog_Project/String-Testbench.vhd}"
 # 
 # stdin: <EOF>
-vsim -i -l msim_transcript work.gesturerecognizer
-# vsim -i -l msim_transcript work.gesturerecognizer 
-# Start time: 22:46:12 on Apr 10,2018
+vsim -i -l msim_transcript work.eightbitcounter
+# vsim -i -l msim_transcript work.eightbitcounter 
+# Start time: 04:42:49 on Apr 15,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading work.harsh
-# Loading work.gesturerecognizer(pikachu)
-# Loading work.gesturerecog(jesture)
+# Loading work.eightbitcounter(venosaur)
 # Loading work.d_ff(whatdoyoucare)
 add wave -position insertpoint  \
-sim:/gesturerecognizer/i1 \
-sim:/gesturerecognizer/i2 \
-sim:/gesturerecognizer/i3 \
-sim:/gesturerecognizer/i4 \
-sim:/gesturerecognizer/clk \
-sim:/gesturerecognizer/reset \
-sim:/gesturerecognizer/lr \
-sim:/gesturerecognizer/rl \
-sim:/gesturerecognizer/tb \
-sim:/gesturerecognizer/bt \
-sim:/gesturerecognizer/r1 \
-sim:/gesturerecognizer/r2 \
-sim:/gesturerecognizer/r3 \
-sim:/gesturerecognizer/r4
-force -freeze sim:/gesturerecognizer/clk 1 0, 0 {50 ps} -r 100
-force -freeze sim:/gesturerecognizer/reset 1 0
-force -freeze sim:/gesturerecognizer/i1 0 0
-force -freeze sim:/gesturerecognizer/i2 0 0
-force -freeze sim:/gesturerecognizer/i3 0 0
-force -freeze sim:/gesturerecognizer/i4 0 0
+sim:/eightbitcounter/u \
+sim:/eightbitcounter/d \
+sim:/eightbitcounter/clk \
+sim:/eightbitcounter/reset \
+sim:/eightbitcounter/a0 \
+sim:/eightbitcounter/a1 \
+sim:/eightbitcounter/a2 \
+sim:/eightbitcounter/dd1 \
+sim:/eightbitcounter/u1 \
+sim:/eightbitcounter/q1 \
+sim:/eightbitcounter/q0 \
+sim:/eightbitcounter/q2 \
+sim:/eightbitcounter/nq1 \
+sim:/eightbitcounter/nq2 \
+sim:/eightbitcounter/nq0 \
+sim:/eightbitcounter/qq1 \
+sim:/eightbitcounter/qq2 \
+sim:/eightbitcounter/qq0 \
+sim:/eightbitcounter/uu \
+sim:/eightbitcounter/clki \
+sim:/eightbitcounter/clkcount
+force -freeze sim:/eightbitcounter/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/eightbitcounter/u 0 0
+force -freeze sim:/eightbitcounter/d 0 0
+force -freeze sim:/eightbitcounter/reset 1 0
 run
+force -freeze sim:/eightbitcounter/u 0 0
+force -freeze sim:/eightbitcounter/d 0 0
+force -freeze sim:/eightbitcounter/reset 0 0
 run
-force -freeze sim:/gesturerecognizer/reset 0 0
-run
-force -freeze sim:/gesturerecognizer/i1 1 0
-run
-run
-force -freeze sim:/gesturerecognizer/i2 1 0
-force -freeze sim:/gesturerecognizer/i1 0 0
-run
-run
-run
-force -freeze sim:/gesturerecognizer/i2 0 0
-run
-run
-force -freeze sim:/gesturerecognizer/i2 1 0
-run
-run
-force -freeze sim:/gesturerecognizer/i1 1 0
-force -freeze sim:/gesturerecognizer/i2 0 0
+force -freeze sim:/eightbitcounter/u 1 0, 0 {100 ps} -r 200
 run
 run
 run
-force -freeze sim:/gesturerecognizer/i1 0 0
 run
 run
-# End time: 22:51:21 on Apr 10,2018, Elapsed time: 0:05:09
+run
+run
+run
+# End time: 04:44:49 on Apr 15,2018, Elapsed time: 0:02:00
 # Errors: 0, Warnings: 0

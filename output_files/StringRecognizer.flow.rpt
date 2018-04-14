@@ -1,5 +1,5 @@
 Flow report for StringRecognizer
-Wed Apr 11 20:45:53 2018
+Sun Apr 15 04:37:02 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------+
 ; Flow Summary                                                        ;
 +-----------------------+---------------------------------------------+
-; Flow Status           ; Successful - Wed Apr 11 20:45:53 2018       ;
+; Flow Status           ; Successful - Sun Apr 15 04:37:02 2018       ;
 ; Quartus Prime Version ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name         ; StringRecognizer                            ;
 ; Top-level Entity Name ; mario                                       ;
@@ -59,33 +59,33 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/11/2018 20:45:32 ;
+; Start date & time ; 04/15/2018 04:36:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; StringRecognizer    ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                         ;
-+--------------------------------------+---------------------------------+------------------+-------------+----------------+
-; Assignment Name                      ; Value                           ; Default Value    ; Entity Name ; Section Id     ;
-+--------------------------------------+---------------------------------+------------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 123532101379702.152345973209202 ; --               ; --          ; --             ;
-; EDA_DESIGN_INSTANCE_NAME             ; dut                             ; --               ; --          ; Testbench      ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; Testbench                       ; --               ; --          ; eda_simulation ;
-; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                            ; --               ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)          ; <None>           ; --          ; --             ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                 ; --               ; --          ; eda_simulation ;
-; EDA_TEST_BENCH_FILE                  ; String-Testbench.vhd            ; --               ; --          ; Testbench      ;
-; EDA_TEST_BENCH_MODULE_NAME           ; Testbench                       ; --               ; --          ; Testbench      ;
-; EDA_TEST_BENCH_NAME                  ; Testbench                       ; --               ; --          ; eda_simulation ;
-; EDA_TIME_SCALE                       ; 1 ps                            ; --               ; --          ; eda_simulation ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                              ; --               ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                               ; --               ; --          ; --             ;
-; POWER_PRESET_COOLING_SOLUTION        ; No Heat Sink With Still Air     ; --               ; --          ; --             ;
-; PROJECT_OUTPUT_DIRECTORY             ; output_files                    ; --               ; --          ; --             ;
-; TOP_LEVEL_ENTITY                     ; mario                           ; StringRecognizer ; --          ; --             ;
-+--------------------------------------+---------------------------------+------------------+-------------+----------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                        ;
++--------------------------------------+--------------------------------+------------------+-------------+----------------+
+; Assignment Name                      ; Value                          ; Default Value    ; Entity Name ; Section Id     ;
++--------------------------------------+--------------------------------+------------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID                ; 53839333945189.152374719931768 ; --               ; --          ; --             ;
+; EDA_DESIGN_INSTANCE_NAME             ; dut                            ; --               ; --          ; Testbench      ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; Testbench                      ; --               ; --          ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                           ; --               ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)         ; <None>           ; --          ; --             ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                ; --               ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_FILE                  ; String-Testbench.vhd           ; --               ; --          ; Testbench      ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Testbench                      ; --               ; --          ; Testbench      ;
+; EDA_TEST_BENCH_NAME                  ; Testbench                      ; --               ; --          ; eda_simulation ;
+; EDA_TIME_SCALE                       ; 1 ps                           ; --               ; --          ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                             ; --               ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                              ; --               ; --          ; --             ;
+; POWER_PRESET_COOLING_SOLUTION        ; No Heat Sink With Still Air    ; --               ; --          ; --             ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                   ; --               ; --          ; --             ;
+; TOP_LEVEL_ENTITY                     ; mario                          ; StringRecognizer ; --          ; --             ;
++--------------------------------------+--------------------------------+------------------+-------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -93,12 +93,12 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:15     ; 1.0                     ; 935 MB              ; 00:00:36                           ;
-; Fitter                    ; 00:00:02     ; 1.0                     ; 1084 MB             ; 00:00:02                           ;
+; Analysis & Synthesis      ; 00:00:15     ; 1.0                     ; 946 MB              ; 00:00:38                           ;
+; Fitter                    ; 00:00:02     ; 1.0                     ; 1076 MB             ; 00:00:02                           ;
 ; Assembler                 ; 00:00:01     ; 1.0                     ; 789 MB              ; 00:00:00                           ;
 ; TimeQuest Timing Analyzer ; 00:00:00     ; 1.0                     ; 716 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 1025 MB             ; 00:00:00                           ;
-; Total                     ; 00:00:19     ; --                      ; --                  ; 00:00:39                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 1022 MB             ; 00:00:00                           ;
+; Total                     ; 00:00:19     ; --                      ; --                  ; 00:00:41                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
