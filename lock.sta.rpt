@@ -1,0 +1,659 @@
+TimeQuest Timing Analyzer report for lock
+Fri May  4 14:20:08 2018
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'reset'
+ 12. Setup: 'i1'
+ 13. Setup: 'clk'
+ 14. Hold: 'reset'
+ 15. Hold: 'clk'
+ 16. Hold: 'i1'
+ 17. Recovery: 'clk'
+ 18. Recovery: 'reset'
+ 19. Recovery: 'i1'
+ 20. Removal: 'reset'
+ 21. Removal: 'i1'
+ 22. Removal: 'clk'
+ 23. Setup Transfers
+ 24. Hold Transfers
+ 25. Recovery Transfers
+ 26. Removal Transfers
+ 27. Report TCCS
+ 28. Report RSKM
+ 29. Unconstrained Paths Summary
+ 30. Clock Status Summary
+ 31. Unconstrained Input Ports
+ 32. Unconstrained Output Ports
+ 33. Unconstrained Input Ports
+ 34. Unconstrained Output Ports
+ 35. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                           ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Timing Analyzer       ; TimeQuest                                           ;
+; Revision Name         ; lock                                                ;
+; Device Family         ; MAX V                                               ;
+; Device Name           ; 5M1270ZT144C5                                       ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                            ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets   ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }   ;
+; i1         ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { i1 }    ;
+; reset      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { reset } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Fmax Summary                                                                                              ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 151.81 MHz ; 151.81 MHz      ; reset      ;                                                               ;
+; 453.93 MHz ; 304.04 MHz      ; i1         ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 455.79 MHz ; 304.04 MHz      ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Setup Summary                  ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; reset ; -5.587 ; -46.010       ;
+; i1    ; -1.203 ; -1.203        ;
+; clk   ; -1.194 ; -1.194        ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; reset ; 0.634 ; 0.000         ;
+; clk   ; 1.640 ; 0.000         ;
+; i1    ; 1.649 ; 0.000         ;
++-------+-------+---------------+
+
+
++--------------------------------+
+; Recovery Summary               ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -4.795 ; -4.795        ;
+; reset ; -3.008 ; -52.572       ;
+; i1    ; -2.123 ; -2.123        ;
++-------+--------+---------------+
+
+
++--------------------------------+
+; Removal Summary                ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; reset ; -0.539 ; -1.549        ;
+; i1    ; 2.069  ; 0.000         ;
+; clk   ; 4.741  ; 0.000         ;
++-------+--------+---------------+
+
+
++--------------------------------+
+; Minimum Pulse Width Summary    ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -2.289 ; -2.289        ;
+; i1    ; -2.289 ; -2.289        ;
+; reset ; -2.289 ; -2.289        ;
++-------+--------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'reset'                                                                                                                                                 ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; -5.587 ; taala:key|D_FF:D_FF0|Q                 ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 1.000        ; 0.000      ; 6.254      ;
+; -5.215 ; taala:key|D_FF:D_FF1|Q                 ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 1.000        ; 0.000      ; 5.882      ;
+; -4.605 ; taala:key|D_FF:D_FF1|Q                 ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 1.000        ; 0.000      ; 5.272      ;
+; -4.602 ; taala:key|D_FF:D_FF0|Q                 ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 1.000        ; 0.000      ; 5.269      ;
+; -4.277 ; taala:key|D_FF:D_FF2|Q                 ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 1.000        ; 0.000      ; 4.944      ;
+; -3.555 ; taala:key|D_FF:D_FF1|Q                 ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 1.000        ; 0.000      ; 4.222      ;
+; -3.107 ; taala:key|D_FF:D_FF2|Q                 ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 1.000        ; 0.000      ; 3.774      ;
+; -2.702 ; taala:key|D_FF:D_FF2|Q                 ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 1.000        ; 0.000      ; 3.369      ;
+; -1.562 ; reset                                  ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 0.500        ; 9.393      ; 11.122     ;
+; -1.491 ; db:tt|dbtwo:\Q1:7:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:7:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 0.000      ; 2.158      ;
+; -1.489 ; db:tt|dbtwo:\Q1:19:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:19:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 2.156      ;
+; -1.489 ; db:tt|dbtwo:\Q1:18:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:18:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 2.156      ;
+; -1.488 ; db:tt|dbtwo:\Q1:20:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:20:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 2.155      ;
+; -1.488 ; db:tt|dbtwo:\Q1:16:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:16:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 2.155      ;
+; -1.488 ; db:tt|dbtwo:\Q1:6:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:6:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 0.000      ; 2.155      ;
+; -1.480 ; db:tt|dbtwo:\Q1:14:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:14:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 2.147      ;
+; -1.480 ; db:tt|dbtwo:\Q1:5:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:5:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 0.000      ; 2.147      ;
+; -1.474 ; db:tt|dbtwo:\Q1:21:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:21:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 2.141      ;
+; -1.474 ; db:tt|dbtwo:\Q1:10:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:10:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 2.141      ;
+; -1.474 ; db:tt|dbtwo:\Q1:8:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:8:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 0.000      ; 2.141      ;
+; -1.473 ; db:tt|dbtwo:\Q1:4:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:4:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 0.000      ; 2.140      ;
+; -1.471 ; db:tt|dbtwo:\Q1:22:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:22:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 2.138      ;
+; -1.457 ; i1                                     ; taala:key|D_FF:D_FF0|Q                 ; i1           ; reset       ; 0.500        ; 9.393      ; 11.017     ;
+; -1.453 ; db:tt|dbtwo:\Q1:11:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:11:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 2.120      ;
+; -1.453 ; db:tt|dbtwo:\Q1:9:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:9:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 0.000      ; 2.120      ;
+; -1.438 ; i1                                     ; taala:key|D_FF:D_FF1|Q                 ; i1           ; reset       ; 0.500        ; 9.393      ; 10.998     ;
+; -1.424 ; i1                                     ; taala:key|D_FF:D_FF2|Q                 ; i1           ; reset       ; 0.500        ; 9.393      ; 10.984     ;
+; -1.222 ; db:tt|dbtwo:\Q1:2:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:2:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 0.000      ; 1.889      ;
+; -1.214 ; db:tt|dbtwo:\Q1:13:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:13:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.881      ;
+; -1.214 ; db:tt|dbtwo:\Q1:12:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:12:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.881      ;
+; -1.212 ; db:tt|dbtwo:\Q1:3:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:3:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 0.000      ; 1.879      ;
+; -1.200 ; reset                                  ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 0.500        ; 9.393      ; 10.760     ;
+; -1.200 ; reset                                  ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 0.500        ; 9.393      ; 10.760     ;
+; -1.193 ; db:tt|dbtwo:\Q1:17:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:17:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.860      ;
+; -1.193 ; db:tt|dbtwo:\Q1:15:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:15:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 0.000      ; 1.860      ;
+; -1.193 ; db:tt|dbtwo:\Q1:1:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:1:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 0.000      ; 1.860      ;
+; -1.062 ; reset                                  ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 1.000        ; 9.393      ; 11.122     ;
+; -0.957 ; i1                                     ; taala:key|D_FF:D_FF0|Q                 ; i1           ; reset       ; 1.000        ; 9.393      ; 11.017     ;
+; -0.938 ; i1                                     ; taala:key|D_FF:D_FF1|Q                 ; i1           ; reset       ; 1.000        ; 9.393      ; 10.998     ;
+; -0.924 ; i1                                     ; taala:key|D_FF:D_FF2|Q                 ; i1           ; reset       ; 1.000        ; 9.393      ; 10.984     ;
+; -0.700 ; reset                                  ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 1.000        ; 9.393      ; 10.760     ;
+; -0.700 ; reset                                  ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 1.000        ; 9.393      ; 10.760     ;
+; -0.632 ; taala:key|D_FF:D_FF0|Q                 ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 1.000        ; 0.000      ; 1.299      ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Setup: 'i1'                                                                                            ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; -1.203 ; D_FF:dff|Q ; D_FF:dff|Q ; i1           ; i1          ; 1.000        ; 0.000      ; 1.870      ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                                                 ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                             ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.194 ; db:tt|dbtwo:\Q1:0:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:0:dbtwox|D_FF:D_FF1|Q ; clk          ; clk         ; 1.000        ; 0.000      ; 1.861      ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'reset'                                                                                                                                                 ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.634 ; i1                                     ; taala:key|D_FF:D_FF1|Q                 ; i1           ; reset       ; 0.000        ; 9.393      ; 10.248     ;
+; 0.997 ; i1                                     ; taala:key|D_FF:D_FF2|Q                 ; i1           ; reset       ; 0.000        ; 9.393      ; 10.611     ;
+; 1.078 ; taala:key|D_FF:D_FF1|Q                 ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 0.000        ; 0.000      ; 1.299      ;
+; 1.078 ; taala:key|D_FF:D_FF0|Q                 ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 0.000        ; 0.000      ; 1.299      ;
+; 1.134 ; i1                                     ; taala:key|D_FF:D_FF1|Q                 ; i1           ; reset       ; -0.500       ; 9.393      ; 10.248     ;
+; 1.146 ; reset                                  ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 0.000        ; 9.393      ; 10.760     ;
+; 1.146 ; reset                                  ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 0.000        ; 9.393      ; 10.760     ;
+; 1.401 ; i1                                     ; taala:key|D_FF:D_FF0|Q                 ; i1           ; reset       ; 0.000        ; 9.393      ; 11.015     ;
+; 1.497 ; i1                                     ; taala:key|D_FF:D_FF2|Q                 ; i1           ; reset       ; -0.500       ; 9.393      ; 10.611     ;
+; 1.508 ; reset                                  ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 0.000        ; 9.393      ; 11.122     ;
+; 1.639 ; db:tt|dbtwo:\Q1:17:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:17:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.860      ;
+; 1.639 ; db:tt|dbtwo:\Q1:15:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:15:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.860      ;
+; 1.639 ; db:tt|dbtwo:\Q1:1:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:1:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 0.000      ; 1.860      ;
+; 1.646 ; reset                                  ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; -0.500       ; 9.393      ; 10.760     ;
+; 1.646 ; reset                                  ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; -0.500       ; 9.393      ; 10.760     ;
+; 1.658 ; db:tt|dbtwo:\Q1:3:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:3:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 0.000      ; 1.879      ;
+; 1.660 ; db:tt|dbtwo:\Q1:13:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:13:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.881      ;
+; 1.660 ; db:tt|dbtwo:\Q1:12:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:12:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 1.881      ;
+; 1.668 ; db:tt|dbtwo:\Q1:2:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:2:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 0.000      ; 1.889      ;
+; 1.899 ; db:tt|dbtwo:\Q1:11:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:11:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 2.120      ;
+; 1.899 ; db:tt|dbtwo:\Q1:9:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:9:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 0.000      ; 2.120      ;
+; 1.901 ; i1                                     ; taala:key|D_FF:D_FF0|Q                 ; i1           ; reset       ; -0.500       ; 9.393      ; 11.015     ;
+; 1.917 ; db:tt|dbtwo:\Q1:22:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:22:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 2.138      ;
+; 1.919 ; db:tt|dbtwo:\Q1:4:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:4:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 0.000      ; 2.140      ;
+; 1.920 ; db:tt|dbtwo:\Q1:21:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:21:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 2.141      ;
+; 1.920 ; db:tt|dbtwo:\Q1:10:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:10:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 2.141      ;
+; 1.920 ; db:tt|dbtwo:\Q1:8:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:8:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 0.000      ; 2.141      ;
+; 1.926 ; db:tt|dbtwo:\Q1:14:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:14:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 2.147      ;
+; 1.926 ; db:tt|dbtwo:\Q1:5:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:5:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 0.000      ; 2.147      ;
+; 1.934 ; db:tt|dbtwo:\Q1:20:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:20:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 2.155      ;
+; 1.934 ; db:tt|dbtwo:\Q1:16:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:16:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 2.155      ;
+; 1.934 ; db:tt|dbtwo:\Q1:6:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:6:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 0.000      ; 2.155      ;
+; 1.935 ; db:tt|dbtwo:\Q1:19:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:19:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 2.156      ;
+; 1.935 ; db:tt|dbtwo:\Q1:18:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:18:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 0.000      ; 2.156      ;
+; 1.937 ; db:tt|dbtwo:\Q1:7:dbtwox|D_FF:D_FF1|Q  ; db:tt|dbtwo:\Q1:7:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 0.000      ; 2.158      ;
+; 2.008 ; reset                                  ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; -0.500       ; 9.393      ; 11.122     ;
+; 2.576 ; taala:key|D_FF:D_FF0|Q                 ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 0.000        ; 0.000      ; 2.797      ;
+; 3.148 ; taala:key|D_FF:D_FF2|Q                 ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 0.000        ; 0.000      ; 3.369      ;
+; 3.425 ; taala:key|D_FF:D_FF2|Q                 ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 0.000        ; 0.000      ; 3.646      ;
+; 3.545 ; taala:key|D_FF:D_FF1|Q                 ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 0.000        ; 0.000      ; 3.766      ;
+; 3.752 ; taala:key|D_FF:D_FF0|Q                 ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 0.000        ; 0.000      ; 3.973      ;
+; 3.881 ; taala:key|D_FF:D_FF2|Q                 ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 0.000        ; 0.000      ; 4.102      ;
+; 4.632 ; taala:key|D_FF:D_FF1|Q                 ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 0.000        ; 0.000      ; 4.853      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                                 ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                             ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.640 ; db:tt|dbtwo:\Q1:0:dbtwox|D_FF:D_FF1|Q ; db:tt|dbtwo:\Q1:0:dbtwox|D_FF:D_FF1|Q ; clk          ; clk         ; 0.000        ; 0.000      ; 1.861      ;
++-------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Hold: 'i1'                                                                                            ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 1.649 ; D_FF:dff|Q ; D_FF:dff|Q ; i1           ; i1          ; 0.000        ; 0.000      ; 1.870      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'clk'                                                                                                                  ;
++--------+-----------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.795 ; reset     ; db:tt|dbtwo:\Q1:0:dbtwox|D_FF:D_FF1|Q ; reset        ; clk         ; 0.500        ; 3.298      ; 8.260      ;
+; -4.295 ; reset     ; db:tt|dbtwo:\Q1:0:dbtwox|D_FF:D_FF1|Q ; reset        ; clk         ; 1.000        ; 3.298      ; 8.260      ;
++--------+-----------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'reset'                                                                                                                 ;
++--------+-----------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; -3.008 ; reset     ; db:tt|dbtwo:\Q1:18:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 5.085      ; 8.260      ;
+; -3.005 ; reset     ; db:tt|dbtwo:\Q1:16:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 5.088      ; 8.260      ;
+; -2.825 ; reset     ; db:tt|dbtwo:\Q1:9:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.500        ; 5.268      ; 8.260      ;
+; -2.808 ; reset     ; db:tt|dbtwo:\Q1:7:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.500        ; 5.285      ; 8.260      ;
+; -2.779 ; reset     ; db:tt|dbtwo:\Q1:11:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 5.314      ; 8.260      ;
+; -2.771 ; reset     ; db:tt|dbtwo:\Q1:4:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.500        ; 5.322      ; 8.260      ;
+; -2.755 ; reset     ; db:tt|dbtwo:\Q1:5:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.500        ; 5.338      ; 8.260      ;
+; -2.618 ; reset     ; db:tt|dbtwo:\Q1:17:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 5.475      ; 8.260      ;
+; -2.508 ; reset     ; db:tt|dbtwo:\Q1:18:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 5.085      ; 8.260      ;
+; -2.505 ; reset     ; db:tt|dbtwo:\Q1:16:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 5.088      ; 8.260      ;
+; -2.434 ; reset     ; db:tt|dbtwo:\Q1:2:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.500        ; 5.659      ; 8.260      ;
+; -2.432 ; reset     ; db:tt|dbtwo:\Q1:3:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.500        ; 5.661      ; 8.260      ;
+; -2.376 ; reset     ; db:tt|dbtwo:\Q1:13:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 5.717      ; 8.260      ;
+; -2.367 ; reset     ; db:tt|dbtwo:\Q1:6:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.500        ; 5.726      ; 8.260      ;
+; -2.365 ; reset     ; db:tt|dbtwo:\Q1:12:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 5.728      ; 8.260      ;
+; -2.325 ; reset     ; db:tt|dbtwo:\Q1:9:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 5.268      ; 8.260      ;
+; -2.308 ; reset     ; db:tt|dbtwo:\Q1:7:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 5.285      ; 8.260      ;
+; -2.279 ; reset     ; db:tt|dbtwo:\Q1:11:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 5.314      ; 8.260      ;
+; -2.279 ; reset     ; db:tt|dbtwo:\Q1:15:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 5.814      ; 8.260      ;
+; -2.271 ; reset     ; db:tt|dbtwo:\Q1:4:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 5.322      ; 8.260      ;
+; -2.271 ; reset     ; db:tt|dbtwo:\Q1:20:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 5.822      ; 8.260      ;
+; -2.255 ; reset     ; db:tt|dbtwo:\Q1:5:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 5.338      ; 8.260      ;
+; -2.242 ; reset     ; db:tt|dbtwo:\Q1:10:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 5.851      ; 8.260      ;
+; -2.234 ; reset     ; db:tt|dbtwo:\Q1:22:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 5.859      ; 8.260      ;
+; -2.118 ; reset     ; db:tt|dbtwo:\Q1:17:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 5.475      ; 8.260      ;
+; -1.986 ; reset     ; db:tt|dbtwo:\Q1:14:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 6.107      ; 8.260      ;
+; -1.934 ; reset     ; db:tt|dbtwo:\Q1:2:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 5.659      ; 8.260      ;
+; -1.932 ; reset     ; db:tt|dbtwo:\Q1:3:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 5.661      ; 8.260      ;
+; -1.920 ; reset     ; db:tt|dbtwo:\Q1:19:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 6.173      ; 8.260      ;
+; -1.877 ; reset     ; db:tt|dbtwo:\Q1:21:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.500        ; 6.216      ; 8.260      ;
+; -1.876 ; reset     ; db:tt|dbtwo:\Q1:13:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 5.717      ; 8.260      ;
+; -1.867 ; reset     ; db:tt|dbtwo:\Q1:6:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 5.726      ; 8.260      ;
+; -1.865 ; reset     ; db:tt|dbtwo:\Q1:12:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 5.728      ; 8.260      ;
+; -1.779 ; reset     ; db:tt|dbtwo:\Q1:15:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 5.814      ; 8.260      ;
+; -1.771 ; reset     ; db:tt|dbtwo:\Q1:20:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 5.822      ; 8.260      ;
+; -1.742 ; reset     ; db:tt|dbtwo:\Q1:10:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 5.851      ; 8.260      ;
+; -1.734 ; reset     ; db:tt|dbtwo:\Q1:22:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 5.859      ; 8.260      ;
+; -1.712 ; reset     ; db:tt|dbtwo:\Q1:8:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.500        ; 6.381      ; 8.260      ;
+; -1.508 ; reset     ; db:tt|dbtwo:\Q1:1:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.500        ; 6.585      ; 8.260      ;
+; -1.486 ; reset     ; db:tt|dbtwo:\Q1:14:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 6.107      ; 8.260      ;
+; -1.420 ; reset     ; db:tt|dbtwo:\Q1:19:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 6.173      ; 8.260      ;
+; -1.377 ; reset     ; db:tt|dbtwo:\Q1:21:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 1.000        ; 6.216      ; 8.260      ;
+; -1.212 ; reset     ; db:tt|dbtwo:\Q1:8:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 6.381      ; 8.260      ;
+; -1.008 ; reset     ; db:tt|dbtwo:\Q1:1:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 1.000        ; 6.585      ; 8.260      ;
+; 0.451  ; reset     ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 0.500        ; 9.393      ; 9.109      ;
+; 0.451  ; reset     ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 0.500        ; 9.393      ; 9.109      ;
+; 0.485  ; reset     ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 0.500        ; 9.393      ; 9.075      ;
+; 0.951  ; reset     ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 1.000        ; 9.393      ; 9.109      ;
+; 0.951  ; reset     ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 1.000        ; 9.393      ; 9.109      ;
+; 0.985  ; reset     ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 1.000        ; 9.393      ; 9.075      ;
++--------+-----------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Recovery: 'i1'                                                                                        ;
++--------+-----------+------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+------------+--------------+-------------+--------------+------------+------------+
+; -2.123 ; reset     ; D_FF:dff|Q ; reset        ; i1          ; 0.500        ; 6.785      ; 9.075      ;
+; -1.623 ; reset     ; D_FF:dff|Q ; reset        ; i1          ; 1.000        ; 6.785      ; 9.075      ;
++--------+-----------+------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'reset'                                                                                                                  ;
++--------+-----------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.539 ; reset     ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; 0.000        ; 9.393      ; 9.075      ;
+; -0.505 ; reset     ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; 0.000        ; 9.393      ; 9.109      ;
+; -0.505 ; reset     ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; 0.000        ; 9.393      ; 9.109      ;
+; -0.039 ; reset     ; taala:key|D_FF:D_FF1|Q                 ; reset        ; reset       ; -0.500       ; 9.393      ; 9.075      ;
+; -0.005 ; reset     ; taala:key|D_FF:D_FF0|Q                 ; reset        ; reset       ; -0.500       ; 9.393      ; 9.109      ;
+; -0.005 ; reset     ; taala:key|D_FF:D_FF2|Q                 ; reset        ; reset       ; -0.500       ; 9.393      ; 9.109      ;
+; 1.454  ; reset     ; db:tt|dbtwo:\Q1:1:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 6.585      ; 8.260      ;
+; 1.658  ; reset     ; db:tt|dbtwo:\Q1:8:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 6.381      ; 8.260      ;
+; 1.823  ; reset     ; db:tt|dbtwo:\Q1:21:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 6.216      ; 8.260      ;
+; 1.866  ; reset     ; db:tt|dbtwo:\Q1:19:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 6.173      ; 8.260      ;
+; 1.932  ; reset     ; db:tt|dbtwo:\Q1:14:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 6.107      ; 8.260      ;
+; 1.954  ; reset     ; db:tt|dbtwo:\Q1:1:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; -0.500       ; 6.585      ; 8.260      ;
+; 2.158  ; reset     ; db:tt|dbtwo:\Q1:8:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; -0.500       ; 6.381      ; 8.260      ;
+; 2.180  ; reset     ; db:tt|dbtwo:\Q1:22:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 5.859      ; 8.260      ;
+; 2.188  ; reset     ; db:tt|dbtwo:\Q1:10:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 5.851      ; 8.260      ;
+; 2.217  ; reset     ; db:tt|dbtwo:\Q1:20:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 5.822      ; 8.260      ;
+; 2.225  ; reset     ; db:tt|dbtwo:\Q1:15:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 5.814      ; 8.260      ;
+; 2.311  ; reset     ; db:tt|dbtwo:\Q1:12:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 5.728      ; 8.260      ;
+; 2.313  ; reset     ; db:tt|dbtwo:\Q1:6:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 5.726      ; 8.260      ;
+; 2.322  ; reset     ; db:tt|dbtwo:\Q1:13:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 5.717      ; 8.260      ;
+; 2.323  ; reset     ; db:tt|dbtwo:\Q1:21:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 6.216      ; 8.260      ;
+; 2.366  ; reset     ; db:tt|dbtwo:\Q1:19:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 6.173      ; 8.260      ;
+; 2.378  ; reset     ; db:tt|dbtwo:\Q1:3:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 5.661      ; 8.260      ;
+; 2.380  ; reset     ; db:tt|dbtwo:\Q1:2:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 5.659      ; 8.260      ;
+; 2.432  ; reset     ; db:tt|dbtwo:\Q1:14:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 6.107      ; 8.260      ;
+; 2.564  ; reset     ; db:tt|dbtwo:\Q1:17:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 5.475      ; 8.260      ;
+; 2.680  ; reset     ; db:tt|dbtwo:\Q1:22:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 5.859      ; 8.260      ;
+; 2.688  ; reset     ; db:tt|dbtwo:\Q1:10:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 5.851      ; 8.260      ;
+; 2.701  ; reset     ; db:tt|dbtwo:\Q1:5:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 5.338      ; 8.260      ;
+; 2.717  ; reset     ; db:tt|dbtwo:\Q1:4:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 5.322      ; 8.260      ;
+; 2.717  ; reset     ; db:tt|dbtwo:\Q1:20:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 5.822      ; 8.260      ;
+; 2.725  ; reset     ; db:tt|dbtwo:\Q1:11:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 5.314      ; 8.260      ;
+; 2.725  ; reset     ; db:tt|dbtwo:\Q1:15:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 5.814      ; 8.260      ;
+; 2.754  ; reset     ; db:tt|dbtwo:\Q1:7:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 5.285      ; 8.260      ;
+; 2.771  ; reset     ; db:tt|dbtwo:\Q1:9:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; 0.000        ; 5.268      ; 8.260      ;
+; 2.811  ; reset     ; db:tt|dbtwo:\Q1:12:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 5.728      ; 8.260      ;
+; 2.813  ; reset     ; db:tt|dbtwo:\Q1:6:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; -0.500       ; 5.726      ; 8.260      ;
+; 2.822  ; reset     ; db:tt|dbtwo:\Q1:13:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 5.717      ; 8.260      ;
+; 2.878  ; reset     ; db:tt|dbtwo:\Q1:3:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; -0.500       ; 5.661      ; 8.260      ;
+; 2.880  ; reset     ; db:tt|dbtwo:\Q1:2:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; -0.500       ; 5.659      ; 8.260      ;
+; 2.951  ; reset     ; db:tt|dbtwo:\Q1:16:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 5.088      ; 8.260      ;
+; 2.954  ; reset     ; db:tt|dbtwo:\Q1:18:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; 0.000        ; 5.085      ; 8.260      ;
+; 3.064  ; reset     ; db:tt|dbtwo:\Q1:17:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 5.475      ; 8.260      ;
+; 3.201  ; reset     ; db:tt|dbtwo:\Q1:5:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; -0.500       ; 5.338      ; 8.260      ;
+; 3.217  ; reset     ; db:tt|dbtwo:\Q1:4:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; -0.500       ; 5.322      ; 8.260      ;
+; 3.225  ; reset     ; db:tt|dbtwo:\Q1:11:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 5.314      ; 8.260      ;
+; 3.254  ; reset     ; db:tt|dbtwo:\Q1:7:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; -0.500       ; 5.285      ; 8.260      ;
+; 3.271  ; reset     ; db:tt|dbtwo:\Q1:9:dbtwox|D_FF:D_FF1|Q  ; reset        ; reset       ; -0.500       ; 5.268      ; 8.260      ;
+; 3.451  ; reset     ; db:tt|dbtwo:\Q1:16:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 5.088      ; 8.260      ;
+; 3.454  ; reset     ; db:tt|dbtwo:\Q1:18:dbtwox|D_FF:D_FF1|Q ; reset        ; reset       ; -0.500       ; 5.085      ; 8.260      ;
++--------+-----------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Removal: 'i1'                                                                                        ;
++-------+-----------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+------------+--------------+-------------+--------------+------------+------------+
+; 2.069 ; reset     ; D_FF:dff|Q ; reset        ; i1          ; 0.000        ; 6.785      ; 9.075      ;
+; 2.569 ; reset     ; D_FF:dff|Q ; reset        ; i1          ; -0.500       ; 6.785      ; 9.075      ;
++-------+-----------+------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'clk'                                                                                                                  ;
++-------+-----------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; 4.741 ; reset     ; db:tt|dbtwo:\Q1:0:dbtwox|D_FF:D_FF1|Q ; reset        ; clk         ; 0.000        ; 3.298      ; 8.260      ;
+; 5.241 ; reset     ; db:tt|dbtwo:\Q1:0:dbtwox|D_FF:D_FF1|Q ; reset        ; clk         ; -0.500       ; 3.298      ; 8.260      ;
++-------+-----------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1        ; 0        ; 0        ; 0        ;
+; i1         ; i1       ; 1        ; 0        ; 0        ; 0        ;
+; i1         ; reset    ; 6        ; 6        ; 0        ; 0        ;
+; reset      ; reset    ; 41       ; 3        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1        ; 0        ; 0        ; 0        ;
+; i1         ; i1       ; 1        ; 0        ; 0        ; 0        ;
+; i1         ; reset    ; 6        ; 6        ; 0        ; 0        ;
+; reset      ; reset    ; 41       ; 3        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Recovery Transfers                                                ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; reset      ; clk      ; 1        ; 1        ; 0        ; 0        ;
+; reset      ; i1       ; 1        ; 1        ; 0        ; 0        ;
+; reset      ; reset    ; 25       ; 25       ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Removal Transfers                                                 ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; reset      ; clk      ; 1        ; 1        ; 0        ; 0        ;
+; reset      ; i1       ; 1        ; 1        ; 0        ; 0        ;
+; reset      ; reset    ; 25       ; 25       ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 3     ; 3    ;
+; Unconstrained Input Port Paths  ; 9     ; 9    ;
+; Unconstrained Output Ports      ; 4     ; 4    ;
+; Unconstrained Output Port Paths ; 4     ; 4    ;
++---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
+; i1     ; i1    ; Base ; Constrained ;
+; reset  ; reset ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; i2         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i3         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i4         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; Q           ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; led0        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; led1        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; led2        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; i2         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i3         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i4         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; Q           ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; led0        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; led1        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; led2        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime TimeQuest Timing Analyzer
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+    Info: Processing started: Fri May  4 14:20:07 2018
+Info: Command: quartus_sta lock -c lock
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'lock.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name i1 i1
+    Info (332105): create_clock -period 1.000 -name reset reset
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -5.587
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -5.587             -46.010 reset 
+    Info (332119):    -1.203              -1.203 i1 
+    Info (332119):    -1.194              -1.194 clk 
+Info (332146): Worst-case hold slack is 0.634
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.634               0.000 reset 
+    Info (332119):     1.640               0.000 clk 
+    Info (332119):     1.649               0.000 i1 
+Info (332146): Worst-case recovery slack is -4.795
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.795              -4.795 clk 
+    Info (332119):    -3.008             -52.572 reset 
+    Info (332119):    -2.123              -2.123 i1 
+Info (332146): Worst-case removal slack is -0.539
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.539              -1.549 reset 
+    Info (332119):     2.069               0.000 i1 
+    Info (332119):     4.741               0.000 clk 
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+    Info (332119):    -2.289              -2.289 i1 
+    Info (332119):    -2.289              -2.289 reset 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 1005 megabytes
+    Info: Processing ended: Fri May  4 14:20:08 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
